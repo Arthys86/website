@@ -1,0 +1,59 @@
+/* ===== Lab theme: Blue (primary) + Gold (accent) ===== */
+
+:root {
+  --lab-blue: #0B3D91;   /* 主色：蓝 */
+  --lab-gold: #C9A227;   /* 辅助色：金 */
+  --lab-blue-dark: #08306F;
+  --lab-gold-dark: #A8831F;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--lab-blue);
+}
+
+a {
+  color: var(--lab-blue);
+}
+a:hover, a:focus {
+  color: var(--lab-gold-dark);
+}
+
+.navbar,
+.navbar-default {
+  background-color: var(--lab-blue);
+  border-color: var(--lab-blue-dark);
+}
+
+.navbar .navbar-brand,
+.navbar-default .navbar-brand,
+.navbar .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.navbar .navbar-brand:hover,
+.navbar-default .navbar-brand:hover,
+.navbar .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:hover {
+  color: var(--lab-gold);
+}
+
+.navbar .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a {
+  color: var(--lab-gold);
+  background-color: transparent;
+  border-bottom: 2px solid var(--lab-gold);
+}
+
+footer, .footer {
+  background: var(--lab-blue);
+  color: #ffffff;
+}
+
+footer a, .footer a {
+  color: var(--lab-gold);
+}
