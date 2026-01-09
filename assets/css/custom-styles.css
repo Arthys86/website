@@ -230,3 +230,17 @@ footer,
   }
 }
 
+/* Two-column layout refinements */
+.two-col{
+  align-items: flex-start !important;
+}
+
+.two-col-text{
+  padding-top: 0 !important;
+}
+
+.two-col-text p{
+  margin-top: 0 !important;
+  text-align: justify;
+  text-justify: inter-word;
+}
