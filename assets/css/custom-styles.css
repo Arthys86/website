@@ -196,7 +196,10 @@ footer,
 }
 
 
-/* Two-column layout (image left, text right) */
+/* ================================
+   Two-column layout (image left, text right)
+   ================================ */
+
 .two-col{
   display: flex;
   gap: 1.2rem;
@@ -205,18 +208,26 @@ footer,
 }
 
 .two-col-media{
-  flex: 0 0 280px;
+  flex: 0 0 320px;  /* Adjust width of image container */
 }
 
 .two-col-media img{
   width: 100%;
-  height: auto;
+  height: 200px; /* Set uniform height */
+  object-fit: cover;
   border-radius: 6px;
   display: block;
 }
 
 .two-col-text{
   flex: 1 1 auto;
+  padding-top: 0 !important;
+}
+
+.two-col-text p{
+  margin-top: 0 !important;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Responsive: stack on small screens */
@@ -228,19 +239,4 @@ footer,
     flex: 0 0 auto;
     width: 100%;
   }
-}
-
-/* Two-column layout refinements */
-.two-col{
-  align-items: flex-start !important;
-}
-
-.two-col-text{
-  padding-top: 0 !important;
-}
-
-.two-col-text p{
-  margin-top: 0 !important;
-  text-align: justify;
-  text-justify: inter-word;
 }
