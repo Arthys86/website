@@ -120,36 +120,39 @@ blockquote{
    Compact Footer (Final Override)
    ================================ */
 
+/* Remove extra space above footer */
 .site-footer-wrap{
-  margin-top: 1.2rem !important;
+  margin-top: 0.4rem !important;
 }
 
+/* Reduce vertical padding */
 .site-footer{
-  padding-top: 0.35rem !important;
-  padding-bottom: 0.35rem !important;
+  padding-top: 0.22rem !important;
+  padding-bottom: 0.22rem !important;
 }
 
+/* Tighten icon row spacing */
 .site-footer .footer-links{
-  margin-bottom: 0.15rem !important;
-}
-
-.site-footer .list-inline-item{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
-.site-footer .fa-stack{
-  font-size: 0.7rem !important;
+  margin-bottom: 0.06rem !important;
   line-height: 1 !important;
 }
 
-.site-footer .fa-circle{
-  opacity: 0.9;
+/* Keep icons larger but not tall */
+.site-footer .fa-stack{
+  font-size: 0.95rem !important;
+  line-height: 1 !important;
 }
 
+/* Reduce inline item spacing without increasing height */
+.site-footer .list-inline-item{
+  margin-left: 0.18rem;
+  margin-right: 0.18rem;
+}
+
+/* Footer text: minimal height */
 .site-footer-text{
   margin: 0 !important;
   padding: 0 !important;
-  font-size: 0.75rem;
-  line-height: 1.1 !important;
+  font-size: 0.72rem;
+  line-height: 1 !important;
 }
