@@ -3,7 +3,7 @@ layout: page
 title: "Research"
 subtitle: "research subtitle"
 permalink: /research/
-full-width: true
+#full-width: true
 ---
 
 ## The Conquest
