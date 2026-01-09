@@ -116,3 +116,23 @@ footer a:hover, .footer a:hover{
 blockquote{
   border-left: 4px solid var(--gold);
 }
+
+/* Footer: compact academic style */
+.site-footer{
+  padding-top: 0.8rem;
+  padding-bottom: 0.6rem;
+}
+
+.site-footer .footer-links{
+  margin-bottom: 0.4rem;
+}
+
+.site-footer .fa-stack{
+  font-size: 0.8rem;
+}
+
+.site-footer p{
+  margin-bottom: 0;
+  line-height: 1.2;
+}
+
