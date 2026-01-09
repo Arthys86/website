@@ -1,8 +1,10 @@
+/* HKUST palette: light blue default UI, UST blue for hover/active, gold as accent */
 
 :root{
   --ust-blue: #003366;
-  --blue-light: #6AAFE6;
-  --blue-very-light: #EAF3FF;
+
+  /* Lighter than #6AAFE6 */
+  --blue-light: #84C3F0;
 
   --gold: #996600;
   --gold-light: #FFCC66;
@@ -25,7 +27,7 @@ h1,h2,h3,h4,h5,h6{
 a{ color: var(--blue-light); }
 a:hover,a:focus{ color: var(--ust-blue); }
 
-/* Navbar: light blue default, UST blue on hover/active */
+/* Navbar: light blue background; hover changes text only */
 .navbar,
 .navbar-default{
   background-color: var(--blue-light);
@@ -39,18 +41,20 @@ a:hover,a:focus{ color: var(--ust-blue); }
   color: #ffffff !important;
 }
 
+/* Hover: text color only (no background change) */
 .navbar .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>li>a:focus{
-  background-color: var(--ust-blue) !important;
-  color: #ffffff !important;
+  background-color: transparent !important;
+  color: var(--ust-blue) !important;
 }
 
+/* Active: keep light background; highlight with text + underline */
 .navbar .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a{
-  background-color: var(--ust-blue) !important;
-  color: var(--gold-light) !important;
+  background-color: transparent !important;
+  color: var(--ust-blue) !important;
   border-bottom: 2px solid var(--gold-light);
 }
 
@@ -64,7 +68,7 @@ a:hover,a:focus{ color: var(--ust-blue); }
   background-color: #ffffff;
 }
 
-/* Footer: light blue background, gold links */
+/* Footer: light blue background, brighter text for readability */
 footer, .footer{
   background: var(--blue-light);
   color: #ffffff;
@@ -72,14 +76,14 @@ footer, .footer{
 
 footer p, footer li, footer span, footer small,
 .footer p, .footer li, .footer span, .footer small{
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.98);
 }
 
+/* Footer links: gold */
 footer a, .footer a{
   color: var(--gold-light);
   text-decoration: none;
 }
-
 footer a:hover, .footer a:hover{
   color: #ffffff;
   text-decoration: underline;
