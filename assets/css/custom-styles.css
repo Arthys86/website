@@ -1,7 +1,13 @@
 
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&display=swap");
+
 :root{
   --ust-blue: #003366;
-  --blue-light: #9AD0F5;
+  --blue-light: #B3DFFC;
+
+  /* Mid blue: between UST deep blue and light blue */
+  --blue-mid: #2F6FA8;
 
   --gold: #996600;
   --gold-light: #FFCC66;
@@ -11,20 +17,30 @@
 
 /* Base typography */
 body{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  font-family: "Source Serif 4", Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
   color: var(--text-main);
 }
 
-/* Page title in header (Home/People/Publications/Research): deep blue */
+/* Page title in header: deep blue, lighter weight */
 .intro-header .site-heading h1,
 .intro-header .page-heading h1,
 .intro-header .post-heading h1{
   color: var(--ust-blue) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px;
 }
 
-/* Content headings: light blue (Principal Investigator, years, Theme, Projects, etc.) */
+/* Content headings: mid blue, lighter weight */
 h2,h3,h4,h5,h6{
-  color: var(--blue-light);
+  color: var(--blue-mid);
+  font-weight: 500;
+}
+
+/* keep h1 inside content consistent (if used) */
+.main-content h1{
+  color: var(--blue-mid);
+  font-weight: 500;
 }
 
 /* Links */
@@ -43,6 +59,7 @@ a:hover,a:focus{ color: var(--gold); }
 .navbar .navbar-nav>li>a,
 .navbar-default .navbar-nav>li>a{
   color: #ffffff !important;
+  font-weight: 500;
 }
 
 /* Hover: text only */
@@ -81,9 +98,9 @@ footer, .footer{
 footer p, footer li, footer span, footer small,
 .footer p, .footer li, .footer span, .footer small{
   color: var(--gold-light) !important;
+  font-weight: 500;
 }
 
-/* Footer links */
 footer a, .footer a{
   color: var(--gold-light) !important;
   text-decoration: none;
