@@ -26,7 +26,6 @@ a:hover,a:focus{ color: var(--gold); }
    Header typography
    ================================ */
 
-/* Main page titles */
 .intro-header .site-heading h1,
 .intro-header .page-heading h1,
 .intro-header .post-heading h1{
@@ -35,13 +34,11 @@ a:hover,a:focus{ color: var(--gold); }
   letter-spacing: 0.2px;
 }
 
-/* Page title size (Members/Publications/Research) */
 .intro-header .page-heading h1{
   font-size: 2.35rem !important;
   line-height: 1.15 !important;
 }
 
-/* Subtitle (Department • University / Research group homepage.) */
 .page-subheading{
   color: var(--gold-light) !important;
   font-size: 1.02rem !important;
@@ -49,7 +46,7 @@ a:hover,a:focus{ color: var(--gold); }
   line-height: 1.25 !important;
 }
 
-/* Content headings (PI/Faculty/Students/Years/Themes/Projects) */
+/* Content headings */
 h2,h3,h4,h5,h6{
   color: var(--blue-mid);
   font-weight: 400;
@@ -65,13 +62,11 @@ main h3{
    Navbar
    ================================ */
 
-/* Light blue background */
 .navbar{
   background-color: var(--blue-light);
   border-color: var(--blue-light);
 }
 
-/* Brand (top-left) */
 .navbar .navbar-brand{
   color: var(--ust-blue) !important;
   font-weight: 500;
@@ -84,21 +79,18 @@ main h3{
   color: var(--ust-blue) !important;
 }
 
-/* Menu items */
 .navbar .navbar-nav .nav-link{
   color: #ffffff !important;
   font-weight: 400;
   letter-spacing: 0.2px;
 }
 
-/* Hover: text only */
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link:focus{
   background-color: transparent !important;
   color: var(--ust-blue) !important;
 }
 
-/* Active: text only + gold underline */
 .navbar .navbar-nav .active > .nav-link{
   background-color: transparent !important;
   color: var(--ust-blue) !important;
@@ -106,7 +98,7 @@ main h3{
 }
 
 /* ================================
-   Main spacing (reduce empty space near footer)
+   Main spacing
    ================================ */
 
 main{
@@ -118,7 +110,6 @@ main ul:last-child{
   margin-bottom: 0.35rem !important;
 }
 
-/* Blockquote accent */
 blockquote{
   border-left: 4px solid var(--gold);
 }
@@ -154,7 +145,6 @@ footer,
   margin-right: 0.28rem;
 }
 
-/* Large, centered stacked icons */
 .site-footer .fa-stack{
   font-size: 1.65rem !important;
   width: 2em;
@@ -168,7 +158,6 @@ footer,
   line-height: inherit !important;
 }
 
-/* HKUST gold circle + white inner icon */
 .site-footer .fa-circle{
   color: var(--gold-light) !important;
 }
@@ -176,7 +165,6 @@ footer,
   color: #ffffff !important;
 }
 
-/* Footer text: gold, larger */
 .site-footer-text{
   margin: 0.10rem 0 0 0 !important;
   padding: 0 !important;
@@ -195,9 +183,8 @@ footer,
   text-decoration: none;
 }
 
-
 /* ================================
-   Two-column layout (image left, text right)
+   Two-column layout (no cropping)
    ================================ */
 
 .two-col{
@@ -207,14 +194,16 @@ footer,
   margin: 0.6rem 0 1.2rem 0;
 }
 
+/* Fixed column width for consistency; image keeps its full content */
 .two-col-media{
-  flex: 0 0 320px;  /* Adjust width of image container */
+  flex: 0 0 320px;
 }
 
 .two-col-media img{
   width: 100%;
-  height: 200px; /* Set uniform height */
-  object-fit: cover;
+  height: auto;          /* no cropping */
+  max-height: 360px;     /* optional: prevents one very tall image dominating */
+  object-fit: contain;   /* ensure entire image visible */
   border-radius: 6px;
   display: block;
 }
@@ -238,5 +227,8 @@ footer,
   .two-col-media{
     flex: 0 0 auto;
     width: 100%;
+  }
+  .two-col-media img{
+    max-height: none;
   }
 }
