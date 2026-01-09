@@ -16,7 +16,7 @@ site-css:
 
 navbar-links:
   Home: ""
-  People: "people"
+  Members: "members"
   Publications: "publications"
   Research: "research"
   #Join: "join"
