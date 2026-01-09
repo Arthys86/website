@@ -1,12 +1,9 @@
 
-
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500&display=swap");
 
 :root{
   --ust-blue: #003366;
   --blue-light: #B3DFFC;
-
-  /* Mid blue: between UST deep blue and light blue */
   --blue-mid: #2F6FA8;
 
   --gold: #996600;
@@ -22,25 +19,30 @@ body{
   color: var(--text-main);
 }
 
-/* Page title in header: deep blue, lighter weight */
+/* Page title in header (Home/People/Publications/Research): deep blue, lighter weight */
 .intro-header .site-heading h1,
 .intro-header .page-heading h1,
 .intro-header .post-heading h1{
   color: var(--ust-blue) !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   letter-spacing: 0.2px;
 }
 
-/* Content headings: mid blue, lighter weight */
+/* Content headings: mid blue + lighter weight */
 h2,h3,h4,h5,h6{
   color: var(--blue-mid);
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* keep h1 inside content consistent (if used) */
-.main-content h1{
-  color: var(--blue-mid);
-  font-weight: 500;
+/* Force mid blue for section headings rendered from markdown (PI/Students/Alumni, years, themes, projects) */
+.main-content h2,
+.main-content h3,
+.page-content h2,
+.page-content h3,
+.post-content h2,
+.post-content h3{
+  color: var(--blue-mid) !important;
+  font-weight: 400 !important;
 }
 
 /* Links */
@@ -59,7 +61,7 @@ a:hover,a:focus{ color: var(--gold); }
 .navbar .navbar-nav>li>a,
 .navbar-default .navbar-nav>li>a{
   color: #ffffff !important;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* Hover: text only */
@@ -98,7 +100,7 @@ footer, .footer{
 footer p, footer li, footer span, footer small,
 .footer p, .footer li, .footer span, .footer small{
   color: var(--gold-light) !important;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 footer a, .footer a{
