@@ -6,10 +6,10 @@ baseurl: "/website"
 url: "https://arthys86.github.io"
 
 # Theme
-remote_theme: daattali/beautiful-jekyll@6.0.1
+#remote_theme: daattali/beautiful-jekyll@6.0.1
 
-plugins:
-  - jekyll-remote-theme
+#plugins:
+#  - jekyll-remote-theme
 
 site-css:
   - "/assets/css/custom-styles.css"
