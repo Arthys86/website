@@ -179,3 +179,38 @@ footer,
   color: var(--gold-light) !important;
   text-decoration: none;
 }
+
+/* ================================
+   Navbar brand color (top-left title)
+   ================================ */
+
+.navbar .navbar-brand,
+.navbar-default .navbar-brand{
+  color: var(--ust-blue) !important;
+}
+
+/* Keep brand color on hover/focus */
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus{
+  color: var(--ust-blue) !important;
+}
+
+/* ================================
+   Page title sizing (Members/Publications/Research)
+   ================================ */
+
+/* Make page title smaller, but still larger than section headings */
+.intro-header .page-heading h1{
+  font-size: 2.05rem !important;
+  line-height: 1.15 !important;
+}
+
+/* Section headings (PI/Faculty/Students/Years/Themes/Projects) slightly smaller */
+main h2,
+main h3{
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
