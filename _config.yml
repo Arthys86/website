@@ -17,10 +17,10 @@ navbar-links:
   People: "people"
   Publications: "publications"
   Research: "research"
-  Join: "join"
-  Contact: "contact"
+  #Join: "join"
+  #Contact: "contact"
 
 # Optional footer links (edit or remove)
 social-network-links:
-  email: "12332386@university.edu"
+  email: "12332386@mail.sustech.edu.cn"
   github: "Arthys86"
