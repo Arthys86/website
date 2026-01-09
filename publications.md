@@ -6,7 +6,7 @@ permalink: /publications/
 ---
 
 ## 2026
-- Author, **Paper Title**, Venue, 2026. [DOI](#)
+- Maester Yandel, **The World of Ice and Fire**, Westeros, 2026. [Link](https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire)
 
 ## 2025
 - Author, **Paper Title**, Venue, 2025.
