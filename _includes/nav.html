@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular">
-  <a class="navbar-brand" href="{{ site.baseurl | relative_url }}/">
+  <a class="navbar-brand" href="{{ '/' | relative_url }}">
     {{ site.title }}
   </a>
 
@@ -15,9 +15,9 @@
         {% assign link = item[1] %}
 
         {% if link == "" %}
-          {% assign href = site.baseurl | relative_url %}
+          {% assign href = '/' | relative_url %}
         {% else %}
-          {% assign href = link | prepend: '/' | prepend: site.baseurl | relative_url %}
+          {% assign href = link | prepend: '/' | relative_url %}
         {% endif %}
 
         <li class="nav-item">
