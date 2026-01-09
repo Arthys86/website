@@ -4,12 +4,12 @@ title: "Members"
 permalink: /members/
 ---
 
-## Principal Investigator
+## Principal Investigator/Faculty
 - **Prof. First Last** — email@university.edu
 
 ## Students
-- **Student A** — topic
-- **Student B** — topic
+- **Student A** — xxx
+- **Student B** — xxx
 
 ## Alumni
 - **Alumnus C** — now at ...
