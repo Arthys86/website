@@ -90,25 +90,13 @@ a:hover,a:focus{ color: var(--gold); }
   background-color: #ffffff;
 }
 
-/* Footer: gold text */
-footer, .footer{
-  background: var(--blue-light);
-  color: var(--gold-light) !important;
+/* Reduce extra bottom spacing of main content so footer feels shorter */
+main{
+  padding-bottom: 0.3rem !important;
 }
-
-footer p, footer li, footer span, footer small,
-.footer p, .footer li, .footer span, .footer small{
-  color: var(--gold-light) !important;
-  font-weight: 400;
-}
-
-footer a, .footer a{
-  color: var(--gold-light) !important;
-  text-decoration: none;
-}
-footer a:hover, .footer a:hover{
-  color: #ffffff !important;
-  text-decoration: underline;
+main p:last-child,
+main ul:last-child{
+  margin-bottom: 0.3rem !important;
 }
 
 /* Blockquote accent */
@@ -117,42 +105,73 @@ blockquote{
 }
 
 /* ================================
-   Compact Footer (Final Override)
+   Footer: white background, compact, larger icons
    ================================ */
 
-/* Remove extra space above footer */
+/* Remove any theme footer styling and force white like content area */
+footer,
+.site-footer-wrap{
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0, 51, 102, 0.15);
+}
+
+/* Compress vertical space */
 .site-footer-wrap{
   margin-top: 0.4rem !important;
+  padding: 0 !important;
 }
 
-/* Reduce vertical padding */
 .site-footer{
-  padding-top: 0.22rem !important;
-  padding-bottom: 0.22rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
 }
 
-/* Tighten icon row spacing */
+/* Icon row */
 .site-footer .footer-links{
-  margin-bottom: 0.06rem !important;
-  line-height: 1 !important;
-}
-
-/* Keep icons larger but not tall */
-.site-footer .fa-stack{
-  font-size: 1.65rem !important;
-  line-height: 1 !important;
-}
-
-/* Reduce inline item spacing without increasing height */
-.site-footer .list-inline-item{
-  margin-left: 0.18rem;
-  margin-right: 0.18rem;
-}
-
-/* Footer text: minimal height */
-.site-footer-text{
   margin: 0 !important;
   padding: 0 !important;
-  font-size: 0.72rem;
   line-height: 1 !important;
+}
+
+.site-footer .list-inline-item{
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+/* Make stacked icons truly centered and larger */
+.site-footer .fa-stack{
+  font-size: 1.65rem !important;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+.site-footer .fa-stack-2x,
+.site-footer .fa-stack-1x{
+  line-height: inherit !important;
+}
+
+/* Gold circle + white icon */
+.site-footer .fa-circle{
+  color: var(--gold) !important;
+}
+
+/* Footer text bigger and readable */
+.site-footer-text{
+  margin: 0.08rem 0 0 0 !important;
+  padding: 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.15 !important;
+  color: var(--ust-blue) !important;
+}
+
+/* Ensure footer links do not change layout height */
+.footer-icon-link{
+  display: inline-block;
+  text-decoration: none;
+}
+.footer-icon-link:hover,
+.footer-icon-link:focus{
+  text-decoration: none;
 }
