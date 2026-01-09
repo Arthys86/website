@@ -1,0 +1,26 @@
+title: "Your Lab Name"
+description: "Research group homepage."
+author: "Your Lab"
+
+# IMPORTANT for project site
+baseurl: "/website"
+url: "https://arthys86.github.io"
+
+# Theme (no local install)
+remote_theme: daattali/beautiful-jekyll@6.0.1
+
+plugins:
+  - jekyll-remote-theme
+
+navbar-links:
+  Home: ""
+  People: "people"
+  Publications: "publications"
+  Research: "research"
+  Join: "join"
+  Contact: "contact"
+
+# Optional footer links (edit or remove)
+social-network-links:
+  email: "12332386@university.edu"
+  github: "Arthys86"
