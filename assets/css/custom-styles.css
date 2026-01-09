@@ -1,10 +1,7 @@
-/* HKUST palette: light blue default UI, UST blue for hover/active, gold as accent */
 
 :root{
   --ust-blue: #003366;
-
-  /* Lighter than #6AAFE6 */
-  --blue-light: #84C3F0;
+  --blue-light: #B3DFFC;
 
   --gold: #996600;
   --gold-light: #FFCC66;
@@ -18,16 +15,23 @@ body{
   color: var(--text-main);
 }
 
-/* Content headings: light blue */
-h1,h2,h3,h4,h5,h6{
+/* Page title in header (Home/People/Publications/Research): deep blue */
+.intro-header .site-heading h1,
+.intro-header .page-heading h1,
+.intro-header .post-heading h1{
+  color: var(--ust-blue) !important;
+}
+
+/* Content headings: light blue (Principal Investigator, years, Theme, Projects, etc.) */
+h2,h3,h4,h5,h6{
   color: var(--blue-light);
 }
 
-/* Links: light blue; hover uses UST blue */
-a{ color: var(--blue-light); }
-a:hover,a:focus{ color: var(--ust-blue); }
+/* Links */
+a{ color: var(--ust-blue); }
+a:hover,a:focus{ color: var(--gold); }
 
-/* Navbar: light blue background; hover changes text only */
+/* Navbar: light blue background; hover/active changes text only */
 .navbar,
 .navbar-default{
   background-color: var(--blue-light);
@@ -41,7 +45,7 @@ a:hover,a:focus{ color: var(--ust-blue); }
   color: #ffffff !important;
 }
 
-/* Hover: text color only (no background change) */
+/* Hover: text only */
 .navbar .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:hover,
 .navbar .navbar-nav>li>a:focus,
@@ -50,7 +54,7 @@ a:hover,a:focus{ color: var(--ust-blue); }
   color: var(--ust-blue) !important;
 }
 
-/* Active: keep light background; highlight with text + underline */
+/* Active: text only + gold underline */
 .navbar .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a{
   background-color: transparent !important;
@@ -68,24 +72,24 @@ a:hover,a:focus{ color: var(--ust-blue); }
   background-color: #ffffff;
 }
 
-/* Footer: light blue background, brighter text for readability */
+/* Footer: gold text */
 footer, .footer{
   background: var(--blue-light);
-  color: #ffffff;
+  color: var(--gold-light) !important;
 }
 
 footer p, footer li, footer span, footer small,
 .footer p, .footer li, .footer span, .footer small{
-  color: rgba(255,255,255,0.98);
+  color: var(--gold-light) !important;
 }
 
-/* Footer links: gold */
+/* Footer links */
 footer a, .footer a{
-  color: var(--gold-light);
+  color: var(--gold-light) !important;
   text-decoration: none;
 }
 footer a:hover, .footer a:hover{
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: underline;
 }
 
