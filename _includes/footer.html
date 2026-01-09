@@ -3,10 +3,10 @@
     <div class="row">
       <div class="col-12 text-center">
 
-        <ul class="list-inline footer-links">
+        <ul class="list-inline footer-links" role="list">
           {% if site.social-network-links.email %}
           <li class="list-inline-item">
-            <a href="mailto:{{ site.social-network-links.email }}" title="Email">
+            <a class="footer-icon-link" href="mailto:{{ site.social-network-links.email }}" aria-label="Email">
               <span class="fa-stack" aria-hidden="true">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
@@ -17,7 +17,7 @@
 
           {% if site.social-network-links.github %}
           <li class="list-inline-item">
-            <a href="https://github.com/{{ site.social-network-links.github }}" title="GitHub">
+            <a class="footer-icon-link" href="https://github.com/{{ site.social-network-links.github }}" aria-label="GitHub">
               <span class="fa-stack" aria-hidden="true">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fab fa-github fa-stack-1x fa-inverse"></i>
