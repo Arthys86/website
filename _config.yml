@@ -2,11 +2,10 @@ title: "Your Lab Name"
 description: "Research group homepage."
 author: "Your Lab"
 
-# IMPORTANT for project site
 baseurl: "/website"
 url: "https://arthys86.github.io"
 
-# Theme (no local install)
+# Theme
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
 plugins:
@@ -23,7 +22,7 @@ navbar-links:
   #Join: "join"
   #Contact: "contact"
 
-# Optional footer links (edit or remove)
+# footer links
 social-network-links:
   email: "12332386@mail.sustech.edu.cn"
   github: "Arthys86"
