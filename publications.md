@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Publications"
+subtitle: "publication subtitle"
 permalink: /publications/
 ---
 
