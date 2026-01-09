@@ -1,17 +1,16 @@
 <footer class="site-footer-wrap">
   <div class="container-md site-footer">
     <div class="row">
-      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <div class="col-12 text-center">
 
-        <ul class="list-inline text-center footer-links">
+        <ul class="list-inline footer-links">
           {% if site.social-network-links.email %}
           <li class="list-inline-item">
             <a href="mailto:{{ site.social-network-links.email }}" title="Email">
-              <span class="fa-stack fa-lg" aria-hidden="true">
+              <span class="fa-stack" aria-hidden="true">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
               </span>
-              <span class="sr-only">Email</span>
             </a>
           </li>
           {% endif %}
@@ -19,18 +18,17 @@
           {% if site.social-network-links.github %}
           <li class="list-inline-item">
             <a href="https://github.com/{{ site.social-network-links.github }}" title="GitHub">
-              <span class="fa-stack fa-lg" aria-hidden="true">
+              <span class="fa-stack" aria-hidden="true">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fab fa-github fa-stack-1x fa-inverse"></i>
               </span>
-              <span class="sr-only">GitHub</span>
             </a>
           </li>
           {% endif %}
         </ul>
 
-        <p class="copyright text-muted">
-          {% if site.author %}{{ site.author }} &nbsp;&bull;&nbsp;{% endif %}
+        <p class="site-footer-text">
+          {% if site.author %}{{ site.author }} · {% endif %}
           {{ 'now' | date: "%Y" }}
         </p>
 
