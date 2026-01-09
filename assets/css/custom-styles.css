@@ -1,95 +1,91 @@
-/* ===== HKUST-inspired theme: UST Blue + UST Gold =====
-   UST Blue: #003366
-   UST Gold: #996600
-*/
 
 :root{
   --ust-blue: #003366;
-  --ust-gold: #996600;
+  --blue-light: #3A7CC4;
+  --blue-very-light: #EAF3FF;
 
-  /* 为了“浅色文字更清晰”，提供一些辅助色 */
-  --text-on-dark: #f7f9fc;
-  --muted-on-dark: #d7e0ea;
+  --gold: #996600;
+  --gold-light: #FFCC66;
+
+  --text-main: #1b1f24;
 }
 
-/* 全站基础字体（可按需改） */
+/* Base typography */
 body{
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  color: var(--text-main);
 }
 
-/* 标题：正文区域用蓝色（学术站点更稳重） */
+/* Content headings: light blue */
 h1,h2,h3,h4,h5,h6{
-  color: var(--ust-blue);
+  color: var(--blue-light);
 }
 
-/* 链接：默认蓝，hover 用金色 */
-a{ color: var(--ust-blue); }
-a:hover,a:focus{ color: var(--ust-gold); }
+/* Links: light blue; hover uses UST blue */
+a{ color: var(--blue-light); }
+a:hover,a:focus{ color: var(--ust-blue); }
 
-/* ===== Top navbar：蓝底 + 浅色文字 + 金色强调 ===== */
+/* Navbar: light blue default, UST blue on hover/active */
 .navbar,
 .navbar-default{
-  background-color: var(--ust-blue);
-  border-color: var(--ust-blue);
+  background-color: var(--blue-light);
+  border-color: var(--blue-light);
 }
 
-/* TITLE（站点标题/Brand）与导航链接用浅色 */
 .navbar .navbar-brand,
 .navbar-default .navbar-brand,
 .navbar .navbar-nav>li>a,
 .navbar-default .navbar-nav>li>a{
-  color: var(--text-on-dark) !important;
+  color: #ffffff !important;
 }
 
-/* hover 用金色 */
-.navbar .navbar-brand:hover,
-.navbar-default .navbar-brand:hover,
 .navbar .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:hover{
-  color: var(--ust-gold) !important;
+.navbar-default .navbar-nav>li>a:hover,
+.navbar .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:focus{
+  background-color: var(--ust-blue) !important;
+  color: #ffffff !important;
 }
 
-/* 当前页高亮：金色 */
 .navbar .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a{
-  color: var(--ust-gold) !important;
-  background-color: transparent !important;
-  border-bottom: 2px solid var(--ust-gold);
+  background-color: var(--ust-blue) !important;
+  color: var(--gold-light) !important;
+  border-bottom: 2px solid var(--gold-light);
 }
 
-/* 移动端菜单按钮（如果出现）也保持浅色 */
+/* Mobile nav toggle */
 .navbar-toggle,
 .navbar-default .navbar-toggle{
-  border-color: var(--muted-on-dark);
+  border-color: #ffffff;
 }
 .navbar-toggle .icon-bar,
 .navbar-default .navbar-toggle .icon-bar{
-  background-color: var(--text-on-dark);
+  background-color: #ffffff;
 }
 
-/* ===== Footer：蓝底 + 浅色文字，社交链接用金色 ===== */
+/* Footer: light blue background, gold links */
 footer, .footer{
-  background: var(--ust-blue);
-  color: var(--text-on-dark);
+  background: var(--blue-light);
+  color: #ffffff;
 }
 
-/* 页脚中的普通文字尽量浅色 */
 footer p, footer li, footer span, footer small,
 .footer p, .footer li, .footer span, .footer small{
-  color: var(--muted-on-dark);
+  color: rgba(255,255,255,0.88);
 }
 
-/* social-network-links/页脚链接：金色，hover 变更亮 */
 footer a, .footer a{
-  color: var(--ust-gold);
+  color: var(--gold-light);
   text-decoration: none;
 }
+
 footer a:hover, .footer a:hover{
-  color: #ffcc66; /* 更亮的金色，增强可读性 */
+  color: #ffffff;
   text-decoration: underline;
 }
 
-/* 可选：引用块的强调线用金色 */
+/* Blockquote accent */
 blockquote{
-  border-left: 4px solid var(--ust-gold);
+  border-left: 4px solid var(--gold);
 }
