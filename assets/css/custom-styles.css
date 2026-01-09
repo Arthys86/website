@@ -18,7 +18,15 @@ body{
   color: var(--text-main);
 }
 
-/* Page title in header (Home/Members/Publications/Research): deep blue, lighter weight */
+/* Links */
+a{ color: var(--ust-blue); }
+a:hover,a:focus{ color: var(--gold); }
+
+/* ================================
+   Header typography
+   ================================ */
+
+/* Main page titles */
 .intro-header .site-heading h1,
 .intro-header .page-heading h1,
 .intro-header .post-heading h1{
@@ -27,76 +35,87 @@ body{
   letter-spacing: 0.2px;
 }
 
-/* Content headings: mid blue + lighter weight */
+/* Page title size (Members/Publications/Research) */
+.intro-header .page-heading h1{
+  font-size: 2.35rem !important;
+  line-height: 1.15 !important;
+}
+
+/* Subtitle (Department • University / Research group homepage.) */
+.page-subheading{
+  color: var(--gold-light) !important;
+  font-size: 1.02rem !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+}
+
+/* Content headings (PI/Faculty/Students/Years/Themes/Projects) */
 h2,h3,h4,h5,h6{
   color: var(--blue-mid);
   font-weight: 400;
 }
 
-/* Force mid blue for section headings rendered from markdown (PI/Students/Alumni, years, themes, projects) */
-.main-content h2,
-.main-content h3,
-.page-content h2,
-.page-content h3,
-.post-content h2,
-.post-content h3{
-  color: var(--blue-mid) !important;
-  font-weight: 400 !important;
+main h2,
+main h3{
+  font-size: 1.55rem;
+  line-height: 1.25;
 }
 
-/* Links */
-a{ color: var(--ust-blue); }
-a:hover,a:focus{ color: var(--gold); }
+/* ================================
+   Navbar
+   ================================ */
 
-/* Navbar: light blue background; hover/active changes text only */
-.navbar,
-.navbar-default{
+/* Light blue background */
+.navbar{
   background-color: var(--blue-light);
   border-color: var(--blue-light);
 }
 
-.navbar .navbar-brand,
-.navbar-default .navbar-brand,
-.navbar .navbar-nav>li>a,
-.navbar-default .navbar-nav>li>a{
+/* Brand (top-left) */
+.navbar .navbar-brand{
+  color: var(--ust-blue) !important;
+  font-weight: 500;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.2px;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus{
+  color: var(--ust-blue) !important;
+}
+
+/* Menu items */
+.navbar .navbar-nav .nav-link{
   color: #ffffff !important;
   font-weight: 400;
+  letter-spacing: 0.2px;
 }
 
 /* Hover: text only */
-.navbar .navbar-nav>li>a:hover,
-.navbar-default .navbar-nav>li>a:hover,
-.navbar .navbar-nav>li>a:focus,
-.navbar-default .navbar-nav>li>a:focus{
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus{
   background-color: transparent !important;
   color: var(--ust-blue) !important;
 }
 
 /* Active: text only + gold underline */
-.navbar .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a{
+.navbar .navbar-nav .active > .nav-link{
   background-color: transparent !important;
   color: var(--ust-blue) !important;
   border-bottom: 2px solid var(--gold-light);
 }
 
-/* Mobile nav toggle */
-.navbar-toggle,
-.navbar-default .navbar-toggle{
-  border-color: #ffffff;
-}
-.navbar-toggle .icon-bar,
-.navbar-default .navbar-toggle .icon-bar{
-  background-color: #ffffff;
+/* ================================
+   Main spacing (reduce empty space near footer)
+   ================================ */
+
+main{
+  padding-bottom: 0.35rem !important;
 }
 
-/* Reduce extra bottom spacing of main content so footer feels shorter */
-main{
-  padding-bottom: 0.3rem !important;
-}
 main p:last-child,
 main ul:last-child{
-  margin-bottom: 0.3rem !important;
+  margin-bottom: 0.35rem !important;
 }
 
 /* Blockquote accent */
@@ -105,28 +124,25 @@ blockquote{
 }
 
 /* ================================
-   Footer: white background, compact
+   Footer (white background, HKUST gold)
    ================================ */
 
-/* Footer background to match content area */
 footer,
 .site-footer-wrap{
   background: #ffffff !important;
   border-top: 1px solid rgba(0, 51, 102, 0.15);
 }
 
-/* Compress vertical space */
 .site-footer-wrap{
-  margin-top: 0.4rem !important;
+  margin-top: 0.45rem !important;
   padding: 0 !important;
 }
 
 .site-footer{
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
+  padding-top: 0.28rem !important;
+  padding-bottom: 0.28rem !important;
 }
 
-/* Icon row */
 .site-footer .footer-links{
   margin: 0 !important;
   padding: 0 !important;
@@ -134,11 +150,11 @@ footer,
 }
 
 .site-footer .list-inline-item{
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
+  margin-left: 0.28rem;
+  margin-right: 0.28rem;
 }
 
-/* Larger, centered stacked icons */
+/* Large, centered stacked icons */
 .site-footer .fa-stack{
   font-size: 1.65rem !important;
   width: 2em;
@@ -160,16 +176,15 @@ footer,
   color: #ffffff !important;
 }
 
-/* Footer text in HKUST gold, larger */
+/* Footer text: gold, larger */
 .site-footer-text{
-  margin: 0.08rem 0 0 0 !important;
+  margin: 0.10rem 0 0 0 !important;
   padding: 0 !important;
-  font-size: 0.95rem !important;
+  font-size: 1.02rem !important;
   line-height: 1.15 !important;
   color: var(--gold-light) !important;
 }
 
-/* Links: keep gold */
 .site-footer a{
   color: var(--gold-light) !important;
   text-decoration: none;
@@ -179,38 +194,3 @@ footer,
   color: var(--gold-light) !important;
   text-decoration: none;
 }
-
-/* ================================
-   Navbar brand color (top-left title)
-   ================================ */
-
-.navbar .navbar-brand,
-.navbar-default .navbar-brand{
-  color: var(--ust-blue) !important;
-}
-
-/* Keep brand color on hover/focus */
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus,
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus{
-  color: var(--ust-blue) !important;
-}
-
-/* ================================
-   Page title sizing (Members/Publications/Research)
-   ================================ */
-
-/* Make page title smaller, but still larger than section headings */
-.intro-header .page-heading h1{
-  font-size: 2.05rem !important;
-  line-height: 1.15 !important;
-}
-
-/* Section headings (PI/Faculty/Students/Years/Themes/Projects) slightly smaller */
-main h2,
-main h3{
-  font-size: 1.45rem;
-  line-height: 1.25;
-}
-
