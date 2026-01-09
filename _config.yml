@@ -1,6 +1,6 @@
 title: "Name"
 description: "Research group homepage."
-author: "Targaryen"
+author: "Author"
 
 baseurl: "/website"
 url: "https://arthys86.github.io"
@@ -25,4 +25,4 @@ navbar-links:
 # footer links
 social-network-links:
   email: "12332386@mail.sustech.edu.cn"
-  github: "Arthys86"
+  #github: "Arthys86"
