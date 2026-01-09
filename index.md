@@ -4,7 +4,7 @@ title: "TITLE"
 subtitle: "Department • University"
 ---
 
-FIRE AND BLOOD. 123
+FIRE AND BLOOD. 
 
 We work on:
 - Topic A
