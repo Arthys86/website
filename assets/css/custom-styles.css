@@ -105,10 +105,10 @@ blockquote{
 }
 
 /* ================================
-   Footer: white background, compact, larger icons
+   Footer: white background, compact
    ================================ */
 
-/* Remove any theme footer styling and force white like content area */
+/* Footer background to match content area */
 footer,
 .site-footer-wrap{
   background: #ffffff !important;
@@ -138,7 +138,7 @@ footer,
   margin-right: 0.25rem;
 }
 
-/* Make stacked icons truly centered and larger */
+/* Larger, centered stacked icons */
 .site-footer .fa-stack{
   font-size: 1.65rem !important;
   width: 2em;
@@ -152,26 +152,30 @@ footer,
   line-height: inherit !important;
 }
 
-/* Gold circle + white icon */
+/* HKUST gold circle + white inner icon */
 .site-footer .fa-circle{
-  color: var(--gold) !important;
+  color: var(--gold-light) !important;
+}
+.site-footer .fa-inverse{
+  color: #ffffff !important;
 }
 
-/* Footer text bigger and readable */
+/* Footer text in HKUST gold, larger */
 .site-footer-text{
   margin: 0.08rem 0 0 0 !important;
   padding: 0 !important;
   font-size: 0.95rem !important;
   line-height: 1.15 !important;
-  color: var(--ust-blue) !important;
+  color: var(--gold-light) !important;
 }
 
-/* Ensure footer links do not change layout height */
-.footer-icon-link{
-  display: inline-block;
+/* Links: keep gold */
+.site-footer a{
+  color: var(--gold-light) !important;
   text-decoration: none;
 }
-.footer-icon-link:hover,
-.footer-icon-link:focus{
+.site-footer a:hover,
+.site-footer a:focus{
+  color: var(--gold-light) !important;
   text-decoration: none;
 }
