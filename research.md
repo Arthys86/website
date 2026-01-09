@@ -22,7 +22,7 @@ permalink: /research/
 
 <div class="two-col">
   <div class="two-col-media">
-    <img src="{{ '/assets/img/dotd.jpg' | relative_url }}" alt="Dance of the Dragons">
+    <img src="{{ '/assets/img/dotd.png' | relative_url }}" alt="Dance of the Dragons">
   </div>
   <div class="two-col-text">
     <p>
