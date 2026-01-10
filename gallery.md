@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* Filter Tags Container */
+    /* Filter Tags Styling */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 12px;
@@ -15,7 +15,6 @@ permalink: /gallery/
       flex-wrap: wrap;
     }
 
-    /* Individual Filter Tag */
     #custom-gallery-container .filter-tag {
       padding: 6px 18px;
       border-radius: 15px;
@@ -28,22 +27,18 @@ permalink: /gallery/
       color: #666;
     }
 
-    #custom-gallery-container .filter-tag:hover {
-      background: #e9ecef;
-    }
+    #custom-gallery-container .filter-tag:hover { background: #e9ecef; }
 
-    /* Active Tag Style */
     #custom-gallery-container .filter-tag.active {
       background: #333;
       color: #fff;
       border-color: #333;
     }
 
-    /* Masonry Layout Container */
+    /* Masonry Grid (Respects aspect ratio) */
     #custom-gallery-container .gallery-columns {
       column-count: 3;
       column-gap: 15px;
-      min-height: 400px;
     }
 
     @media (max-width: 800px) { #custom-gallery-container .gallery-columns { column-count: 2; } }
@@ -58,92 +53,86 @@ permalink: /gallery/
       border-radius: 10px;
       overflow: hidden;
       position: relative;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    /* Hidden state for filtering */
-    #custom-gallery-container .gallery-item.hide {
-      display: none;
-    }
+    #custom-gallery-container .gallery-item.hide { display: none; }
 
     #custom-gallery-container .gallery-item img {
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease;
     }
 
-    /* Hover Overlay */
+    /* Improved Overlay: Bottom Gradient Information Bar */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      /* Gradient background for better legibility without blocking the whole image */
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
       color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      padding: 40px 15px 15px 15px; /* Extra top padding for the gradient blend */
       opacity: 0;
-      transition: opacity 0.3s ease;
-      padding: 20px;
-      text-align: center;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      text-align: left;
     }
 
     #custom-gallery-container .gallery-item:hover .gallery-overlay {
       opacity: 1;
+      transform: translateY(0);
     }
 
     #custom-gallery-container .gallery-item:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
+    }
+
+    #custom-gallery-container .overlay-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    #custom-gallery-container .overlay-desc {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      line-height: 1.2;
     }
   </style>
 
   <div class="gallery-filters">
     <span class="filter-tag active" data-filter="all">All</span>
-    <span class="filter-tag" data-filter="research">Research</span>
-    <span class="filter-tag" data-filter="life">Life</span>
-    <span class="filter-tag" data-filter="team">Team</span>
+    <span class="filter-tag" data-filter="research">History</span>
+    <span class="filter-tag" data-filter="team">Characters</span>
   </div>
 
-  <div class="gallery-columns" id="gallery-grid">
+  <div class="gallery-columns">
     
     <div class="gallery-item" data-category="research">
-      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="Research Work">
+      <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
-        <strong>Research Highlight</strong>
-        <p style="font-size:0.8rem;">Experimental setup for soft electronics.</p>
+        <span class="overlay-title">Dance of the Dragons</span>
+        <span class="overlay-desc">Dance of the Dragons</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="team">
-      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Member Photo">
+      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
       <div class="gallery-overlay">
-        <strong>Our Team</strong>
-        <p style="font-size:0.8rem;">Core members and contributors.</p>
+        <span class="overlay-title">Daemon Targaryen</span>
+        <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="research">
-      <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Device Detail">
+      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
       <div class="gallery-overlay">
-        <strong>Device Fabrication</strong>
-        <p style="font-size:0.8rem;">Nanoscale structural analysis results.</p>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-category="life">
-      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="Social Event">
-      <div class="gallery-overlay">
-        <strong>Lab Life</strong>
-        <p style="font-size:0.8rem;">Moments outside the cleanroom.</p>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-category="team">
-      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Seminar">
-      <div class="gallery-overlay">
-        <strong>Seminar Session</strong>
-        <p style="font-size:0.8rem;">Weekly technical exchange and discussion.</p>
+        <span class="overlay-title">The Conquest</span>
+        <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
       </div>
     </div>
 
@@ -156,13 +145,11 @@ permalink: /gallery/
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
-          // Update active class for buttons
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
 
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Filter gallery items
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
