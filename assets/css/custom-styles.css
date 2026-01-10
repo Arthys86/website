@@ -250,7 +250,6 @@ footer,
    Members page layout
    ================================ */
 
-/* PI Block Indent */
 .pi-center {
   width: 100%;
   padding-left: 1.8rem;
@@ -299,7 +298,6 @@ footer,
   opacity: 0.9;
 }
 
-/* Member Cards */
 .member-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -334,95 +332,100 @@ footer,
   line-height: 1.2;
 }
 
-/* Alumni Section */
 .alumni-list li strong {
-  font-weight: 400 !important; /* Forces normal weight even if strong tag is used */
+  font-weight: 400 !important;
+}
+
+/* ================================
+   Publications Accordion Styles
+   =============================== */
+
+.pub-year {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 0.5rem;
+}
+
+/* Base summary styling */
+.pub-year summary {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--blue-mid);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  outline: none;
+  list-style: none;
+}
+
+/* Arrow indicator */
+.pub-year summary::before {
+  content: '▶';
+  display: inline-block;
+  font-size: 0.75rem;
+  margin-right: 0.8rem;
+  transition: transform 0.2s ease;
+  color: var(--gold);
+}
+
+.pub-year[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Nested (inner) years styling */
+.pub-year .pub-year {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pub-year .pub-year summary {
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+/* Publication list styling */
+.pub-list {
+  padding: 0.8rem 0 0.8rem 1.8rem;
+}
+
+.pub-list ul {
+  list-style-type: none; /* Removed black bullets */
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.pub-list li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 @media (max-width: 768px){
   .pi-center {
     padding-left: 0;
   }
-
   .pi-grid{
     grid-template-columns: 1fr;
-    gap: 1.2rem;
     text-align: center;
   }
-
   .pi-photo-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
   .pi-photo{
     max-width: 280px;
   }
-
   .pi-cv {
     text-align: left;
     margin-top: 1rem;
   }
-
   .pi-email{
     white-space: normal;
   }
-
   .member-grid{
     grid-template-columns: 1fr;
   }
-}
-
-
-/* ================================
-   Publications Accordion Styles
-   ================================ */
-.pub-year {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 0.5rem;
-}
-
-.pub-year summary {
-  font-size: 1.55rem;
-  font-weight: 400;
-  color: var(--blue-mid);
-  cursor: pointer;
-  list-style: none; 
-  display: flex;
-  align-items: center;
-  outline: none;
-}
-
-.pub-year summary::before {
-  content: '▶';
-  display: inline-block;
-  font-size: 0.8rem;
-  margin-right: 0.8rem;
-  transition: transform 0.2s ease;
-  color: var(--gold);
-}
-
-.pub-year[open] summary::before {
-  transform: rotate(90deg); 
-}
-
-.pub-year summary:hover {
-  color: var(--gold);
-}
-
-.pub-list {
-  padding: 1rem 0 1rem 1.8rem;
-}
-
-.pub-list ul {
-  list-style-type: disc;
-  margin-bottom: 0;
-}
-
-.pub-list li {
-  margin-bottom: 0.8rem;
-  line-height: 1.5;
-  text-align: justify;
 }
