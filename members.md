@@ -7,51 +7,48 @@ permalink: /members/
 
 ## Principal Investigator (PI)
 
-<div class="pi-center">
-  <div class="pi-grid">
-    <div class="pi-photo-wrap">
-      <h3 class="pi-name-incol">Dr. Kuanming Yao</h3>
+<div class="pi-grid">
+  <div class="pi-photo-wrap">
+    <h3 class="pi-name-incol">Dr. Kuanming Yao</h3>
 
-      <img class="pi-photo" src="{{ '/assets/img/pi.jpg' | relative_url }}" alt="PI photo">
+    <img class="pi-photo" src="{{ '/assets/img/pi.jpg' | relative_url }}" alt="PI photo">
 
-      <p class="pi-email">
-        <strong>Email:</strong>
-        <a href="mailto:yao@hkust.edu.hk">yao@hkust.edu.hk</a>
-      </p>
-    </div>
+    <p class="pi-email">
+      <strong>Email:</strong>
+      <a href="mailto:yao@hkust.edu.hk">yao@hkust.edu.hk</a>
+    </p>
+  </div>
 
-    <div class="pi-content">
-      <ul class="pi-cv">
-        <li>
-          <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Apr. 2024 - )</span><br>
-          Department of Electrical &amp; Computer Engineering<br>
-          University of California, Los Angeles (UCLA), CA, U.S.
-        </li>
+  <div class="pi-content">
+    <ul class="pi-cv">
+      <li>
+        <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Apr. 2024 - )</span><br>
+        Department of Electrical &amp; Computer Engineering<br>
+        University of California, Los Angeles (UCLA), CA, U.S.
+      </li>
 
-        <li>
-          <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Feb. 2023 - Mar. 2024)</span><br>
-          Laboratory of Soft Bio-electronics<br>
-          City University of Hong Kong, Hong Kong
-        </li>
+      <li>
+        <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Feb. 2023 - Mar. 2024)</span><br>
+        Laboratory of Soft Bio-electronics<br>
+        City University of Hong Kong, Hong Kong
+      </li>
 
-        <li>
-          <strong>Ph.D.</strong> <span class="pi-date">(Sept. 2019 - Jan. 2023)</span><br>
-          Department of Biomedical Engineering<br>
-          City University of Hong Kong, Hong Kong
-        </li>
+      <li>
+        <strong>Ph.D.</strong> <span class="pi-date">(Sept. 2019 - Jan. 2023)</span><br>
+        Department of Biomedical Engineering<br>
+        City University of Hong Kong, Hong Kong
+      </li>
 
-        <li>
-          <strong>B. Eng.</strong> <span class="pi-date">(Sept. 2015 - Jun. 2019)</span><br>
-          College of Energy Engineering<br>
-          Zhejiang University, Hangzhou, China
-        </li>
-      </ul>
-    </div>
+      <li>
+        <strong>B. Eng.</strong> <span class="pi-date">(Sept. 2015 - Jun. 2019)</span><br>
+        College of Energy Engineering<br>
+        Zhejiang University, Hangzhou, China
+      </li>
+    </ul>
   </div>
 </div>
 
 ---
-
 
 ## Postdocs
 
