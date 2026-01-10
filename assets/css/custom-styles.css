@@ -250,24 +250,24 @@ footer,
    Members page layout
    ================================ */
 
-/* Center PI block within the page even when the main container uses Bootstrap offsets */
-.pi-center{
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+/* Wrapper to ensure centering across different screen widths */
+.pi-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
 }
 
 .pi-grid{
   display: grid;
-  /* Define fixed width for photo and flexible for content */
+  /* Left column for photo (260px), Right column for CV (flexible) */
   grid-template-columns: 260px minmax(0, 640px);
   gap: 3.2rem;
   align-items: start;
-
-  /* Centering the entire block */
-  width: fit-content;
-  max-width: 952px; /* 260 + 51.2(gap) + 640 approx */
+  
+  /* Horizontal centering of the grid itself */
   margin: 0.6rem auto 1.2rem auto;
+  max-width: 100%;
 }
 
 .pi-name-incol{
@@ -338,20 +338,11 @@ footer,
 }
 
 @media (max-width: 768px){
-  .pi-center{
-    width: auto;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
   .pi-grid{
     grid-template-columns: 1fr;
-    justify-content: center;
     gap: 1.2rem;
     text-align: center;
-    width: auto;
-    max-width: 100%;
-    margin: 0.6rem auto 1.2rem auto;
+    max-width: 400px; /* Constrain width on mobile for better aesthetics */
   }
 
   .pi-photo-wrap {
@@ -366,6 +357,7 @@ footer,
 
   .pi-cv {
     text-align: left;
+    margin-top: 1rem;
   }
 
   .pi-email{
