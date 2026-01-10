@@ -10,11 +10,12 @@ site-css:
 
 navbar-links:
   Home: ""
+  Research: "research"
   Members: "members"
   Publications: "publications"
-  Research: "research"
-  #Join: "join"
-  #Contact: "contact"
+  Gallery: "gallery"
+  Contact: "contact"
+
 
 # footer links
 social-network-links:
