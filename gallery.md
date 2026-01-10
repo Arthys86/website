@@ -15,45 +15,40 @@ permalink: /gallery/
       flex-wrap: wrap;
     }
 
-    /* Unselected State */
     #custom-gallery-container .filter-tag {
       padding: 6px 18px;
       border-radius: 15px;
-      background: #F0F9FF; /* Very light blue as requested */
+      background: #F0F9FF; 
       font-size: 0.85rem;
       cursor: pointer;
-      border: 1px solid #e1f5fe; /* Light border to match */
+      border: 1px solid #e1f5fe;
       font-weight: 550;
       transition: all 0.3s ease;
-      color: #003366; /* UST Deep Blue */
+      color: #003366;
     }
 
-    /* Hover State */
     #custom-gallery-container .filter-tag:hover {
-      background: #E1F5FE; /* Your chosen blue-light color */
+      background: #E1F5FE;
     }
 
-    /* Selected (Active) State: Remains Gold as per previous design */
     #custom-gallery-container .filter-tag.active {
-      background: #D4AF37; /* Light Gold */
-      color: #ffffff;      /* White text */
+      background: #D4AF37;
+      color: #ffffff;
       border-color: #D4AF37;
     }
 
-    /* Masonry Grid Layout */
+    /* Horizontal Layout: Flexbox */
     #custom-gallery-container .gallery-columns {
-      column-count: 3;
-      column-gap: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
-    @media (max-width: 900px) { #custom-gallery-container .gallery-columns { column-count: 2; } }
-    @media (max-width: 600px) { #custom-gallery-container .gallery-columns { column-count: 1; } }
-
-    /* Gallery Item Card */
+    /* Consistent Height & Proportional Scaling */
     #custom-gallery-container .gallery-item {
-      display: inline-block;
-      width: 100%;
-      margin-bottom: 15px;
+      flex: 1 0 auto; /* Allow items to grow to fill space */
+      height: 250px;  /* Fixed height for all images in a row */
+      min-width: 150px;
       background-color: #f0f0f0;
       border-radius: 10px;
       overflow: hidden;
@@ -64,13 +59,15 @@ permalink: /gallery/
     #custom-gallery-container .gallery-item.hide { display: none; }
 
     #custom-gallery-container .gallery-item img {
-      width: 100%;
-      height: auto;
+      width: auto;
+      min-width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures image fills the height-consistent box without distortion */
       display: block;
       transition: transform 0.6s ease;
     }
 
-    /* Bottom Gradient Overlay */
+    /* Overlay Styles */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -78,11 +75,10 @@ permalink: /gallery/
       right: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
       color: #fff;
-      padding: 50px 15px 15px 15px;
+      padding: 40px 15px 15px 15px;
       opacity: 0;
       transform: translateY(20px);
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      text-align: left;
       pointer-events: none;
     }
 
@@ -106,8 +102,14 @@ permalink: /gallery/
     #custom-gallery-container .overlay-desc {
       font-size: 0.8rem;
       opacity: 0.9;
-      line-height: 1.3;
-      display: block;
+    }
+
+    /* Responsive adjustment for mobile */
+    @media (max-width: 600px) {
+      #custom-gallery-container .gallery-item {
+        height: 180px; /* Shorter height for smaller screens */
+        flex: 1 0 100%; /* Full width on mobile if desired */
+      }
     }
   </style>
 
@@ -182,10 +184,12 @@ permalink: /gallery/
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
               item.classList.remove('hide');
+              item.style.display = "inline-block"; // Ensure it shows for flex
               item.style.opacity = "0";
               setTimeout(() => { item.style.opacity = "1"; }, 10);
             } else {
               item.classList.add('hide');
+              item.style.display = "none";
             }
           });
         });
