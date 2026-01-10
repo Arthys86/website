@@ -433,3 +433,22 @@ footer,
     grid-template-columns: 1fr;
   }
 }
+
+/* Publication count badge */
+.pub-count {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.05); /* Light grey background */
+  color: #666; /* Subtle grey text */
+  font-size: 0.9rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 10px;
+  font-weight: 300;
+  vertical-align: middle;
+}
+
+/* Hover effect for badge */
+.pub-year:hover .pub-count {
+  background-color: var(--blue-light);
+  color: var(--ust-blue);
+}
