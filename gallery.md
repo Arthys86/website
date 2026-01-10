@@ -40,26 +40,18 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. Common Gallery Grid Base */
-    #custom-gallery-container .gallery-grid {
+    /* 2. MODE: Centered - Modified to fix Dark Sister height and alignment */
+    #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      transition: all 0.3s ease;
-    }
-
-    /* 3. MODE: Centered - Strict row height, zero crop, original aspect ratio */
-    #custom-gallery-container .gallery-grid.mode-centered {
       justify-content: center;
-      align-items: flex-start;
+      gap: 15px;
     }
-    
-    /* Row 1 Height (Items 1-3) */
+    /* Fixed heights for Row 1 and Row 2 in Centered Mode */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) {
       height: 280px; 
       flex: 0 0 auto;
     }
-    /* Row 2 Height (Items 4-6) */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) {
       height: 350px;
       flex: 0 0 auto;
@@ -71,33 +63,45 @@ permalink: /gallery/
       width: 0;
       height: 0;
     }
+    #custom-gallery-container .mode-centered .gallery-item img {
+      height: 100%;
+      width: auto; /* Preserve aspect ratio without cropping */
+      object-fit: contain;
+    }
 
-    /* 4. MODE: Left - Simple horizontal flow */
+    /* 3. MODE: Left - Simple horizontal flow */
     #custom-gallery-container .gallery-grid.mode-left {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: flex-start;
+      gap: 15px;
     }
     #custom-gallery-container .mode-left .gallery-item {
       height: 250px;
       flex: 0 0 auto;
     }
+    #custom-gallery-container .mode-left .gallery-item img {
+      height: 100%;
+      width: auto;
+    }
 
-    /* 5. MODE: Column - Fixed 3-column grid */
+    /* 4. MODE: Column - DO NOT MODIFY (Fixed 3-column grid) */
     #custom-gallery-container .gallery-grid.mode-column {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 30px;
     }
     #custom-gallery-container .mode-column .gallery-item {
+      flex: 0 1 calc(33.333% - 20px);
       height: auto;
-      width: 100%;
     }
     #custom-gallery-container .mode-column .gallery-item img {
       width: 100%;
       height: auto;
     }
 
-    /* 6. MODE: Masonry - Waterfall effect */
+    /* 5. MODE: Masonry - CSS Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       display: block;
       column-count: 3;
@@ -108,12 +112,8 @@ permalink: /gallery/
       width: 100%;
       margin-bottom: 20px;
     }
-    #custom-gallery-container .mode-masonry .gallery-item img {
-      width: 100%;
-      height: auto;
-    }
 
-    /* Common Item & Image Styling */
+    /* 6. Shared Component Styling */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -122,16 +122,6 @@ permalink: /gallery/
       transition: transform 0.3s ease;
     }
 
-    /* Strict control for image display to prevent cropping in row-based modes */
-    #custom-gallery-container .mode-centered .gallery-item img,
-    #custom-gallery-container .mode-left .gallery-item img {
-      height: 100%;
-      width: auto;
-      display: block;
-      object-fit: contain;
-    }
-
-    /* 7. Overlay & Captions (Strictly restored per user requirements) */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -157,7 +147,7 @@ permalink: /gallery/
     }
 
     .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 4px; }
-    .overlay-desc { font-size: 0.75rem; opacity: 0.9; }
+    .overlay-desc { font-size: 0.75rem; opacity: 0.9; line-height: 1.2; }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
   </style>
@@ -220,7 +210,7 @@ permalink: /gallery/
   </div>
 
   <script>
-    /* Mode switching logic */
+    /* Filter switching script */
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const grid = document.getElementById('gallery-grid');
@@ -230,8 +220,6 @@ permalink: /gallery/
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
           const selectedFilter = this.getAttribute('data-filter');
-          
-          // Switch CSS classes to change layout
           grid.className = 'gallery-grid mode-' + selectedFilter;
         });
       });
