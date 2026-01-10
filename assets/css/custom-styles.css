@@ -250,7 +250,7 @@ footer,
    Members page layout
    ================================ */
 
-/* Set left indent to match the internal gap (3.2rem) */
+/* PI Block Indent */
 .pi-center {
   width: 100%;
   padding-left: 1.8rem;
@@ -259,7 +259,6 @@ footer,
 
 .pi-grid{
   display: grid;
-  /* Left column for photo (280px), Right column for CV (flexible) */
   grid-template-columns: 280px minmax(0, 1fr);
   gap: 3.2rem;
   align-items: start;
@@ -300,6 +299,7 @@ footer,
   opacity: 0.9;
 }
 
+/* Member Cards */
 .member-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -316,7 +316,6 @@ footer,
   border-radius: 8px;
 }
 
-/* Member photo adjusted to 135px square */
 .member-photo{
   width: 135px;
   height: 135px;
@@ -335,9 +334,14 @@ footer,
   line-height: 1.2;
 }
 
+/* Alumni Section */
+.alumni-list li strong {
+  font-weight: 400 !important; /* Forces normal weight even if strong tag is used */
+}
+
 @media (max-width: 768px){
   .pi-center {
-    padding-left: 0; /* Remove indent on mobile */
+    padding-left: 0;
   }
 
   .pi-grid{
