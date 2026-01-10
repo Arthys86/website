@@ -40,7 +40,7 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. MODE: Centered - PROPORTIONAL, NO CROP, NO WHITE SPACE */
+    /* 2. MODE: Centered - Proportional, Row-consistent Height, No White Space */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -50,17 +50,15 @@ permalink: /gallery/
     #custom-gallery-container .mode-centered .gallery-item {
       flex: 0 0 auto;
       width: auto;
-      height: auto;
     }
-    /* Fixed height ONLY for Centered mode to ensure row alignment */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) img {
-      height: 280px;
-      width: auto; 
-      display: block; /* Important: Removes baseline gap */
+      height: 280px !important;
+      width: auto !important;
+      display: block; 
     }
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) img {
-      height: 350px;
-      width: auto;
+      height: 350px !important;
+      width: auto !important;
       display: block;
     }
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
@@ -79,22 +77,22 @@ permalink: /gallery/
     #custom-gallery-container .mode-left .gallery-item { height: 250px; flex: 0 0 auto; }
     #custom-gallery-container .mode-left .gallery-item img { height: 100%; width: auto; display: block; }
 
-    /* 4. MODE: Column - RESTORED TO ORIGINAL PER YOUR REQUEST */
-    /* Fixed 3-column grid with width-based proportional scaling */
+    /* 4. MODE: Column - RESTORED & VERTICAL CENTERED */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center; /* VERTICAL CENTERED */
       gap: 30px;
     }
     #custom-gallery-container .mode-column .gallery-item {
       flex: 0 1 calc(33.333% - 30px);
-      height: auto; /* Reset any height constraints */
+      height: auto;
     }
     #custom-gallery-container .mode-column .gallery-item img {
-      width: 100% !important; /* Force image to fill column width */
-      height: auto !important; /* Proportional height based on width */
-      display: block;
+      width: 100% !important;
+      height: auto !important; /* BACK TO PROPORTIONAL */
+      display: block; /* NO WHITE SPACE */
     }
 
     /* 5. MODE: Masonry */
@@ -148,45 +146,27 @@ permalink: /gallery/
   <div class="gallery-grid mode-centered" id="gallery-grid">
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Who</span>
-        <span class="overlay-desc">I don't know</span>
-      </div>
+      <div class="gallery-overlay"><span class="overlay-title">Who</span><span class="overlay-desc">I don't know</span></div>
     </div>
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
-      <div class="gallery-overlay">
-        <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
-      </div>
+      <div class="gallery-overlay"><span class="overlay-title">The Conquest</span><span class="overlay-desc">Visenya Targaryen and Vhagar</span></div>
     </div>
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">a longsword of Valyrian steel</span>
-      </div>
+      <div class="gallery-overlay"><span class="overlay-title">Dark Sister</span><span class="overlay-desc">a longsword of Valyrian steel</span></div>
     </div>
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Dance of the Dragons</span>
-        <span class="overlay-desc">The Dance over Shipbreaker Bay</span>
-      </div>
+      <div class="gallery-overlay"><span class="overlay-title">Dance of the Dragons</span><span class="overlay-desc">The Dance over Shipbreaker Bay</span></div>
     </div>
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Daemon Targaryen</span>
-        <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
-      </div>
+      <div class="gallery-overlay"><span class="overlay-title">Daemon Targaryen</span><span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span></div>
     </div>
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">The throne of the monarchs of the Seven Kingdoms</span>
-      </div>
+      <div class="gallery-overlay"><span class="overlay-title">Iron Throne</span><span class="overlay-desc">The throne of the monarchs of the Seven Kingdoms</span></div>
     </div>
   </div>
 
