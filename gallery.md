@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* 1. Filter Tags - Colors Corrected */
+    /* 1. 导航栏样式 - 保持您的颜色要求 */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -22,14 +22,14 @@ permalink: /gallery/
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
-      color: #003366; 
+      color: #003366; /* 默认深蓝 */
       padding: 5px 5px;
       transition: all 0.3s ease;
       position: relative;
     }
 
-    #custom-gallery-container .filter-tag:hover { color: #D4AF37; }
-    #custom-gallery-container .filter-tag.active { font-weight: bold; color: #996600; }
+    #custom-gallery-container .filter-tag:hover { color: #D4AF37; } /* 悬停浅金 */
+    #custom-gallery-container .filter-tag.active { font-weight: bold; color: #996600; } /* 选中深金 */
     #custom-gallery-container .filter-tag.active::after {
       content: '';
       position: absolute;
@@ -40,109 +40,96 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. Layout Containers */
+    /* 2. 核心容器布局 */
     #custom-gallery-container .gallery-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
     }
 
-    /* --- Mode: All (Balanced Staggered Grid) --- */
+    /* --- Mode: All (学术瀑布流 - 最稳妥的错位感) --- */
     #custom-gallery-container .gallery-grid.mode-all {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      grid-auto-rows: 10px; /* 控制错位的精细度 */
-      gap: 20px;
-    }
-
-    #custom-gallery-container .mode-all .gallery-item {
+      column-count: 3;
+      column-gap: 20px;
       display: block;
-      grid-row-end: span 25; /* 默认跨度 */
     }
-    /* 让奇数列或特定项目产生高度错位感 */
-    #custom-gallery-container .mode-all .gallery-item:nth-child(even) {
-      margin-top: 30px;
+    #custom-gallery-container .mode-all .gallery-item {
+      break-inside: avoid;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 20px;
     }
 
-    /* --- Mode: Characters (Justified Center) --- */
+    /* --- Mode: Characters (居中展示 - 等比缩放无白边) --- */
     #custom-gallery-container .gallery-grid.mode-characters {
       display: flex;
-      justify-content: center; /* 整体居中 */
-      align-items: flex-start;
+      justify-content: center;
       flex-wrap: wrap;
+      gap: 30px;
     }
-
     #custom-gallery-container .mode-characters .gallery-item {
-      flex: 0 1 auto;
-      max-width: 30%; /* 保证一行约3张，可根据喜好调整 */
+      flex: 0 1 300px; /* 固定一个大致宽度，高度自适应 */
       height: auto;
     }
 
-    #custom-gallery-container .mode-characters .gallery-item img {
-      width: 100%;
-      height: auto; /* 保证原比例缩放，不留白边 */
-      object-fit: contain;
-    }
-
-    /* --- Mode: History & Artifacts (Horizontal Row) --- */
+    /* --- Mode: History & Artifacts (等高横排 - 不裁剪) --- */
     #custom-gallery-container .gallery-grid.mode-horizontal {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 15px;
     }
-
     #custom-gallery-container .mode-horizontal .gallery-item {
-      height: 280px;
+      height: 250px;
       flex: 0 0 auto;
     }
-
     #custom-gallery-container .mode-horizontal .gallery-item img {
       height: 100%;
       width: auto;
-      object-fit: contain; /* 不裁剪 */
     }
 
-    /* Common Item Styles */
+    /* 3. 通用项目样式 */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background-color: transparent; /* 去掉背景白边 */
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      background: none; /* 彻底去掉白边背景 */
     }
 
     #custom-gallery-container .gallery-item img {
       display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* 绝对不裁剪 */
       transition: transform 0.6s ease;
     }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    /* Overlay - Original Style */
+    /* 4. 遮罩层 (保持原有方式) */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 100%);
       color: #fff;
-      padding: 50px 15px 15px 15px;
+      padding: 40px 15px 15px 15px;
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s ease;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
       pointer-events: none;
     }
-
     #custom-gallery-container .gallery-item:hover .gallery-overlay { opacity: 1; transform: translateY(0); }
-    #custom-gallery-container .gallery-item:hover img { transform: scale(1.04); }
+    #custom-gallery-container .gallery-item:hover img { transform: scale(1.03); }
 
-    .overlay-title { font-size: 1rem; font-weight: 600; display: block; }
-    .overlay-desc { font-size: 0.8rem; opacity: 0.9; }
+    .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; }
+    .overlay-desc { font-size: 0.75rem; opacity: 0.8; }
 
-    @media (max-width: 768px) {
-      #custom-gallery-container .mode-characters .gallery-item { max-width: 45%; }
-      #custom-gallery-container .mode-horizontal .gallery-item { height: 200px; }
+    /* 响应式 */
+    @media (max-width: 900px) {
+      #custom-gallery-container .gallery-grid.mode-all { column-count: 2; }
+    }
+    @media (max-width: 600px) {
+      #custom-gallery-container .gallery-grid.mode-all { column-count: 1; }
+      #custom-gallery-container .mode-characters .gallery-item { flex: 0 1 100%; }
     }
   </style>
 
@@ -154,7 +141,6 @@ permalink: /gallery/
   </div>
 
   <div class="gallery-grid mode-all" id="gallery-grid">
-    
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
       <div class="gallery-overlay">
@@ -202,7 +188,6 @@ permalink: /gallery/
         <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
       </div>
     </div>
-
   </div>
 
   <script>
@@ -215,13 +200,10 @@ permalink: /gallery/
         filter.addEventListener('click', function() {
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
-
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Reset grid classes
+          // 清除旧模式并添加新模式
           grid.className = 'gallery-grid';
-
-          // Apply specific mode classes
           if (selectedFilter === 'all') {
             grid.classList.add('mode-all');
           } else if (selectedFilter === 'characters') {
@@ -235,7 +217,7 @@ permalink: /gallery/
             if (selectedFilter === 'all' || category === selectedFilter) {
               item.classList.remove('hide');
               item.style.opacity = "0";
-              setTimeout(() => { item.style.opacity = "1"; }, 10);
+              setTimeout(() => { item.style.opacity = "1"; }, 50);
             } else {
               item.classList.add('hide');
             }
