@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* Academic Filter Tags with larger font */
+    /* Academic Filter Tags with custom color states */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -18,19 +18,25 @@ permalink: /gallery/
 
     #custom-gallery-container .filter-tag {
       font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-      font-size: 1rem; /* Increased font size */
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
-      color: #003366; /* UST Deep Blue */
+      color: #003366; /* Default: UST Deep Blue */
       padding: 5px 5px;
-      transition: all 0.2s ease;
+      transition: color 0.3s ease;
       position: relative;
     }
 
+    /* Hover state: Light Gold */
+    #custom-gallery-container .filter-tag:hover {
+      color: #D4AF37; 
+    }
+
+    /* Selected state: Gold */
     #custom-gallery-container .filter-tag.active {
       font-weight: bold;
-      color: #D4AF37; /* UST Gold */
+      color: #FFD700; /* Gold */
     }
 
     #custom-gallery-container .filter-tag.active::after {
@@ -40,15 +46,15 @@ permalink: /gallery/
       left: 0;
       width: 100%;
       height: 3px;
-      background: #D4AF37;
+      background: #FFD700; /* Gold underline */
     }
 
-    /* Layout Transitions */
+    /* Grid Layout Transitions */
     #custom-gallery-container .gallery-grid {
       transition: all 0.5s ease-in-out;
     }
 
-    /* Mode 1: Masonry (For "All") - NO CROPPING */
+    /* Mode 1: Masonry (For "All") */
     #custom-gallery-container .gallery-grid.masonry-mode {
       column-count: 3;
       column-gap: 15px;
@@ -62,7 +68,7 @@ permalink: /gallery/
       margin-bottom: 15px;
     }
 
-    /* Mode 2: Horizontal (For Categories) - NO CROPPING */
+    /* Mode 2: Horizontal (For Categories) - No Cropping */
     #custom-gallery-container .gallery-grid.horizontal-mode {
       display: flex;
       flex-wrap: wrap;
@@ -71,7 +77,7 @@ permalink: /gallery/
 
     #custom-gallery-container .horizontal-mode .gallery-item {
       flex: 0 0 auto;
-      height: 280px; /* Standard row height */
+      height: 280px; 
     }
 
     #custom-gallery-container .horizontal-mode .gallery-item img {
@@ -80,7 +86,7 @@ permalink: /gallery/
       object-fit: contain;
     }
 
-    /* Common Item Styles (Original Mask Effect) */
+    /* Common Gallery Item Styles */
     #custom-gallery-container .gallery-item {
       background-color: #f8f9fa;
       border-radius: 10px;
@@ -97,7 +103,7 @@ permalink: /gallery/
       transition: transform 0.6s ease;
     }
 
-    /* Original Bottom Gradient Information Bar */
+    /* Overlay Styles */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -150,7 +156,6 @@ permalink: /gallery/
   </div>
 
   <div class="gallery-grid masonry-mode" id="gallery-grid">
-    
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -198,7 +203,6 @@ permalink: /gallery/
         <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
       </div>
     </div>
-
   </div>
 
   <script>
@@ -209,11 +213,13 @@ permalink: /gallery/
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
+          // Manage button states
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
 
           const selectedFilter = this.getAttribute('data-filter');
 
+          // Toggle layout modes
           if (selectedFilter === 'all') {
             grid.classList.remove('horizontal-mode');
             grid.classList.add('masonry-mode');
@@ -222,6 +228,7 @@ permalink: /gallery/
             grid.classList.add('horizontal-mode');
           }
 
+          // Handle item visibility
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
