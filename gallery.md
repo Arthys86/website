@@ -1,29 +1,29 @@
 ---
 layout: page
 title: "Gallery"
-subtitle: "Collection of Scientific Records & Artifacts"
+subtitle: "Gallery subtitle"
 permalink: /gallery/
 ---
 
 <div id="custom-gallery-container">
   <style>
-    /* Academic Filter Tags */
+    /* Academic Filter Tags with larger font */
     #custom-gallery-container .gallery-filters {
       display: flex;
-      gap: 15px;
+      gap: 20px;
       margin: 20px 0 40px 0;
       border-bottom: 1px solid #eee;
       padding-bottom: 15px;
     }
 
     #custom-gallery-container .filter-tag {
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; /* Academic Mono Font */
-      font-size: 0.75rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 1rem; /* Increased font size */
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
       color: #003366; /* UST Deep Blue */
-      padding: 5px 10px;
+      padding: 5px 5px;
       transition: all 0.2s ease;
       position: relative;
     }
@@ -48,10 +48,10 @@ permalink: /gallery/
       transition: all 0.5s ease-in-out;
     }
 
-    /* Mode 1: Academic Masonry (For "All") */
+    /* Mode 1: Masonry (For "All") - NO CROPPING */
     #custom-gallery-container .gallery-grid.masonry-mode {
       column-count: 3;
-      column-gap: 25px;
+      column-gap: 15px;
       display: block;
     }
 
@@ -59,86 +59,91 @@ permalink: /gallery/
       break-inside: avoid;
       display: inline-block;
       width: 100%;
-      margin-bottom: 25px;
-      border: 1px solid #eee; /* Archive box look */
-      padding: 10px;
-      background: #fff;
+      margin-bottom: 15px;
     }
 
-    /* Mode 2: Horizontal Row (For Categories) - NO CROPPING */
+    /* Mode 2: Horizontal (For Categories) - NO CROPPING */
     #custom-gallery-container .gallery-grid.horizontal-mode {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
     }
 
     #custom-gallery-container .horizontal-mode .gallery-item {
       flex: 0 0 auto;
-      height: 300px; /* Fixed standard height for rows */
-      border: 1px solid #eee;
-      padding: 10px;
-      background: #fff;
+      height: 280px; /* Standard row height */
     }
 
     #custom-gallery-container .horizontal-mode .gallery-item img {
       width: auto;
       height: 100%;
-      object-fit: contain; /* Guarantee no cropping */
+      object-fit: contain;
     }
 
-    /* Common Academic Item Styling */
+    /* Common Item Styles (Original Mask Effect) */
     #custom-gallery-container .gallery-item {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      overflow: hidden;
       position: relative;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      transition: box-shadow 0.3s ease;
-    }
-
-    #custom-gallery-container .gallery-item:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    #custom-gallery-container .gallery-item img {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* Academic Caption (No longer an overlay that blocks the image) */
-    #custom-gallery-container .gallery-info {
-      margin-top: 10px;
-      border-top: 1px solid #f5f5f5;
-      padding-top: 8px;
-    }
-
-    .item-label {
-      font-family: monospace;
-      font-size: 0.65rem;
-      color: #999;
-      display: block;
-    }
-
-    .item-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #333;
-      margin: 2px 0;
-    }
-
-    .item-desc {
-      font-size: 0.75rem;
-      color: #666;
-      line-height: 1.4;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    @media (max-width: 800px) {
+    #custom-gallery-container .gallery-item img {
+      display: block;
+      max-width: 100%;
+      transition: transform 0.6s ease;
+    }
+
+    /* Original Bottom Gradient Information Bar */
+    #custom-gallery-container .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      color: #fff;
+      padding: 50px 15px 15px 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-align: left;
+      pointer-events: none;
+    }
+
+    #custom-gallery-container .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #custom-gallery-container .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .overlay-title {
+      font-size: 1rem;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    .overlay-desc {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 900px) {
       #custom-gallery-container .gallery-grid.masonry-mode { column-count: 2; }
       #custom-gallery-container .horizontal-mode .gallery-item { height: 200px; }
     }
   </style>
 
   <div class="gallery-filters">
-    <span class="filter-tag active" data-filter="all">Index</span>
+    <span class="filter-tag active" data-filter="all">All</span>
     <span class="filter-tag" data-filter="history">History</span>
     <span class="filter-tag" data-filter="characters">Characters</span>
     <span class="filter-tag" data-filter="artifacts">Artifacts</span>
@@ -148,55 +153,49 @@ permalink: /gallery/
     
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
-      <div class="gallery-info">
-        <span class="item-label">REC_001</span>
-        <div class="item-title">Dance of the Dragons</div>
-        <div class="item-desc">The Dance over Shipbreaker Bay.</div>
+      <div class="gallery-overlay">
+        <span class="overlay-title">Dance of the Dragons</span>
+        <span class="overlay-desc">The Dance over Shipbreaker Bay</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
-      <div class="gallery-info">
-        <span class="item-label">CHR_002</span>
-        <div class="item-title">Daemon Targaryen</div>
-        <div class="item-desc">The Rogue Prince, Commander of the City Watch.</div>
+      <div class="gallery-overlay">
+        <span class="overlay-title">Daemon Targaryen</span>
+        <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
-      <div class="gallery-info">
-        <span class="item-label">REC_003</span>
-        <div class="item-title">The Conquest</div>
-        <div class="item-desc">Visenya Targaryen and Vhagar.</div>
+      <div class="gallery-overlay">
+        <span class="overlay-title">The Conquest</span>
+        <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
-      <div class="gallery-info">
-        <span class="item-label">CHR_004</span>
-        <div class="item-title">Who</div>
-        <div class="item-desc">Identity unconfirmed. Data pending.</div>
+      <div class="gallery-overlay">
+        <span class="overlay-title">Who</span>
+        <span class="overlay-desc">I don't know</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
-      <div class="gallery-info">
-        <span class="item-label">ART_005</span>
-        <div class="item-title">Dark Sister</div>
-        <div class="item-desc">A longsword of Valyrian steel.</div>
+      <div class="gallery-overlay">
+        <span class="overlay-title">Dark Sister</span>
+        <span class="overlay-desc">a longsword of Valyrian steel</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
-      <div class="gallery-info">
-        <span class="item-label">ART_006</span>
-        <div class="item-title">Iron Throne</div>
-        <div class="item-desc">The seat of the Lord of the Seven Kingdoms.</div>
+      <div class="gallery-overlay">
+        <span class="overlay-title">Iron Throne</span>
+        <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
       </div>
     </div>
 
@@ -215,7 +214,6 @@ permalink: /gallery/
 
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Switch academic layout modes
           if (selectedFilter === 'all') {
             grid.classList.remove('horizontal-mode');
             grid.classList.add('masonry-mode');
