@@ -9,7 +9,7 @@ permalink: /publications/
   <summary>2026</summary>
   <div class="pub-list">
     <ul>
-      <li>Maester Yandel, <strong>The World of Ice and Fire</strong>, Westeros, 2026. <a href="https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire">Link</a></li>
+      <li>Maester Yandel, <span class="pub-title">The World of Ice and Fire</span>, <em>Westeros</em>, 2026. <a href="https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire" target="_blank">DOI</a></li>
     </ul>
   </div>
 </details>
@@ -23,7 +23,7 @@ permalink: /publications/
       <summary>2025</summary>
       <div class="pub-list">
         <ul>
-          <li>Author, <strong><a href="https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire">The World of Ice and Fire</a></strong>, Click name test, 2025.</li>
+          <li>H. Chu, W. Park, Y. Hu, Z. Huang, R. Shi, J. Li, Z. Li, M. Wu, Y. Gao, G. Zhao, X. Huang, C. K. Yiu, B. Zhang, D. Li, <strong>K. Yao</strong>, J. Li, Y. Guo, Y. Huang, Q. Ou, G. Xu, P. Wu, J. Yang, Y. Li, X. Yu, <span class="pub-title">Assessment of Acute Stress and Chronic Stress for Mental Health Management by a Fully Integrated Wearable Biosystem</span>. <em>ACS Nano</em>, 2025. <a href="https://doi.org/10.1021/acsnano.5c12395" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
@@ -32,7 +32,7 @@ permalink: /publications/
       <summary>2024</summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <strong>Journal Article Title</strong>, Journal Name, 2024.</li>
+          <li>Author Name, <span class="pub-title">Journal Article Title</span>, <em>Journal Name</em>, 2024. <a href="#" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
@@ -41,7 +41,7 @@ permalink: /publications/
       <summary>2023</summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <strong>Research Paper Title</strong>, Conference Name, 2023.</li>
+          <li>Author Name, <span class="pub-title">Research Paper Title</span>, <em>Conference Name</em>, 2023. <a href="#" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
@@ -50,7 +50,7 @@ permalink: /publications/
       <summary>2022</summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <strong>Important Scientific Work</strong>, Nature, 2022.</li>
+          <li>Author Name, <span class="pub-title">Important Scientific Work</span>, <em>Nature</em>, 2022. <a href="#" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
@@ -59,7 +59,7 @@ permalink: /publications/
       <summary>2021</summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <strong>Title of Early Work</strong>, Science, 2021.</li>
+          <li>Author Name, <span class="pub-title">Title of Early Work</span>, <em>Science</em>, 2021. <a href="#" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
@@ -68,7 +68,7 @@ permalink: /publications/
       <summary>2020</summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <strong>Foundational Publication</strong>, Journal of Excellence, 2020.</li>
+          <li>Author Name, <span class="pub-title">Foundational Publication</span>, <em>Journal of Excellence</em>, 2020. <a href="#" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
