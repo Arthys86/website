@@ -373,3 +373,56 @@ footer,
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ================================
+   Publications Accordion Styles
+   ================================ */
+.pub-year {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.pub-year summary {
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: var(--blue-mid);
+  cursor: pointer;
+  list-style: none; 
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.pub-year summary::before {
+  content: '▶';
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-right: 0.8rem;
+  transition: transform 0.2s ease;
+  color: var(--gold);
+}
+
+.pub-year[open] summary::before {
+  transform: rotate(90deg); 
+}
+
+.pub-year summary:hover {
+  color: var(--gold);
+}
+
+.pub-list {
+  padding: 1rem 0 1rem 1.8rem;
+}
+
+.pub-list ul {
+  list-style-type: disc;
+  margin-bottom: 0;
+}
+
+.pub-list li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  text-align: justify;
+}
