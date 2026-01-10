@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* 1. Academic Filter Tags - Colors Corrected */
+    /* 1. Academic Filter Tags */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -22,23 +22,14 @@ permalink: /gallery/
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
-      color: #003366; /* Default: UST Deep Blue */
+      color: #003366;
       padding: 5px 5px;
       transition: all 0.3s ease;
       position: relative;
     }
 
-    /* Hover: Light Gold */
-    #custom-gallery-container .filter-tag:hover {
-      color: #D4AF37; 
-    }
-
-    /* Active: Deep Gold (#996600) */
-    #custom-gallery-container .filter-tag.active {
-      font-weight: bold;
-      color: #996600; 
-    }
-
+    #custom-gallery-container .filter-tag:hover { color: #D4AF37; }
+    #custom-gallery-container .filter-tag.active { font-weight: bold; color: #996600; }
     #custom-gallery-container .filter-tag.active::after {
       content: '';
       position: absolute;
@@ -49,62 +40,87 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. Justified Flow Layout (动态流式网格) */
-    #custom-gallery-container .gallery-grid {
+    /* 2. Mode 1: Balanced Staggered Grid (For "All") */
+    #custom-gallery-container .gallery-grid.staggered-mode {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-auto-rows: 10px; /* 基础栅格高度 */
+      grid-auto-flow: dense;
+      gap: 20px;
+    }
+
+    #custom-gallery-container .staggered-mode .gallery-item {
+      grid-row: span 25; /* 默认跨度 */
+      margin-bottom: 0;
+    }
+    /* 模拟有序错位：根据图片特性（手动或动态）设置不同跨度 */
+    #custom-gallery-container .staggered-mode .gallery-item:nth-child(even) { grid-row: span 35; }
+    #custom-gallery-container .staggered-mode .gallery-item:nth-child(3n) { grid-row: span 30; }
+
+    /* 3. Mode 2: Center Original Style (For "Characters") */
+    #custom-gallery-container .gallery-grid.center-mode {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* 整体居中 */
+      gap: 40px;
+    }
+
+    #custom-gallery-container .center-mode .gallery-item {
+      width: auto;
+      max-width: 90%;
+      height: auto;
+    }
+
+    #custom-gallery-container .center-mode .gallery-item img {
+      width: auto;
+      max-width: 100%;
+      height: auto; /* 保持原始比例 */
+      border-radius: 4px;
+    }
+
+    /* 4. Mode 3: Horizontal Mode (For History/Artifacts) */
+    #custom-gallery-container .gallery-grid.horizontal-mode {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px; /* 图片之间的间隙 */
+      gap: 20px;
+      justify-content: center;
     }
 
-    #custom-gallery-container .gallery-grid::after {
-      content: '';
-      flex-grow: 999999999; /* 确保最后一行图片不会过度拉伸 */
+    #custom-gallery-container .horizontal-mode .gallery-item {
+      height: 250px;
+      flex: 0 0 auto;
     }
 
+    #custom-gallery-container .horizontal-mode .gallery-item img {
+      height: 100%;
+      width: auto;
+    }
+
+    /* Common Item Styles - NO BORDERS/WHITE EDGES */
     #custom-gallery-container .gallery-item {
-      flex-grow: 1;
       position: relative;
-      border-radius: 10px;
       overflow: hidden;
-      background-color: #f8f9fa;
+      background: none; /* 去掉白边和背景 */
       transition: transform 0.3s ease, opacity 0.3s ease;
-      height: 280px; /* 统一的行高，宽度按比例自适应 */
     }
 
     #custom-gallery-container .gallery-item img {
-      width: auto;
-      height: 100%;
-      min-width: 100%;
-      object-fit: cover; /* 在流式布局中，cover 配合自动宽度能实现不裁剪的视觉效果 */
-      max-width: 100%;
       display: block;
       transition: transform 0.6s ease;
     }
 
-    /* 如果要绝对保证不裁剪，请使用以下设置，但最后一行可能不对齐 */
-    #custom-gallery-container .gallery-item {
-      flex: 1 0 auto; 
-      width: auto;
-    }
-    #custom-gallery-container .gallery-item img {
-      width: auto;
-      height: 100%;
-      object-fit: contain; 
-    }
-
-    /* 3. Overlay & Info (保持原有展现方式) */
+    /* Overlay Info */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
       color: #fff;
-      padding: 50px 15px 15px 15px;
+      padding: 40px 15px 15px 15px;
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      text-align: left;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
       pointer-events: none;
     }
 
@@ -113,34 +129,12 @@ permalink: /gallery/
       transform: translateY(0);
     }
 
-    #custom-gallery-container .gallery-item:hover img {
-      transform: scale(1.06);
-    }
+    #custom-gallery-container .gallery-item:hover img { transform: scale(1.03); }
 
-    .overlay-title {
-      font-size: 1rem;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 2px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
+    .overlay-title { font-size: 0.9rem; font-weight: 600; display: block; }
+    .overlay-desc { font-size: 0.75rem; opacity: 0.8; }
 
-    .overlay-desc {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      line-height: 1.3;
-    }
-
-    #custom-gallery-container .gallery-item.hide {
-      display: none !important;
-    }
-
-    /* Mobile Adjustment */
-    @media (max-width: 600px) {
-      #custom-gallery-container .gallery-item {
-        height: 180px;
-      }
-    }
+    #custom-gallery-container .gallery-item.hide { display: none !important; }
   </style>
 
   <div class="gallery-filters">
@@ -150,7 +144,8 @@ permalink: /gallery/
     <span class="filter-tag" data-filter="artifacts">Artifacts</span>
   </div>
 
-  <div class="gallery-grid" id="gallery-grid">
+  <div class="gallery-grid staggered-mode" id="gallery-grid">
+    
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -164,6 +159,14 @@ permalink: /gallery/
       <div class="gallery-overlay">
         <span class="overlay-title">Daemon Targaryen</span>
         <span class="overlay-desc">The Rogue Prince</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="characters">
+      <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
+      <div class="gallery-overlay">
+        <span class="overlay-title">PI</span>
+        <span class="overlay-desc">Principal Investigator</span>
       </div>
     </div>
 
@@ -190,12 +193,14 @@ permalink: /gallery/
         <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
       </div>
     </div>
+
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const items = document.querySelectorAll('#custom-gallery-container .gallery-item');
+      const grid = document.getElementById('gallery-grid');
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
@@ -203,6 +208,17 @@ permalink: /gallery/
           this.classList.add('active');
 
           const selectedFilter = this.getAttribute('data-filter');
+
+          // Switch Layout Modes
+          grid.classList.remove('staggered-mode', 'center-mode', 'horizontal-mode');
+          
+          if (selectedFilter === 'all') {
+            grid.classList.add('staggered-mode');
+          } else if (selectedFilter === 'characters') {
+            grid.classList.add('center-mode');
+          } else {
+            grid.classList.add('horizontal-mode');
+          }
 
           items.forEach(item => {
             const category = item.getAttribute('data-category');
