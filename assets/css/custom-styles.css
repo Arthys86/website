@@ -118,13 +118,13 @@ blockquote{
 }
 
 /* ================================
-   Footer (white background, HKUST gold)
+   Footer (deep blue background)
    ================================ */
 
 footer,
 .site-footer-wrap{
-  background: #ffffff !important;
-  border-top: 1px solid rgba(0, 51, 102, 0.15);
+  background: var(--ust-blue) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .site-footer-wrap{
@@ -169,22 +169,22 @@ footer,
   color: #ffffff !important;
 }
 
-/* Footer text + links use deep gold for consistency */
+/* Footer text + links on deep blue background */
 .site-footer-text{
   margin: 0.10rem 0 0 0 !important;
   padding: 0 !important;
   font-size: 1.02rem !important;
   line-height: 1.15 !important;
-  color: var(--gold) !important;
+  color: #ffffff !important;
 }
 
 .site-footer a{
-  color: var(--gold) !important;
+  color: #ffffff !important;
   text-decoration: none;
 }
 .site-footer a:hover,
 .site-footer a:focus{
-  color: var(--gold) !important;
+  color: #ffffff !important;
   text-decoration: none;
 }
 
