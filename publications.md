@@ -5,22 +5,21 @@ subtitle: "publication subtitle"
 permalink: /publications/
 ---
 
-## 2026
+<details class="pub-year" open>
+  <summary>2026</summary>
+  <div class="pub-list">
+    <ul>
+      <li>Maester Yandel, <strong>The World of Ice and Fire</strong>, Westeros, 2026. <a href="https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire">Link</a></li>
+    </ul>
+  </div>
+</details>
 
-<div class="pub-list">
-  <ul>
-    <li>Maester Yandel, <strong>The World of Ice and Fire</strong>, Westeros, 2026. <a href="https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire">Link</a></li>
-  </ul>
-</div>
-
----
-
-<details class="pub-year">
+<details class="pub-year" open>
   <summary>2025 and Earlier</summary>
   
   <div class="pub-content-wrap">
 
-    <details class="pub-year">
+    <details class="pub-year" open>
       <summary>2025</summary>
       <div class="pub-list">
         <ul>
@@ -29,7 +28,7 @@ permalink: /publications/
       </div>
     </details>
 
-    <details class="pub-year">
+    <details class="pub-year" open>
       <summary>2024</summary>
       <div class="pub-list">
         <ul>
@@ -38,16 +37,16 @@ permalink: /publications/
       </div>
     </details>
 
-    <details class="pub-year">
+    <details class="pub-year" open>
       <summary>2023</summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <strong>Another Research Paper</strong>, Conference Name, 2023.</li>
+          <li>Author Name, <strong>Research Paper Title</strong>, Conference Name, 2023.</li>
         </ul>
       </div>
     </details>
 
-    <details class="pub-year">
+    <details class="pub-year" open>
       <summary>2022</summary>
       <div class="pub-list">
         <ul>
@@ -56,7 +55,7 @@ permalink: /publications/
       </div>
     </details>
 
-    <details class="pub-year">
+    <details class="pub-year" open>
       <summary>2021</summary>
       <div class="pub-list">
         <ul>
@@ -65,7 +64,7 @@ permalink: /publications/
       </div>
     </details>
 
-    <details class="pub-year">
+    <details class="pub-year" open>
       <summary>2020</summary>
       <div class="pub-list">
         <ul>
