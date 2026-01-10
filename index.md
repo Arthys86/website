@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Bioelectronics Enabling Sensory & Health Intelligence"
+title: "Bioelectronics Enabling Sensory<br>&amp; Health Intelligence"
 subtitle: "HKUST • ISD"
 ---
 
