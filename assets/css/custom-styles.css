@@ -6,9 +6,11 @@
   --blue-light: #B3DFFC;
   --blue-mid: #2F6FA8;
 
-  /* Gold palette */
+  /* Deep gold (original) */
   --gold: #996600;
-  --gold-light: #FFCC66;
+
+  /* Accent gold sampled from "Our Firsts" image */
+  --gold-accent: #BE9006;
 
   --text-main: #1b1f24;
 }
@@ -91,13 +93,13 @@ main h3{
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link:focus{
   background-color: transparent !important;
-  color: var(--gold-light) !important;
+  color: var(--gold-accent) !important;
 }
 
 .navbar .navbar-nav .active > .nav-link{
   background-color: transparent !important;
-  color: var(--gold-light) !important;
-  border-bottom: 2px solid var(--gold-light);
+  color: var(--gold-accent) !important;
+  border-bottom: 2px solid var(--gold-accent);
 }
 
 /* ================================
@@ -148,9 +150,9 @@ footer,
   margin-right: 0.28rem;
 }
 
-/* Make the stacked icon (and circle) slightly smaller */
+/* Slightly smaller stacked icons */
 .site-footer .fa-stack{
-  font-size: 1.5rem !important;  /* was 1.65rem */
+  font-size: 1.5rem !important;
   width: 2em;
   height: 2em;
   line-height: 2em;
@@ -162,31 +164,31 @@ footer,
   line-height: inherit !important;
 }
 
-/* Footer icon circle uses deep gold */
+/* Footer icon circle uses accent gold */
 .site-footer .fa-circle{
-  color: var(--gold) !important;
+  color: var(--gold-accent) !important;
 }
 .site-footer .fa-inverse{
   color: #ffffff !important;
 }
 
-/* Footer text uses deep gold */
+/* Footer text uses accent gold */
 .site-footer-text{
   margin: 0.10rem 0 0 0 !important;
   padding: 0 !important;
   font-size: 1.02rem !important;
   line-height: 1.15 !important;
-  color: var(--gold) !important;
+  color: var(--gold-accent) !important;
 }
 
-/* Footer links use deep gold (consistent with text) */
+/* Footer links use accent gold */
 .site-footer a{
-  color: var(--gold) !important;
+  color: var(--gold-accent) !important;
   text-decoration: none;
 }
 .site-footer a:hover,
 .site-footer a:focus{
-  color: var(--gold) !important;
+  color: var(--gold-accent) !important;
   text-decoration: none;
 }
 
