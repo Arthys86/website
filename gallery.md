@@ -42,38 +42,44 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* Common Item Styles: Absolute No Borders, Transparent Background */
-    #custom-gallery-container .gallery-item {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      background: transparent !important;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    #custom-gallery-container .gallery-item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Combined with flex-grow for zero-crop visual */
-    }
-
-    /* [All]: Dynamic Ratio Auto-Fill (No Fixed Height) */
-    #custom-gallery-container .gallery-grid.mode-all {
+    /* [Centered] (Previous All): Unified Height, Proportional Width, Centered Row */
+    #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      justify-content: center; /* Center the entire row */
+      align-items: flex-start;
+      gap: 15px;
     }
-    
-    #custom-gallery-container .mode-all .gallery-item {
-      flex-grow: 1;
-      /* Default flex-basis based on an average ratio to encourage row-filling */
-      flex-basis: 300px; 
-      min-height: 250px;
-      max-height: 450px; /* Limits excessive vertical stretching */
+    #custom-gallery-container .mode-centered .gallery-item {
+      height: 280px; /* Fixed row height */
+      width: auto;   /* Width determined by image aspect ratio */
+      flex: 0 0 auto; /* Prevent stretching/cropping */
+    }
+    #custom-gallery-container .mode-centered .gallery-item img {
+      height: 100%;
+      width: auto;
+      object-fit: contain; /* Absolute no crop */
     }
 
-    /* [Left]: Adaptive Horizontal Row */
+    /* [Column] (Previous Centered): 3-Column Grid, Vertical Centering */
+    #custom-gallery-container .gallery-grid.mode-column {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center; 
+      gap: 30px;
+    }
+    #custom-gallery-container .mode-column .gallery-item {
+      flex: 0 1 calc(33.333% - 30px);
+      height: auto;
+    }
+    #custom-gallery-container .mode-column .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* Absolute no crop */
+    }
+
+    /* [Left]: Unified Height, Proportional Width, Left Aligned */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
@@ -81,28 +87,17 @@ permalink: /gallery/
       gap: 15px;
     }
     #custom-gallery-container .mode-left .gallery-item {
-      height: 280px; 
+      height: 280px;
       width: auto;
-      flex: 0 1 auto;
+      flex: 0 0 auto;
     }
     #custom-gallery-container .mode-left .gallery-item img {
-      width: auto;
       height: 100%;
+      width: auto;
+      object-fit: contain;
     }
 
-    /* [Centered]: 3-Column Center Grid */
-    #custom-gallery-container .gallery-grid.mode-centered {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center; 
-      gap: 30px;
-    }
-    #custom-gallery-container .mode-centered .gallery-item {
-      flex: 0 1 calc(33.333% - 30px);
-    }
-
-    /* [Masonry]: Waterfall */
+    /* [Masonry]: Waterfall Layout */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
@@ -112,6 +107,20 @@ permalink: /gallery/
       display: block;
       width: 100%;
       margin-bottom: 20px;
+    }
+    #custom-gallery-container .mode-masonry .gallery-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* Common Item Styles: No Background, No Borders */
+    #custom-gallery-container .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: transparent !important;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     /* 3. Overlay and Captions */
@@ -136,23 +145,28 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    /* Responsive adjustments */
-    @media (max-width: 800px) {
+    /* Responsive Logic */
+    @media (max-width: 900px) {
       #custom-gallery-container .mode-masonry { column-count: 2; }
-      #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 calc(50% - 30px); }
-      #custom-gallery-container .mode-all .gallery-item { flex-basis: 45%; }
+      #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(50% - 30px); }
+    }
+    @media (max-width: 600px) {
+      #custom-gallery-container .mode-masonry { column-count: 1; }
+      #custom-gallery-container .mode-column .gallery-item { flex: 0 1 100%; }
+      #custom-gallery-container .mode-centered .gallery-item,
+      #custom-gallery-container .mode-left .gallery-item { height: 200px; }
     }
   </style>
 
   <div class="gallery-filters">
-    <span class="filter-tag active" data-filter="all">All</span>
+    <span class="filter-tag active" data-filter="centered">Centered</span>
     <span class="filter-tag" data-filter="left">Left</span>
-    <span class="filter-tag" data-filter="centered">Centered</span>
+    <span class="filter-tag" data-filter="column">Column</span>
     <span class="filter-tag" data-filter="masonry">Masonry</span>
   </div>
 
-  <div class="gallery-grid mode-all" id="gallery-grid">
-    <div class="gallery-item" data-category="characters">
+  <div class="gallery-grid mode-centered" id="gallery-grid">
+    <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
       <div class="gallery-overlay">
         <span class="overlay-title">Who</span>
@@ -160,7 +174,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="history">
+    <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
       <div class="gallery-overlay">
         <span class="overlay-title">The Conquest</span>
@@ -168,7 +182,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="artifacts">
+    <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
       <div class="gallery-overlay">
         <span class="overlay-title">Iron Throne</span>
@@ -176,7 +190,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="history">
+    <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
         <span class="overlay-title">Dance of the Dragons</span>
@@ -184,7 +198,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="characters">
+    <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Member">
       <div class="gallery-overlay">
         <span class="overlay-title">Team Member</span>
@@ -192,7 +206,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="artifacts">
+    <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
@@ -215,12 +229,12 @@ permalink: /gallery/
 
           grid.className = 'gallery-grid';
           
-          if (selectedFilter === 'all') {
-            grid.classList.add('mode-all');
+          if (selectedFilter === 'centered') {
+            grid.classList.add('mode-centered');
           } else if (selectedFilter === 'left') {
             grid.classList.add('mode-left');
-          } else if (selectedFilter === 'centered') {
-            grid.classList.add('mode-centered');
+          } else if (selectedFilter === 'column') {
+            grid.classList.add('mode-column');
           } else if (selectedFilter === 'masonry') {
             grid.classList.add('mode-masonry');
           }
