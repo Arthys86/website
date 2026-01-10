@@ -12,6 +12,11 @@ permalink: /members/
 <div class="pi-grid">
   <div class="pi-photo-wrap">
     <img class="pi-photo" src="{{ '/assets/img/pi.jpg' | relative_url }}" alt="PI photo">
+
+    <p class="pi-email">
+      <strong>Email:</strong>
+      <a href="mailto:yao@hkust.edu.hk">yao@hkust.edu.hk</a>
+    </p>
   </div>
 
   <div class="pi-content">
@@ -40,10 +45,6 @@ permalink: /members/
         Zhejiang University, Hangzhou, China
       </li>
     </ul>
-
-    <p class="pi-contact">
-      <strong>Email:</strong> yao@hkust.edu.hk
-    </p>
   </div>
 </div>
 
