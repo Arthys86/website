@@ -295,10 +295,13 @@ footer,
 /* Two-column PI block: photo (left) + CV (right) */
 .pi-grid{
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr); /* widened left column to keep email on one line */
-  gap: 2.8rem; /* spacing between photo and text */
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 2.8rem;
   align-items: start;
-  margin: 0.6rem 0 1.2rem 0;
+
+  /* Center the whole PI block within the page */
+  max-width: 980px;
+  margin: 0.6rem auto 1.2rem auto;
 }
 
 .pi-photo{
