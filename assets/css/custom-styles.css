@@ -6,7 +6,7 @@
   --blue-light: #B3DFFC;
   --blue-mid: #2F6FA8;
 
-  /* Gold (as requested) */
+  /* Gold palette */
   --gold: #996600;
   --gold-light: #FFCC66;
 
@@ -161,30 +161,31 @@ footer,
   line-height: inherit !important;
 }
 
-/* Footer icon circle uses deep gold */
+/* Footer icon circle uses LIGHT gold */
 .site-footer .fa-circle{
-  color: var(--gold) !important;
+  color: var(--gold-light) !important;
 }
 .site-footer .fa-inverse{
   color: #ffffff !important;
 }
 
-/* Footer text + links on deep blue background */
+/* Footer text uses deep gold */
 .site-footer-text{
   margin: 0.10rem 0 0 0 !important;
   padding: 0 !important;
   font-size: 1.02rem !important;
   line-height: 1.15 !important;
-  color: #ffffff !important;
+  color: var(--gold) !important;
 }
 
+/* Footer links use deep gold (consistent with text) */
 .site-footer a{
-  color: #ffffff !important;
+  color: var(--gold) !important;
   text-decoration: none;
 }
 .site-footer a:hover,
 .site-footer a:focus{
-  color: #ffffff !important;
+  color: var(--gold) !important;
   text-decoration: none;
 }
 
@@ -221,19 +222,4 @@ footer,
 .two-col-text p{
   margin-top: 0 !important;
   text-align: justify;
-  text-justify: inter-word;
-}
-
-/* Responsive: stack on small screens */
-@media (max-width: 768px){
-  .two-col{
-    flex-direction: column;
-  }
-  .two-col-media{
-    flex: 0 0 auto;
-    width: 100%;
-  }
-  .two-col-media img{
-    max-height: none;
-  }
-}
+  text-
