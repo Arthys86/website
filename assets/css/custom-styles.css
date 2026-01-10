@@ -71,15 +71,15 @@ main h3{
   background-color: var(--ust-blue);
   border-color: var(--ust-blue);
 
-  /* Reduce vertical spacing in expanded navbar as well */
-  padding-top: 0.30rem;
-  padding-bottom: 0.30rem;
+  /* Slightly more vertical space in expanded navbar (but still compact) */
+  padding-top: 0.36rem;
+  padding-bottom: 0.36rem;
 }
 
 .navbar .navbar-brand{
   color: #ffffff !important;
   font-weight: 400;
-  font-size: 1.18rem !important; /* Slightly smaller than before, still larger than default nav links */
+  font-size: 1.26rem !important; /* slightly larger brand text */
   letter-spacing: 0.2px;
 
   /* HKUST logo alignment */
@@ -109,7 +109,7 @@ main h3{
   font-weight: 400;
   letter-spacing: 0.2px;
 
-  /* Reduce vertical padding for nav items */
+  /* Keep Bootstrap's default font-size (do not override) */
   padding-top: 0.30rem;
   padding-bottom: 0.30rem;
 }
