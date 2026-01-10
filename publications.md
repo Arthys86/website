@@ -79,10 +79,35 @@ permalink: /publications/
     </details>
 
     <details class="pub-year" open>
-      <summary>2022 <span class="pub-count">0</span></summary>
+      <summary>2022 <span class="pub-count">17</span></summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2022. <a href="#" target="_blank">DOI</a></li>
+          <li>D. Li†, J. Zhou†, <strong>K. Yao†</strong>, S. Liu†, J. He†, J. Su, Q. Qu, Y. Gao, Z. Song, C. Yiu, C. Sha, Z. Sun, B. Zhang, J. Li, L. Huang, C. Xu, T. H. Wong, X. Huang, J. Li, R. Ye, L. Wei, Z. Zhang, X. Guo, Y. Dai, Z. Xie, X. Yu, <span class="pub-title">Touch IoT enabled by wireless self-sensing and haptic-reproducing electronic skin</span>. <em>Sci. Adv.</em>, 2022. <a href="https://doi.org/10.1126/sciadv.ade2450" target="_blank">DOI</a></li>
+          <li>J. Li, X. Huang, Y. Yang, J. Zhou, <strong>K. Yao</strong>, J. Li, Y. Zhou, M. Li, T. H. Wong, X. Yu, <span class="pub-title">Wearable and battery-free wound dressing system for wireless and early sepsis diagnosis</span>. <em>Bioeng. Transl. Med.</em>, 2022.</li>
+          <li><strong>K. Yao†</strong>, J. Zhou†, Q. Huang†, M. Wu†, C. K. Yiu†, J. Li, X. Huang, D. Li, J. Su, S. Hou, Y. Liu, Y. Huang, Z. Tian, J. Li, H. Li, R. Shi, B. Zhang, J. Zhu, T. H. Wong, H. Jia, Z. Gao, Y. Gao, Y. Zhou, W. Park, E. Song, M. Han, H. Zhang, J. Yu, L. Wang, W. J. Li, X. Yu, <span class="pub-title">Encoding of tactile information in hand via skin-integrated wireless haptic interface</span>. <em>Nat. Mach. Intell.</em>, 2022. <a href="https://doi.org/10.1038/s42256-022-00543-y" target="_blank">DOI</a></li>
+          <li>C. Yiu, Y. Liu, C. Zhang, J. Zhou, H. Jia, T. H. Wong, X. Huang, J. Li, <strong>K. Yao</strong>, M. K. Yau, L. Zhao, H. Li, B. Zhang, W. Park, Y. Zhang, Z. Wang, X. Yu, <span class="pub-title">Soft, stretchable, wireless intelligent three-lead electrocardiograph monitors with feedback functions for warning of potential heart attack</span>. <em>SmartMat</em>, 2022.</li>
+          <li>Q. Huang, C. Wu, S. Hou, <strong>K. Yao</strong>, H. Sun, Y. Wang, Y. Chen, J. Law, M. Yang, H. Chan, V. A. L. Roy, Y. Zhao, D. Wang, E. Song, X. Yu, L. Lao, Y. Sun, W. J. Li, <span class="pub-title">Mapping of Spatiotemporal Auricular Electrophysiological Signals Reveals Human Biometric Clusters</span>. <em>Adv. Healthc. Mater.</em>, 2022.</li>
+          <li>J. Suo, Y. Liu, C. Wu, M. Chen, Q. Huang, Y. Liu, <strong>K. Yao</strong>, Y. Chen, Q. Pan, X. Chang, A. Y. L. Leung, H. Chan, G. Zhang, Z. Yang, W. Daoud, X. Li, V. A. L. Roy, J. Shen, X. Yu, J. Wang, W. J. Li, <span class="pub-title">Wide-Bandwidth Nanocomposite-Sensor Integrated Smart Mask for Tracking Multiphase Respiratory Activities</span>. <em>Adv. Sci.</em>, 2022.</li>
+          <li>Y. Huang, H. Li, T. Hu, J. Li, C. K. Yiu, J. Zhou, J. Li, X. Huang, <strong>K. Yao</strong>, X. Qiu, Y. Zhou, D. Li, B. Zhang, R. Shi, Y. Liu, T. H. Wong, M. Wu, H. Jia, Z. Gao, Z. Zhang, J. He, M. Zheng, E. Song, L. Wang, C. Xu, X. Yu, <span class="pub-title">Implantable Electronic Medicine Enabled by Bioresorbable Microneedles for Wireless Electrotherapy and Drug Delivery</span>. <em>Nano Lett.</em>, 2022.</li>
+          <li>J. Huang, Z. Ren, Y. Zhang, P. W.-K. Fong, H. T. Chandran, Q. Liang, <strong>K. Yao</strong>, H. Tang, H. Xia, H. Zhang, X. Yu, Z. Zheng, G. Li, <span class="pub-title">Tandem Self-Powered Flexible Electrochromic Energy Supplier for Sustainable All-Day Operations</span>. <em>Adv. Energy Mater.</em>, 2022.</li>
+          <li>Y. Liu, T. H. Wong, X. Huang, C. K. Yiu, Y. Gao, L. Zhao, J. Zhou, W. Park, Z. Zhao, <strong>K. Yao</strong>, H. Li, H. Jia, J. Li, J. Li, Y. Huang, M. Wu, B. Zhang, D. Li, C. Zhang, Z. Wang, X. Yu, <span class="pub-title">Skin-integrated, stretchable, transparent triboelectric nanogenerators based on ion-conducting hydrogel for energy harvesting and tactile sensing</span>. <em>Nano Energy</em>, 2022.</li>
+          <li>M. Wu, R. Shi, J. Zhou, T. H. Wong, <strong>K. Yao</strong>, J. Li, X. Huang, D. Li, Y. Gao, Y. Liu, S. Hou, J. Yu, X. Yu, <span class="pub-title">Bio-inspired ultra-thin microfluidics for soft sweat-activated batteries and skin electronics</span>. <em>J. Mater. Chem. A</em>, 2022.</li>
+          <li>X. Huang, H. Li, J. Li, L. Huang, <strong>K. Yao</strong>, C. K. Yiu, Y. Liu, T. H. Wong, D. Li, M. Wu, Y. Huang, Z. Gao, J. Zhou, Y. Gao, J. Li, Y. Jiao, R. Shi, B. Zhang, B. Hu, Q. Guo, E. Song, R. Ye, X. Yu, <span class="pub-title">Transient, Implantable, Ultrathin Biofuel Cells Enabled by Laser-Induced Graphene and Gold Nanoparticles Composite</span>. <em>Nano Lett.</em>, 2022.</li>
+          <li>Y. Liu, C. Yiu, Z. Song, Y. Huang, <strong>K. Yao</strong>, T. Wong, J. Zhou, L. Zhao, X. Huang, S. K. Nejad, M. Wu, D. Li, J. He, X. Guo, J. Yu, X. Feng, Z. Xie, X. Yu, <span class="pub-title">Electronic skin as wireless human-machine interfaces for robotic VR</span>. <em>Sci. Adv.</em>, 2022. <a href="https://doi.org/10.1126/sciadv.abl6700" target="_blank">DOI</a></li>
+          <li>Y. Liu, X. Huang, J. Zhou, C. K. Yiu, Z. Song, W. Huang, S. K. Nejad, H. Li, T. H. Wong, <strong>K. Yao</strong>, L. Zhao, W. Yoo, W. Park, J. Li, Y. Huang, H. R. Lam, E. Song, X. Guo, Y. Wang, Z. Dai, L. Chang, W. J. Li, Z. Xie, X. Yu, <span class="pub-title">Stretchable Sweat-Activated Battery in Skin-Integrated Electronics for Continuous Wireless Sweat Monitoring</span>. <em>Adv. Sci.</em>, 2022.</li>
+          <li>Y. Huang†, <strong>K. Yao†</strong>, J. Li, D. Li, H. Jia, Y. Liu, C. K. Yiu, W. Park, X. Yu, <span class="pub-title">Recent advances in multi-mode haptic feedback technologies towards wearable interfaces</span>. <em>Mater. Today Phys.</em>, 2022. <a href="https://doi.org/10.1016/j.mtphys.2021.100602" target="_blank">DOI</a></li>
+          <li>T. H. Wong†, Y. Liu†, J. Li†, <strong>K. Yao†</strong>, S. Liu, C. K. Yiu, X. Huang, M. Wu, W. Park, J. Zhou, S. K. Nejad, H. Li, D. Li, Z. Xie, X. Yu, <span class="pub-title">Triboelectric Nanogenerator Tattoos Enabled by Epidermal Electronic Technologies</span>. <em>Adv. Funct. Mater.</em>, 2022. <a href="https://doi.org/10.1002/adfm.202111269" target="_blank">DOI</a></li>
+          <li>X. Huang, J. Li, Y. Liu, T. Wong, J. Su, <strong>K. Yao</strong>, J. Zhou, Y. Huang, H. Li, D. Li, M. Wu, E. Song, S. Han, X. Yu, <span class="pub-title">Epidermal self-powered sweat sensors for glucose and lactate monitoring</span>. <em>Bio-des. Manuf.</em>, 2022.</li>
+          <li>Y. Liu, X. Huang, J. Zhou, J. Li, S. K. Nejad, C. K. Yiu, H. Li, T. H. Wong, W. Park, <strong>K. Yao</strong>, L. Zhao, R. Shi, Y. Wang, Z. Dai, X. Yu, <span class="pub-title">Bandage based energy generators activated by sweat in wireless skin electronics for continuous physiological monitoring</span>. <em>Nano Energy</em>, 2022.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="pub-year" open>
+      <summary>2021 <span class="pub-count">0</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2021. <a href="#" target="_blank">DOI</a></li>
         </ul>
       </div>
     </details>
