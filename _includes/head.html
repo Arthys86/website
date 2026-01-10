@@ -3,13 +3,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>
-    {%- if page.title and page.url != "/" -%}
-      {{ site.title }} - {{ page.title }}
-    {%- else -%}
+    {%- if page.url == "/" -%}
       {{ site.title }}
+    {%- elsif page.title -%}
+      {{ site.short-title }} - {{ page.title }}
+    {%- else -%}
+      {{ site.short-title }}
     {%- endif -%}
   </title>
-
 
   {% if site.author %}
   <meta name="author" content="{{ site.author }}">
