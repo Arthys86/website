@@ -1,17 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500&display=swap");
 
 :root{
-  /* Deep blue sampled from your provided image */
+  /* Color Palette */
   --ust-blue: #003367;
   --blue-light: #B3DFFC;
   --blue-mid: #2F6FA8;
-
-  /* Deep gold (original) */
   --gold: #996600;
-
-  /* Accent gold sampled from "Our Firsts" image */
   --gold-accent: #BE9006;
-
   --text-main: #1b1f24;
 }
 
@@ -43,7 +38,6 @@ a:hover,a:focus{ color: var(--gold); }
   line-height: 1.15 !important;
 }
 
-/* Subtitle uses deep gold */
 .page-subheading{
   color: var(--gold) !important;
   font-size: 1.02rem !important;
@@ -79,7 +73,6 @@ main h3{
   font-weight: 400;
   font-size: 1.26rem !important;
   letter-spacing: 0.2px;
-
   display: inline-flex;
   align-items: center;
   padding-top: 0;
@@ -91,9 +84,8 @@ main h3{
   color: #ffffff !important;
 }
 
-/* HKUST logo */
 .navbar .navbar-brand-logo{
-  height: 40px;        /* Logo size */
+  height: 40px;
   width: auto;
   margin-right: 0.5rem;
   display: inline-block;
@@ -103,8 +95,6 @@ main h3{
   color: #ffffff !important;
   font-weight: 400;
   letter-spacing: 0.2px;
-
-  /* Keep Bootstrap's default font-size (do not override) */
   padding-top: 0.30rem;
   padding-bottom: 0.30rem;
 }
@@ -121,18 +111,15 @@ main h3{
   border-bottom: 2px solid var(--gold-accent);
 }
 
-/* Reduce vertical spacing when navbar is collapsed (navbar-expand-xl collapses < 1200px) */
 @media (max-width: 1199.98px){
   .navbar{
     padding-top: 0.18rem;
     padding-bottom: 0.18rem;
   }
-
   .navbar .navbar-nav .nav-link{
     padding-top: 0.22rem;
     padding-bottom: 0.22rem;
   }
-
   .navbar .navbar-toggler{
     padding: 0.12rem 0.42rem;
   }
@@ -156,7 +143,7 @@ blockquote{
 }
 
 /* ================================
-   Footer (deep blue background)
+   Footer
    ================================ */
 
 footer,
@@ -194,11 +181,6 @@ footer,
   vertical-align: middle;
 }
 
-.site-footer .fa-stack-2x,
-.site-footer .fa-stack-1x{
-  line-height: inherit !important;
-}
-
 .site-footer .fa-circle{
   color: var(--gold-accent) !important;
 }
@@ -218,14 +200,9 @@ footer,
   color: var(--gold-accent) !important;
   text-decoration: none;
 }
-.site-footer a:hover,
-.site-footer a:focus{
-  color: var(--gold-accent) !important;
-  text-decoration: none;
-}
 
 /* ================================
-   Two-column layout (no cropping)
+   Two-column layout
    ================================ */
 
 .two-col{
@@ -267,36 +244,28 @@ footer,
     flex: 0 0 auto;
     width: 100%;
   }
-  .two-col-media img{
-    max-height: none;
-  }
 }
 
 /* ================================
    Members page layout
    ================================ */
 
-/*
-  PI block centering approach:
-  - Keep left column at 260px (as before).
-  - Constrain right column to a reasonable max width so the whole grid does NOT stretch across the page.
-  - Center the whole grid with justify-content + margin auto.
-*/
 .pi-grid{
   display: grid;
+  /* Define fixed width for photo and flexible for content */
   grid-template-columns: 260px minmax(0, 640px);
-  gap: 3.2rem;                /* larger spacing between photo and text */
+  gap: 3.2rem;
   align-items: start;
-  justify-content: center;    /* centers the grid tracks inside container */
+  /* Centering the entire block */
+  justify-content: center;
+  max-width: 952px; /* 260 + 51.2(gap) + 640 approx */
   margin: 0.6rem auto 1.2rem auto;
 }
 
-/* PI left column: heading above photo */
 .pi-name-incol{
   margin: 0 0 0.6rem 0;
 }
 
-/* PI photo */
 .pi-photo{
   width: 100%;
   height: auto;
@@ -305,14 +274,10 @@ footer,
   object-fit: cover;
 }
 
-/* Email under PI photo (force single line on desktop) */
 .pi-email{
   margin: 0.65rem 0 0 0;
   line-height: 1.2;
   white-space: nowrap;
-}
-.pi-email a{
-  text-decoration: none;
 }
 
 .pi-cv{
@@ -330,7 +295,6 @@ footer,
   opacity: 0.9;
 }
 
-/* Member cards: 2 per row */
 .member-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -353,7 +317,6 @@ footer,
   object-fit: cover;
   border-radius: 8px;
   flex: 0 0 auto;
-  display: block;
 }
 
 .member-name{
@@ -366,25 +329,28 @@ footer,
   line-height: 1.2;
 }
 
-/* Mobile: stack to 1 column */
 @media (max-width: 768px){
   .pi-grid{
     grid-template-columns: 1fr;
-    justify-content: start;
+    justify-content: center;
     gap: 1.2rem;
+    text-align: center;
+  }
+  .pi-photo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .pi-photo{
     max-width: 260px;
   }
-  .pi-email{
-    white-space: normal; /* allow wrapping on small screens */
+  .pi-cv {
+    text-align: left;
   }
-
+  .pi-email{
+    white-space: normal;
+  }
   .member-grid{
     grid-template-columns: 1fr;
-  }
-  .member-photo{
-    width: 96px;
-    height: 96px;
   }
 }
