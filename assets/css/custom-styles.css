@@ -84,6 +84,19 @@ main h3{
   color: #ffffff !important;
 }
 
+/* HKUST logo */
+.navbar .navbar-brand{
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar .navbar-brand-logo{
+  height: 28px;        /* Logo size */
+  width: auto;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
 .navbar .navbar-nav .nav-link{
   color: #ffffff !important;
   font-weight: 400;
