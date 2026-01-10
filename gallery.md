@@ -48,23 +48,22 @@ permalink: /gallery/
       transition: all 0.3s ease;
     }
 
-    /* 3. MODE: Centered (Modified ONLY this part to meet your specific row needs) */
+    /* 3. MODE: Centered (Original ratio, row-based heights, no crop) */
     #custom-gallery-container .gallery-grid.mode-centered {
       justify-content: center;
     }
     
-    /* Using nth-child to simulate row heights without extra DIVs */
-    /* Images 1-3 (First Row) */
+    /* Row 1 (Items 1-3) height */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) {
       height: 280px; 
       flex: 0 0 auto;
     }
-    /* Images 4-6 (Second Row) */
+    /* Row 2 (Items 4-6) height */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) {
       height: 350px;
       flex: 0 0 auto;
     }
-    /* Force line break after the 3rd image to ensure Row 1 and Row 2 separation */
+    /* Force line break after the 3rd item */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
@@ -81,7 +80,7 @@ permalink: /gallery/
       flex: 0 0 auto;
     }
 
-    /* 5. MODE: Column */
+    /* 5. MODE: Column (3-column layout) */
     #custom-gallery-container .gallery-grid.mode-column {
       justify-content: center;
       align-items: center;
@@ -114,13 +113,13 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item img {
       height: 100%;
-      width: auto; /* Proportional width, no cropping */
+      width: auto; /* Proportional width */
       max-width: 100%;
       display: block;
-      object-fit: contain; /* Guarantee original ratio */
+      object-fit: contain; /* Absolute no crop */
     }
 
-    /* 7. Overlay & Captions (Original Hover Style Restored) */
+    /* 7. Overlay & Captions Styling */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -165,44 +164,50 @@ permalink: /gallery/
         <span class="overlay-desc">I don't know</span>
       </div>
     </div>
+
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
       <div class="gallery-overlay">
         <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">Archival Image</span>
+        <span class="overlay-desc">The Conquest</span>
       </div>
     </div>
+
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">Ancient Artifact</span>
+        <span class="overlay-desc">Dark Sister</span>
       </div>
     </div>
+
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
         <span class="overlay-title">Dance of the Dragons</span>
-        <span class="overlay-desc">Historical Record</span>
+        <span class="overlay-desc">Dance of the Dragons</span>
       </div>
     </div>
+
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Member">
       <div class="gallery-overlay">
-        <span class="overlay-title">Team Member</span>
-        <span class="overlay-desc">Researcher</span>
+        <span class="overlay-title">Member</span>
+        <span class="overlay-desc">Member</span>
       </div>
     </div>
+
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
       <div class="gallery-overlay">
         <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">Relic Analysis</span>
+        <span class="overlay-desc">Iron Throne</span>
       </div>
     </div>
   </div>
 
   <script>
+    /* Filter functionality without structural changes */
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const grid = document.getElementById('gallery-grid');
@@ -213,7 +218,6 @@ permalink: /gallery/
           this.classList.add('active');
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Change grid mode class
           grid.className = 'gallery-grid mode-' + selectedFilter;
         });
       });
