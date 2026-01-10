@@ -48,22 +48,22 @@ permalink: /gallery/
       transition: all 0.3s ease;
     }
 
-    /* 3. MODE: Centered (Original ratio, row-based heights, no crop) */
+    /* 3. MODE: Centered - Fixed row heights, zero cropping, centered flow */
     #custom-gallery-container .gallery-grid.mode-centered {
       justify-content: center;
     }
     
-    /* Row 1 (Items 1-3) height */
+    /* Row 1 (Items 1-3) height control */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) {
       height: 280px; 
       flex: 0 0 auto;
     }
-    /* Row 2 (Items 4-6) height */
+    /* Row 2 (Items 4-6) height control */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) {
       height: 350px;
       flex: 0 0 auto;
     }
-    /* Force line break after the 3rd item */
+    /* Force Row Break after the 3rd image */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
@@ -71,36 +71,15 @@ permalink: /gallery/
       display: block;
     }
 
-    /* 4. MODE: Left */
-    #custom-gallery-container .gallery-grid.mode-left {
-      justify-content: flex-start;
-    }
-    #custom-gallery-container .mode-left .gallery-item {
-      height: 250px;
-      flex: 0 0 auto;
-    }
+    /* 4. Support for other modes without breaking layout */
+    #custom-gallery-container .gallery-grid.mode-left { justify-content: flex-start; }
+    #custom-gallery-container .mode-left .gallery-item { height: 250px; flex: 0 0 auto; }
 
-    /* 5. MODE: Column (3-column layout) */
-    #custom-gallery-container .gallery-grid.mode-column {
-      justify-content: center;
-      align-items: center;
-    }
-    #custom-gallery-container .mode-column .gallery-item {
-      flex: 0 1 calc(33.333% - 20px);
-      height: auto;
-    }
+    #custom-gallery-container .gallery-grid.mode-column { justify-content: center; align-items: center; }
+    #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(33.333% - 20px); height: auto; }
 
-    /* 6. MODE: Masonry */
-    #custom-gallery-container .gallery-grid.mode-masonry {
-      display: block;
-      column-count: 3;
-      column-gap: 20px;
-    }
-    #custom-gallery-container .mode-masonry .gallery-item {
-      display: block;
-      width: 100%;
-      margin-bottom: 20px;
-    }
+    #custom-gallery-container .gallery-grid.mode-masonry { display: block; column-count: 3; column-gap: 20px; }
+    #custom-gallery-container .mode-masonry .gallery-item { display: block; width: 100%; margin-bottom: 20px; }
 
     /* Shared Item & Image Styling */
     #custom-gallery-container .gallery-item {
@@ -113,13 +92,13 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item img {
       height: 100%;
-      width: auto; /* Proportional width */
+      width: auto; /* Preserve original aspect ratio */
       max-width: 100%;
       display: block;
-      object-fit: contain; /* Absolute no crop */
+      object-fit: contain; /* Guarantee no cropping */
     }
 
-    /* 7. Overlay & Captions Styling */
+    /* 5. Overlay Styling - Bottom gradient visible on hover */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -132,6 +111,7 @@ permalink: /gallery/
       transform: translateY(10px);
       transition: all 0.3s ease;
       pointer-events: none;
+      z-index: 2;
     }
     
     #custom-gallery-container .gallery-item:hover .gallery-overlay { 
@@ -143,7 +123,7 @@ permalink: /gallery/
       transform: scale(1.03); 
     }
 
-    .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; }
+    .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 4px; }
     .overlay-desc { font-size: 0.75rem; opacity: 0.9; }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
@@ -169,7 +149,7 @@ permalink: /gallery/
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
       <div class="gallery-overlay">
         <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">The Conquest</span>
+        <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
       </div>
     </div>
 
@@ -177,7 +157,7 @@ permalink: /gallery/
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">Dark Sister</span>
+        <span class="overlay-desc">a longsword of Valyrian steel</span>
       </div>
     </div>
 
@@ -185,15 +165,15 @@ permalink: /gallery/
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
         <span class="overlay-title">Dance of the Dragons</span>
-        <span class="overlay-desc">Dance of the Dragons</span>
+        <span class="overlay-desc">The Dance over Shipbreaker Bay</span>
       </div>
     </div>
 
     <div class="gallery-item">
-      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Member">
+      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
       <div class="gallery-overlay">
-        <span class="overlay-title">Member</span>
-        <span class="overlay-desc">Member</span>
+        <span class="overlay-title">Daemon Targaryen</span>
+        <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
       </div>
     </div>
 
@@ -201,13 +181,13 @@ permalink: /gallery/
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
       <div class="gallery-overlay">
         <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">Iron Throne</span>
+        <span class="overlay-desc">The throne of the monarchs of the Seven Kingdoms</span>
       </div>
     </div>
   </div>
 
   <script>
-    /* Filter functionality without structural changes */
+    /* Filter toggle functionality */
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const grid = document.getElementById('gallery-grid');
@@ -217,7 +197,6 @@ permalink: /gallery/
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
           const selectedFilter = this.getAttribute('data-filter');
-
           grid.className = 'gallery-grid mode-' + selectedFilter;
         });
       });
