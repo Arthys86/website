@@ -40,42 +40,43 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. Optimized Justified Layout Modes */
+    /* 2. Layout Modes Configuration */
 
-    /* Common Item Config: Zero Cropping, No White Borders */
+    /* Common Item Config: NO BACKGROUND, NO CROP */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background: transparent !important;
+      background: none !important; /* Ensure no background color shows */
       transition: transform 0.3s ease, opacity 0.3s ease;
-      flex-grow: 1; /* Allow items to fill the row gaps */
+      display: inline-block;
     }
 
     #custom-gallery-container .gallery-item img {
       display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Guarantee no cropping */
+      width: auto; /* Width determined by aspect ratio */
+      max-width: 100%;
+      height: 100%; /* Height controlled by container row height */
     }
 
-    /* [All] & [Left]: Automatic Row Justification */
+    /* [All] & [Left]: Consistent Row Height, Natural Width */
     #custom-gallery-container .gallery-grid.mode-all,
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
-      justify-content: flex-start; /* 'Left' style */
     }
+    
+    #custom-gallery-container .mode-all { justify-content: center; } /* Centered row for All */
+    #custom-gallery-container .mode-left { justify-content: flex-start; } /* Left row for Left */
 
-    /* Base height for the 'Justified' effect */
     #custom-gallery-container .mode-all .gallery-item,
     #custom-gallery-container .mode-left .gallery-item {
-      height: 280px; 
-      min-width: 200px;
+      height: 280px; /* Fixed row height, width scales proportionally */
+      flex: 0 0 auto; /* Prevent stretching which causes gaps/bars */
     }
 
-    /* [Centered]: Three Columns, Center-Aligned, No Gaps at Bottom */
+    /* [Centered]: 3-Column, Vertically Centered, Proportional */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -84,22 +85,29 @@ permalink: /gallery/
       gap: 30px;
     }
     #custom-gallery-container .mode-centered .gallery-item {
-      flex: 0 1 calc(33.333% - 30px);
+      width: calc(33.333% - 30px);
+      height: auto; /* Height adapts to 3-column width */
+    }
+    #custom-gallery-container .mode-centered .gallery-item img {
+      width: 100%;
       height: auto;
-      flex-grow: 0; /* Maintain 3-column structure */
     }
 
-    /* [Masonry]: Standard Vertical Waterfall */
+    /* [Masonry]: Waterfall Layout */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
       display: block;
     }
     #custom-gallery-container .mode-masonry .gallery-item {
-      break-inside: avoid;
-      display: inline-block;
+      display: block;
       width: 100%;
       margin-bottom: 20px;
+      height: auto;
+    }
+    #custom-gallery-container .mode-masonry .gallery-item img {
+      width: 100%;
+      height: auto;
     }
 
     /* 3. Overlay and Captions */
@@ -124,14 +132,13 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    /* Responsive Logic */
     @media (max-width: 900px) {
       #custom-gallery-container .mode-masonry { column-count: 2; }
-      #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 calc(50% - 30px); }
+      #custom-gallery-container .mode-centered .gallery-item { width: calc(50% - 30px); }
     }
     @media (max-width: 600px) {
       #custom-gallery-container .mode-masonry { column-count: 1; }
-      #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 100%; }
+      #custom-gallery-container .mode-centered .gallery-item { width: 100%; }
       #custom-gallery-container .mode-all .gallery-item,
       #custom-gallery-container .mode-left .gallery-item { height: 200px; }
     }
