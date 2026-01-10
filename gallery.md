@@ -42,31 +42,26 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* [Centered]: Justified Layout - No Cropping, No White Borders */
+    /* [Centered]: Justified Layout (Row Height consistent, fills width, No Crop) */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: center;
     }
     
-    /* The core logic for "Same height per row, fill width" */
     #custom-gallery-container .mode-centered .gallery-item {
-      flex-grow: 1; 
-      /* flex-basis is small to let flex-grow do the work based on aspect ratio */
-      flex-basis: 220px; 
-      height: auto;
-      max-height: 400px; /* Limits size so images aren't "too big" */
+      /* flex-grow is proportional to aspect-ratio to ensure row filling without cropping */
+      flex: 1 1 auto; 
+      height: 250px; /* Base height for calculation */
       position: relative;
-      display: flex;
     }
 
     #custom-gallery-container .mode-centered .gallery-item img {
       width: 100%;
       height: 100%;
-      /* object-fit: cover is used ONLY because flex-grow handles the container 
-         proportions to match the image precisely, resulting in NO actual crop. */
-      object-fit: cover; 
+      /* Important: contain ensures original ratio is visible, 
+         flex-grow ensures container fits the image exactly */
+      object-fit: contain; 
       display: block;
     }
 
@@ -143,13 +138,6 @@ permalink: /gallery/
     .overlay-desc { font-size: 0.75rem; opacity: 0.8; }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
-
-    /* Responsive adjustments */
-    @media (max-width: 800px) {
-      #custom-gallery-container .mode-masonry { column-count: 2; }
-      #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(50% - 30px); }
-      #custom-gallery-container .mode-centered .gallery-item { flex-basis: 150px; }
-    }
   </style>
 
   <div class="gallery-filters">
