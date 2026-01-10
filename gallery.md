@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* 1. Academic Filter Tags */
+    /* 1. Filter Tags - Colors Corrected */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -22,7 +22,7 @@ permalink: /gallery/
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
-      color: #003366;
+      color: #003366; 
       padding: 5px 5px;
       transition: all 0.3s ease;
       position: relative;
@@ -40,67 +40,75 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. Mode 1: Balanced Staggered Grid (For "All") */
-    #custom-gallery-container .gallery-grid.staggered-mode {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      grid-auto-rows: 10px; /* 基础栅格高度 */
-      grid-auto-flow: dense;
-      gap: 20px;
-    }
-
-    #custom-gallery-container .staggered-mode .gallery-item {
-      grid-row: span 25; /* 默认跨度 */
-      margin-bottom: 0;
-    }
-    /* 模拟有序错位：根据图片特性（手动或动态）设置不同跨度 */
-    #custom-gallery-container .staggered-mode .gallery-item:nth-child(even) { grid-row: span 35; }
-    #custom-gallery-container .staggered-mode .gallery-item:nth-child(3n) { grid-row: span 30; }
-
-    /* 3. Mode 2: Center Original Style (For "Characters") */
-    #custom-gallery-container .gallery-grid.center-mode {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* 整体居中 */
-      gap: 40px;
-    }
-
-    #custom-gallery-container .center-mode .gallery-item {
-      width: auto;
-      max-width: 90%;
-      height: auto;
-    }
-
-    #custom-gallery-container .center-mode .gallery-item img {
-      width: auto;
-      max-width: 100%;
-      height: auto; /* 保持原始比例 */
-      border-radius: 4px;
-    }
-
-    /* 4. Mode 3: Horizontal Mode (For History/Artifacts) */
-    #custom-gallery-container .gallery-grid.horizontal-mode {
+    /* 2. Layout Containers */
+    #custom-gallery-container .gallery-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      justify-content: center;
+      transition: all 0.4s ease;
     }
 
-    #custom-gallery-container .horizontal-mode .gallery-item {
-      height: 250px;
+    /* --- Mode: All (Balanced Staggered Grid) --- */
+    #custom-gallery-container .gallery-grid.mode-all {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-auto-rows: 10px; /* 控制错位的精细度 */
+      gap: 20px;
+    }
+
+    #custom-gallery-container .mode-all .gallery-item {
+      display: block;
+      grid-row-end: span 25; /* 默认跨度 */
+    }
+    /* 让奇数列或特定项目产生高度错位感 */
+    #custom-gallery-container .mode-all .gallery-item:nth-child(even) {
+      margin-top: 30px;
+    }
+
+    /* --- Mode: Characters (Justified Center) --- */
+    #custom-gallery-container .gallery-grid.mode-characters {
+      display: flex;
+      justify-content: center; /* 整体居中 */
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    #custom-gallery-container .mode-characters .gallery-item {
+      flex: 0 1 auto;
+      max-width: 30%; /* 保证一行约3张，可根据喜好调整 */
+      height: auto;
+    }
+
+    #custom-gallery-container .mode-characters .gallery-item img {
+      width: 100%;
+      height: auto; /* 保证原比例缩放，不留白边 */
+      object-fit: contain;
+    }
+
+    /* --- Mode: History & Artifacts (Horizontal Row) --- */
+    #custom-gallery-container .gallery-grid.mode-horizontal {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    #custom-gallery-container .mode-horizontal .gallery-item {
+      height: 280px;
       flex: 0 0 auto;
     }
 
-    #custom-gallery-container .horizontal-mode .gallery-item img {
+    #custom-gallery-container .mode-horizontal .gallery-item img {
       height: 100%;
       width: auto;
+      object-fit: contain; /* 不裁剪 */
     }
 
-    /* Common Item Styles - NO BORDERS/WHITE EDGES */
+    /* Common Item Styles */
     #custom-gallery-container .gallery-item {
       position: relative;
+      border-radius: 10px;
       overflow: hidden;
-      background: none; /* 去掉白边和背景 */
+      background-color: transparent; /* 去掉背景白边 */
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
@@ -109,32 +117,33 @@ permalink: /gallery/
       transition: transform 0.6s ease;
     }
 
-    /* Overlay Info */
+    #custom-gallery-container .gallery-item.hide { display: none !important; }
+
+    /* Overlay - Original Style */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
       color: #fff;
-      padding: 40px 15px 15px 15px;
+      padding: 50px 15px 15px 15px;
       opacity: 0;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
       pointer-events: none;
     }
 
-    #custom-gallery-container .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-      transform: translateY(0);
+    #custom-gallery-container .gallery-item:hover .gallery-overlay { opacity: 1; transform: translateY(0); }
+    #custom-gallery-container .gallery-item:hover img { transform: scale(1.04); }
+
+    .overlay-title { font-size: 1rem; font-weight: 600; display: block; }
+    .overlay-desc { font-size: 0.8rem; opacity: 0.9; }
+
+    @media (max-width: 768px) {
+      #custom-gallery-container .mode-characters .gallery-item { max-width: 45%; }
+      #custom-gallery-container .mode-horizontal .gallery-item { height: 200px; }
     }
-
-    #custom-gallery-container .gallery-item:hover img { transform: scale(1.03); }
-
-    .overlay-title { font-size: 0.9rem; font-weight: 600; display: block; }
-    .overlay-desc { font-size: 0.75rem; opacity: 0.8; }
-
-    #custom-gallery-container .gallery-item.hide { display: none !important; }
   </style>
 
   <div class="gallery-filters">
@@ -144,8 +153,16 @@ permalink: /gallery/
     <span class="filter-tag" data-filter="artifacts">Artifacts</span>
   </div>
 
-  <div class="gallery-grid staggered-mode" id="gallery-grid">
+  <div class="gallery-grid mode-all" id="gallery-grid">
     
+    <div class="gallery-item" data-category="characters">
+      <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
+      <div class="gallery-overlay">
+        <span class="overlay-title">Principal Investigator</span>
+        <span class="overlay-desc">Project Lead and Researcher</span>
+      </div>
+    </div>
+
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -159,14 +176,6 @@ permalink: /gallery/
       <div class="gallery-overlay">
         <span class="overlay-title">Daemon Targaryen</span>
         <span class="overlay-desc">The Rogue Prince</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-category="characters">
-      <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
-      <div class="gallery-overlay">
-        <span class="overlay-title">PI</span>
-        <span class="overlay-desc">Principal Investigator</span>
       </div>
     </div>
 
@@ -209,15 +218,16 @@ permalink: /gallery/
 
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Switch Layout Modes
-          grid.classList.remove('staggered-mode', 'center-mode', 'horizontal-mode');
-          
+          // Reset grid classes
+          grid.className = 'gallery-grid';
+
+          // Apply specific mode classes
           if (selectedFilter === 'all') {
-            grid.classList.add('staggered-mode');
+            grid.classList.add('mode-all');
           } else if (selectedFilter === 'characters') {
-            grid.classList.add('center-mode');
+            grid.classList.add('mode-characters');
           } else {
-            grid.classList.add('horizontal-mode');
+            grid.classList.add('mode-horizontal');
           }
 
           items.forEach(item => {
