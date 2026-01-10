@@ -7,6 +7,7 @@
   --blue-mid: #2F6FA8;
   --gold: #996600;
   --gold-accent: #BE9006;
+  --gold-hover: #D4A017; /* Brighter gold for hover */
   --text-main: #1b1f24;
 }
 
@@ -412,19 +413,20 @@ footer,
   justify-content: center;
   background-color: var(--blue-light); 
   color: var(--ust-blue); 
-  font-size: 1rem; /* Increased size */
-  font-weight: 700; /* Bold font */
-  min-width: 28px; /* Circular for single digit */
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 28px;
   height: 28px;
-  padding: 0 8px; /* Allows stretching for multi-digits */
-  border-radius: 14px; /* Capsule shape */
+  padding: 0 8px;
+  border-radius: 14px;
   margin-left: 12px;
   vertical-align: middle;
   transition: all 0.3s ease;
 }
 
-.pub-year:hover .pub-count {
-  background-color: var(--gold-accent); /* Changed to gold-accent */
+/* Updated: Only trigger hover when mouse is on the summary line */
+summary:hover .pub-count {
+  background-color: var(--gold-hover); 
   color: var(--ust-blue);
 }
 
