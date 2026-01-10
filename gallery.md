@@ -15,27 +15,31 @@ permalink: /gallery/
       flex-wrap: wrap;
     }
 
+    /* Default state for tags */
     #custom-gallery-container .filter-tag {
       padding: 6px 18px;
       border-radius: 15px;
-      background: #f8f9fa;
+      background: #f8f9fa; /* Keep current light gray background */
       font-size: 0.85rem;
       cursor: pointer;
       border: 1px solid #eee;
       font-weight: 550;
-      transition: all 0.2s ease;
-      color: #666;
+      transition: all 0.3s ease;
+      color: #003366; /* UST Deep Blue font color */
     }
 
-    #custom-gallery-container .filter-tag:hover { background: #e9ecef; }
+    #custom-gallery-container .filter-tag:hover {
+      background: #e9ecef;
+    }
 
+    /* Active state for tags */
     #custom-gallery-container .filter-tag.active {
-      background: #333;
-      color: #fff;
-      border-color: #333;
+      background: #D4AF37; /* Light Gold background */
+      color: #ffffff;      /* White text for contrast on gold */
+      border-color: #D4AF37;
     }
 
-    /* Masonry Grid (Respects aspect ratio) */
+    /* Masonry Grid */
     #custom-gallery-container .gallery-columns {
       column-count: 3;
       column-gap: 15px;
@@ -65,7 +69,7 @@ permalink: /gallery/
       transition: transform 0.6s ease;
     }
 
-    /* Bottom Gradient Information Bar */
+    /* Bottom Gradient Overlay */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -95,14 +99,11 @@ permalink: /gallery/
       font-weight: 600;
       display: block;
       margin-bottom: 2px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
     #custom-gallery-container .overlay-desc {
       font-size: 0.8rem;
       opacity: 0.9;
-      line-height: 1.3;
-      display: block;
     }
   </style>
 
@@ -172,13 +173,11 @@ permalink: /gallery/
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
-          // Switch active class
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
 
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Smoothly filter items
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
