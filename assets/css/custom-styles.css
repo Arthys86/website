@@ -415,11 +415,11 @@ footer,
   background-color: var(--blue-light); 
   color: var(--ust-blue); 
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   min-width: 28px;
   height: 28px;
   padding: 0 8px;
-  border-radius: 12px;
+  border-radius: 15px;
   margin-left: 12px;
   vertical-align: middle;
   transition: all 0.3s ease;
