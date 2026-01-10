@@ -1,33 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500&display=swap");
 
 :root{
-  /* Deep blue sampled from your provided image */
+  /* Deep blue */
   --ust-blue: #003367;
   --blue-light: #B3DFFC;
   --blue-mid: #2F6FA8;
 
-  /* Deep gold (original) */
+  /* Gold system */
   --gold: #996600;
-
-  /* Accent gold sampled from "Our Firsts" image */
   --gold-accent: #BE9006;
 
   --text-main: #1b1f24;
 }
 
-/* Base typography */
+/* ================================
+   Base
+   ================================ */
+
 body{
   font-family: "Source Serif 4", Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   color: var(--text-main);
 }
 
-/* Links */
 a{ color: var(--ust-blue); }
 a:hover,a:focus{ color: var(--gold); }
 
 /* ================================
-   Header typography
+   Header
    ================================ */
 
 .intro-header .site-heading h1,
@@ -43,15 +43,16 @@ a:hover,a:focus{ color: var(--gold); }
   line-height: 1.15 !important;
 }
 
-/* Subtitle uses deep gold */
 .page-subheading{
   color: var(--gold) !important;
   font-size: 1.02rem !important;
-  font-weight: 400 !important;
   line-height: 1.25 !important;
 }
 
-/* Content headings */
+/* ================================
+   Headings
+   ================================ */
+
 h2,h3,h4,h5,h6{
   color: var(--blue-mid);
   font-weight: 400;
@@ -60,7 +61,6 @@ h2,h3,h4,h5,h6{
 main h2,
 main h3{
   font-size: 1.55rem;
-  line-height: 1.25;
 }
 
 /* ================================
@@ -69,255 +69,91 @@ main h3{
 
 .navbar{
   background-color: var(--ust-blue);
-  border-color: var(--ust-blue);
   padding-top: 0.36rem;
   padding-bottom: 0.36rem;
 }
 
-.navbar .navbar-brand{
-  color: #ffffff !important;
+.navbar-brand{
+  color: #fff !important;
   font-weight: 400;
   font-size: 1.26rem !important;
-  letter-spacing: 0.2px;
-
   display: inline-flex;
   align-items: center;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
-.navbar .navbar-brand:hover,
-.navbar .navbar-brand:focus{
-  color: #ffffff !important;
-}
-
-/* HKUST logo */
-.navbar .navbar-brand-logo{
+.navbar-brand-logo{
   height: 40px;        /* Logo size */
-  width: auto;
   margin-right: 0.5rem;
-  display: inline-block;
 }
 
-.navbar .navbar-nav .nav-link{
-  color: #ffffff !important;
-  font-weight: 400;
-  letter-spacing: 0.2px;
-
-  /* Keep Bootstrap's default font-size (do not override) */
-  padding-top: 0.30rem;
-  padding-bottom: 0.30rem;
+.navbar-nav .nav-link{
+  color: #fff !important;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link:focus{
-  background-color: transparent !important;
+.navbar-nav .nav-link:hover{
   color: var(--gold-accent) !important;
 }
 
-.navbar .navbar-nav .active > .nav-link{
-  background-color: transparent !important;
+.navbar-nav .active > .nav-link{
   color: var(--gold-accent) !important;
   border-bottom: 2px solid var(--gold-accent);
 }
 
-/* Reduce vertical spacing when navbar is collapsed (navbar-expand-xl collapses < 1200px) */
-@media (max-width: 1199.98px){
-  .navbar{
-    padding-top: 0.18rem;
-    padding-bottom: 0.18rem;
-  }
-
-  .navbar .navbar-nav .nav-link{
-    padding-top: 0.22rem;
-    padding-bottom: 0.22rem;
-  }
-
-  .navbar .navbar-toggler{
-    padding: 0.12rem 0.42rem;
-  }
-}
-
 /* ================================
-   Main spacing
-   ================================ */
-
-main{
-  padding-bottom: 0.35rem !important;
-}
-
-main p:last-child,
-main ul:last-child{
-  margin-bottom: 0.35rem !important;
-}
-
-blockquote{
-  border-left: 4px solid var(--gold);
-}
-
-/* ================================
-   Footer (deep blue background)
+   Footer
    ================================ */
 
 footer,
 .site-footer-wrap{
-  background: var(--ust-blue) !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.site-footer-wrap{
-  margin-top: 0.45rem !important;
-  padding: 0 !important;
-}
-
-.site-footer{
-  padding-top: 0.28rem !important;
-  padding-bottom: 0.28rem !important;
-}
-
-.site-footer .footer-links{
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1 !important;
-}
-
-.site-footer .list-inline-item{
-  margin-left: 0.28rem;
-  margin-right: 0.28rem;
-}
-
-.site-footer .fa-stack{
-  font-size: 1.5rem !important;
-  width: 2em;
-  height: 2em;
-  line-height: 2em;
-  vertical-align: middle;
-}
-
-.site-footer .fa-stack-2x,
-.site-footer .fa-stack-1x{
-  line-height: inherit !important;
+  background: var(--ust-blue);
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 
 .site-footer .fa-circle{
   color: var(--gold-accent) !important;
 }
-.site-footer .fa-inverse{
-  color: #ffffff !important;
-}
 
-.site-footer-text{
-  margin: 0.10rem 0 0 0 !important;
-  padding: 0 !important;
-  font-size: 1.02rem !important;
-  line-height: 1.15 !important;
-  color: var(--gold-accent) !important;
-}
-
+.site-footer-text,
 .site-footer a{
   color: var(--gold-accent) !important;
-  text-decoration: none;
-}
-.site-footer a:hover,
-.site-footer a:focus{
-  color: var(--gold-accent) !important;
-  text-decoration: none;
 }
 
 /* ================================
-   Two-column layout (no cropping)
+   PI REAL CENTERING
    ================================ */
 
-.two-col{
-  display: flex;
-  gap: 1.2rem;
-  align-items: flex-start;
-  margin: 0.6rem 0 1.2rem 0;
+.pi-center{
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
-.two-col-media{
-  flex: 0 0 320px;
-}
-
-.two-col-media img{
-  width: 100%;
-  height: auto;
-  max-height: 360px;
-  object-fit: contain;
-  border-radius: 6px;
-  display: block;
-}
-
-.two-col-text{
-  flex: 1 1 auto;
-  padding-top: 0 !important;
-}
-
-.two-col-text p{
-  margin-top: 0 !important;
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-@media (max-width: 768px){
-  .two-col{
-    flex-direction: column;
-  }
-  .two-col-media{
-    flex: 0 0 auto;
-    width: 100%;
-  }
-  .two-col-media img{
-    max-height: none;
-  }
-}
-
-/* ================================
-   Members page layout
-   ================================ */
-
-/*
-  PI block centering approach:
-  - Keep left column at 260px (as before).
-  - Constrain right column to a reasonable max width so the whole grid does NOT stretch across the page.
-  - Center the whole grid with justify-content + margin auto.
-*/
 .pi-grid{
   display: grid;
-  grid-template-columns: 260px minmax(0, 640px);
-  gap: 3.2rem;                /* larger spacing between photo and text */
-  align-items: start;
-  justify-content: center;    /* centers the grid tracks inside container */
-  margin: 0.6rem auto 1.2rem auto;
+  grid-template-columns: 260px 640px;
+  gap: 3.2rem;
+  max-width: 920px;
+  margin: 0 auto 1.4rem auto;
 }
 
-/* PI left column: heading above photo */
 .pi-name-incol{
-  margin: 0 0 0.6rem 0;
+  margin-bottom: 0.6rem;
 }
 
-/* PI photo */
 .pi-photo{
   width: 100%;
-  height: auto;
   border-radius: 10px;
-  display: block;
-  object-fit: cover;
 }
 
-/* Email under PI photo (force single line on desktop) */
 .pi-email{
-  margin: 0.65rem 0 0 0;
-  line-height: 1.2;
+  margin-top: 0.6rem;
   white-space: nowrap;
-}
-.pi-email a{
-  text-decoration: none;
 }
 
 .pi-cv{
-  margin: 0;
-  padding-left: 1.1rem;
+  padding-left: 1.2rem;
 }
 
 .pi-cv li{
@@ -325,64 +161,51 @@ footer,
   line-height: 1.35;
 }
 
-.pi-date{
-  font-weight: 400;
-  opacity: 0.9;
-}
+/* ================================
+   Members grid
+   ================================ */
 
-/* Member cards: 2 per row */
 .member-grid{
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.0rem 1.2rem;
-  margin: 0.8rem 0 1.4rem 0;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.2rem;
 }
 
 .member-card{
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  gap: 1rem;
+  border: 1px solid rgba(0,0,0,0.08);
   border-radius: 8px;
+  padding: 0.8rem;
 }
 
 .member-photo{
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
-  flex: 0 0 auto;
-  display: block;
 }
 
-.member-name{
-  font-weight: 500;
-  line-height: 1.2;
-}
+/* ================================
+   Mobile
+   ================================ */
 
-.member-line{
-  margin-top: 0.15rem;
-  line-height: 1.2;
-}
+@media(max-width:768px){
 
-/* Mobile: stack to 1 column */
-@media (max-width: 768px){
+  .pi-center{
+    width: auto;
+    margin: 0;
+  }
+
   .pi-grid{
     grid-template-columns: 1fr;
-    justify-content: start;
-    gap: 1.2rem;
-  }
-  .pi-photo{
-    max-width: 260px;
-  }
-  .pi-email{
-    white-space: normal; /* allow wrapping on small screens */
   }
 
   .member-grid{
     grid-template-columns: 1fr;
   }
+
   .member-photo{
     width: 96px;
     height: 96px;
