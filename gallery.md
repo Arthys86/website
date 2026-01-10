@@ -15,31 +15,32 @@ permalink: /gallery/
       flex-wrap: wrap;
     }
 
-    /* Unselected State: UST Deep Blue text on light gray */
+    /* Unselected State */
     #custom-gallery-container .filter-tag {
       padding: 6px 18px;
       border-radius: 15px;
-      background: #f8f9fa; 
+      background: #F0F9FF; /* Very light blue as requested */
       font-size: 0.85rem;
       cursor: pointer;
-      border: 1px solid #eee;
+      border: 1px solid #e1f5fe; /* Light border to match */
       font-weight: 550;
       transition: all 0.3s ease;
       color: #003366; /* UST Deep Blue */
     }
 
+    /* Hover State */
     #custom-gallery-container .filter-tag:hover {
-      background: #e9ecef;
+      background: #E1F5FE; /* Your chosen blue-light color */
     }
 
-    /* Selected State: Light Gold background, White text */
+    /* Selected (Active) State: Remains Gold as per previous design */
     #custom-gallery-container .filter-tag.active {
       background: #D4AF37; /* Light Gold */
       color: #ffffff;      /* White text */
       border-color: #D4AF37;
     }
 
-    /* Masonry Grid (Respects aspect ratio) */
+    /* Masonry Grid Layout */
     #custom-gallery-container .gallery-columns {
       column-count: 3;
       column-gap: 15px;
@@ -69,7 +70,7 @@ permalink: /gallery/
       transition: transform 0.6s ease;
     }
 
-    /* Bottom Gradient Information Bar */
+    /* Bottom Gradient Overlay */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -118,7 +119,6 @@ permalink: /gallery/
   </div>
 
   <div class="gallery-columns" id="gallery-grid">
-    
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -166,7 +166,6 @@ permalink: /gallery/
         <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
       </div>
     </div>
-
   </div>
 
   <script>
@@ -178,9 +177,7 @@ permalink: /gallery/
         filter.addEventListener('click', function() {
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
-
           const selectedFilter = this.getAttribute('data-filter');
-
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
