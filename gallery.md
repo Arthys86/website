@@ -1,127 +1,144 @@
 ---
 layout: page
 title: "Gallery"
-subtitle: "Gallery subtitle"
+subtitle: "Collection of Scientific Records & Artifacts"
 permalink: /gallery/
 ---
 
 <div id="custom-gallery-container">
   <style>
-    /* Filter Tags Styling */
+    /* Academic Filter Tags */
     #custom-gallery-container .gallery-filters {
       display: flex;
-      gap: 12px;
-      margin: 20px 0 30px 0;
-      flex-wrap: wrap;
+      gap: 15px;
+      margin: 20px 0 40px 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
     }
 
     #custom-gallery-container .filter-tag {
-      padding: 6px 18px;
-      border-radius: 15px;
-      background: #F0F9FF; 
-      font-size: 0.85rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; /* Academic Mono Font */
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       cursor: pointer;
-      border: 1px solid #e1f5fe;
-      font-weight: 550;
-      transition: all 0.3s ease;
-      color: #003366;
+      color: #003366; /* UST Deep Blue */
+      padding: 5px 10px;
+      transition: all 0.2s ease;
+      position: relative;
     }
-
-    #custom-gallery-container .filter-tag:hover { background: #E1F5FE; }
 
     #custom-gallery-container .filter-tag.active {
-      background: #D4AF37;
-      color: #ffffff;
-      border-color: #D4AF37;
+      font-weight: bold;
+      color: #D4AF37; /* UST Gold */
     }
 
-    /* --- Mode 1: Masonry (For "All") --- */
+    #custom-gallery-container .filter-tag.active::after {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #D4AF37;
+    }
+
+    /* Layout Transitions */
+    #custom-gallery-container .gallery-grid {
+      transition: all 0.5s ease-in-out;
+    }
+
+    /* Mode 1: Academic Masonry (For "All") */
     #custom-gallery-container .gallery-grid.masonry-mode {
       column-count: 3;
-      column-gap: 15px;
-      display: block; /* Overwrite flex */
+      column-gap: 25px;
+      display: block;
     }
 
     #custom-gallery-container .masonry-mode .gallery-item {
       break-inside: avoid;
       display: inline-block;
       width: 100%;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
+      border: 1px solid #eee; /* Archive box look */
+      padding: 10px;
+      background: #fff;
     }
 
-    /* --- Mode 2: Horizontal (For Specific Categories) --- */
+    /* Mode 2: Horizontal Row (For Categories) - NO CROPPING */
     #custom-gallery-container .gallery-grid.horizontal-mode {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      column-count: auto; /* Overwrite masonry */
+      gap: 20px;
     }
 
     #custom-gallery-container .horizontal-mode .gallery-item {
-      flex: 0 0 auto; /* Do not grow, maintain aspect ratio */
-      height: 250px;  /* Fixed height for horizontal alignment */
-      width: auto;
+      flex: 0 0 auto;
+      height: 300px; /* Fixed standard height for rows */
+      border: 1px solid #eee;
+      padding: 10px;
+      background: #fff;
     }
 
     #custom-gallery-container .horizontal-mode .gallery-item img {
-      width: auto;    /* Width scales proportionally */
+      width: auto;
       height: 100%;
       object-fit: contain; /* Guarantee no cropping */
     }
 
-    /* Common Item Styles */
+    /* Common Academic Item Styling */
     #custom-gallery-container .gallery-item {
-      background-color: #f0f0f0;
-      border-radius: 10px;
-      overflow: hidden;
       position: relative;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      transition: box-shadow 0.3s ease;
+    }
+
+    #custom-gallery-container .gallery-item:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    #custom-gallery-container .gallery-item img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* Academic Caption (No longer an overlay that blocks the image) */
+    #custom-gallery-container .gallery-info {
+      margin-top: 10px;
+      border-top: 1px solid #f5f5f5;
+      padding-top: 8px;
+    }
+
+    .item-label {
+      font-family: monospace;
+      font-size: 0.65rem;
+      color: #999;
+      display: block;
+    }
+
+    .item-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      margin: 2px 0;
+    }
+
+    .item-desc {
+      font-size: 0.75rem;
+      color: #666;
+      line-height: 1.4;
     }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    #custom-gallery-container .gallery-item img {
-      display: block;
-      transition: transform 0.6s ease;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       #custom-gallery-container .gallery-grid.masonry-mode { column-count: 2; }
       #custom-gallery-container .horizontal-mode .gallery-item { height: 200px; }
     }
-    @media (max-width: 600px) {
-      #custom-gallery-container .gallery-grid.masonry-mode { column-count: 1; }
-      #custom-gallery-container .horizontal-mode .gallery-item { height: 150px; }
-    }
-
-    /* Overlay Styles */
-    #custom-gallery-container .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
-      color: #fff;
-      padding: 40px 15px 15px 15px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      pointer-events: none;
-    }
-
-    #custom-gallery-container .gallery-item:hover .gallery-overlay {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    #custom-gallery-container .gallery-item:hover img { transform: scale(1.05); }
-
-    .overlay-title { font-weight: 600; display: block; font-size: 0.9rem; }
-    .overlay-desc { font-size: 0.75rem; opacity: 0.9; }
   </style>
 
   <div class="gallery-filters">
-    <span class="filter-tag active" data-filter="all">All</span>
+    <span class="filter-tag active" data-filter="all">Index</span>
     <span class="filter-tag" data-filter="history">History</span>
     <span class="filter-tag" data-filter="characters">Characters</span>
     <span class="filter-tag" data-filter="artifacts">Artifacts</span>
@@ -131,49 +148,55 @@ permalink: /gallery/
     
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Dance of the Dragons</span>
-        <span class="overlay-desc">The Dance over Shipbreaker Bay</span>
+      <div class="gallery-info">
+        <span class="item-label">REC_001</span>
+        <div class="item-title">Dance of the Dragons</div>
+        <div class="item-desc">The Dance over Shipbreaker Bay.</div>
       </div>
     </div>
 
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Daemon Targaryen</span>
-        <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
+      <div class="gallery-info">
+        <span class="item-label">CHR_002</span>
+        <div class="item-title">Daemon Targaryen</div>
+        <div class="item-desc">The Rogue Prince, Commander of the City Watch.</div>
       </div>
     </div>
 
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
-      <div class="gallery-overlay">
-        <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
+      <div class="gallery-info">
+        <span class="item-label">REC_003</span>
+        <div class="item-title">The Conquest</div>
+        <div class="item-desc">Visenya Targaryen and Vhagar.</div>
       </div>
     </div>
 
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Who</span>
-        <span class="overlay-desc">I don't know</span>
+      <div class="gallery-info">
+        <span class="item-label">CHR_004</span>
+        <div class="item-title">Who</div>
+        <div class="item-desc">Identity unconfirmed. Data pending.</div>
       </div>
     </div>
 
     <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">a longsword of Valyrian steel</span>
+      <div class="gallery-info">
+        <span class="item-label">ART_005</span>
+        <div class="item-title">Dark Sister</div>
+        <div class="item-desc">A longsword of Valyrian steel.</div>
       </div>
     </div>
 
     <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
+      <div class="gallery-info">
+        <span class="item-label">ART_006</span>
+        <div class="item-title">Iron Throne</div>
+        <div class="item-desc">The seat of the Lord of the Seven Kingdoms.</div>
       </div>
     </div>
 
@@ -192,7 +215,7 @@ permalink: /gallery/
 
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Switch layout mode based on filter
+          // Switch academic layout modes
           if (selectedFilter === 'all') {
             grid.classList.remove('horizontal-mode');
             grid.classList.add('masonry-mode');
@@ -201,12 +224,10 @@ permalink: /gallery/
             grid.classList.add('horizontal-mode');
           }
 
-          // Filter logic
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
               item.classList.remove('hide');
-              // Trigger a tiny reflow for opacity animation
               item.style.opacity = "0";
               setTimeout(() => { item.style.opacity = "1"; }, 10);
             } else {
