@@ -43,8 +43,48 @@ permalink: /publications/
     </details>
 
     <details class="pub-year" open>
-      <summary>2024</summary>
-      <div class="pub-list"><ul><li>Example 2024 paper...</li></ul></div>
+      <summary>2024 <span class="pub-count">15</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Author Name, <span class="pub-title">Example Paper Title for 2024</span>, <em>Journal Name</em>, 2024. <a href="#" target="_blank">DOI</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="pub-year" open>
+      <summary>2023 <span class="pub-count">0</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2023. <a href="#" target="_blank">DOI</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="pub-year" open>
+      <summary>2022 <span class="pub-count">0</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2022. <a href="#" target="_blank">DOI</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="pub-year" open>
+      <summary>2021 <span class="pub-count">0</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2021. <a href="#" target="_blank">DOI</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="pub-year" open>
+      <summary>2020 <span class="pub-count">0</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2020. <a href="#" target="_blank">DOI</a></li>
+        </ul>
+      </div>
     </details>
 
   </div>
