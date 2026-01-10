@@ -42,7 +42,7 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* [Centered]: Justified Layout (Row Height consistent, fills width, No Crop) */
+    /* [Centered]: Row-consistent height, fill width, No Crop */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -50,22 +50,19 @@ permalink: /gallery/
     }
     
     #custom-gallery-container .mode-centered .gallery-item {
-      /* flex-grow is proportional to aspect-ratio to ensure row filling without cropping */
       flex: 1 1 auto; 
-      height: 250px; /* Base height for calculation */
+      height: 280px; /* Base height for the row */
       position: relative;
     }
 
     #custom-gallery-container .mode-centered .gallery-item img {
       width: 100%;
       height: 100%;
-      /* Important: contain ensures original ratio is visible, 
-         flex-grow ensures container fits the image exactly */
-      object-fit: contain; 
+      object-fit: contain; /* Guarantee no cropping */
       display: block;
     }
 
-    /* [Column]: Fixed 3-column grid */
+    /* [Column]: 3-column grid */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
@@ -81,7 +78,7 @@ permalink: /gallery/
       height: auto;
     }
 
-    /* [Left]: Simple horizontal flow */
+    /* [Left]: Left-aligned, fixed height */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
@@ -97,7 +94,7 @@ permalink: /gallery/
       width: auto;
     }
 
-    /* [Masonry]: CSS Columns Waterfall */
+    /* [Masonry]: Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
@@ -109,7 +106,7 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* Common Item Configuration */
+    /* Common Item Styles */
     #custom-gallery-container .gallery-item {
       border-radius: 10px;
       overflow: hidden;
@@ -117,7 +114,7 @@ permalink: /gallery/
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* 3. Overlay and Captions */
+    /* 3. Overlay and Captions (Restored to original style) */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -131,13 +128,27 @@ permalink: /gallery/
       transition: all 0.3s ease;
       pointer-events: none;
     }
-    #custom-gallery-container .gallery-item:hover .gallery-overlay { opacity: 1; transform: translateY(0); }
-    #custom-gallery-container .gallery-item:hover img { transform: scale(1.03); }
+    
+    #custom-gallery-container .gallery-item:hover .gallery-overlay { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+    
+    #custom-gallery-container .gallery-item:hover img { 
+      transform: scale(1.03); 
+    }
 
     .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; }
     .overlay-desc { font-size: 0.75rem; opacity: 0.8; }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
+
+    /* Responsive Logic */
+    @media (max-width: 800px) {
+      #custom-gallery-container .mode-masonry { column-count: 2; }
+      #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(50% - 30px); }
+      #custom-gallery-container .mode-centered .gallery-item { height: 200px; }
+    }
   </style>
 
   <div class="gallery-filters">
