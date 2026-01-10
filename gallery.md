@@ -42,41 +42,55 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* Common Item Config: NO BACKGROUND, NO CROP */
+    /* Common Item Styles: Absolute No Borders, Transparent Background */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background: none !important; /* Ensure no background color shows */
+      background: transparent !important;
       transition: transform 0.3s ease, opacity 0.3s ease;
-      display: inline-block;
     }
 
     #custom-gallery-container .gallery-item img {
       display: block;
-      width: auto; /* Width determined by aspect ratio */
-      max-width: 100%;
-      height: 100%; /* Height controlled by container row height */
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Combined with flex-grow for zero-crop visual */
     }
 
-    /* [All] & [Left]: Consistent Row Height, Natural Width */
-    #custom-gallery-container .gallery-grid.mode-all,
+    /* [All]: Dynamic Ratio Auto-Fill (No Fixed Height) */
+    #custom-gallery-container .gallery-grid.mode-all {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    
+    #custom-gallery-container .mode-all .gallery-item {
+      flex-grow: 1;
+      /* Default flex-basis based on an average ratio to encourage row-filling */
+      flex-basis: 300px; 
+      min-height: 250px;
+      max-height: 450px; /* Limits excessive vertical stretching */
+    }
+
+    /* [Left]: Adaptive Horizontal Row */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-start;
       gap: 15px;
     }
-    
-    #custom-gallery-container .mode-all { justify-content: center; } /* Centered row for All */
-    #custom-gallery-container .mode-left { justify-content: flex-start; } /* Left row for Left */
-
-    #custom-gallery-container .mode-all .gallery-item,
     #custom-gallery-container .mode-left .gallery-item {
-      height: 280px; /* Fixed row height, width scales proportionally */
-      flex: 0 0 auto; /* Prevent stretching which causes gaps/bars */
+      height: 280px; 
+      width: auto;
+      flex: 0 1 auto;
+    }
+    #custom-gallery-container .mode-left .gallery-item img {
+      width: auto;
+      height: 100%;
     }
 
-    /* [Centered]: 3-Column, Vertically Centered, Proportional */
+    /* [Centered]: 3-Column Center Grid */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -85,15 +99,10 @@ permalink: /gallery/
       gap: 30px;
     }
     #custom-gallery-container .mode-centered .gallery-item {
-      width: calc(33.333% - 30px);
-      height: auto; /* Height adapts to 3-column width */
-    }
-    #custom-gallery-container .mode-centered .gallery-item img {
-      width: 100%;
-      height: auto;
+      flex: 0 1 calc(33.333% - 30px);
     }
 
-    /* [Masonry]: Waterfall Layout */
+    /* [Masonry]: Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
@@ -103,11 +112,6 @@ permalink: /gallery/
       display: block;
       width: 100%;
       margin-bottom: 20px;
-      height: auto;
-    }
-    #custom-gallery-container .mode-masonry .gallery-item img {
-      width: 100%;
-      height: auto;
     }
 
     /* 3. Overlay and Captions */
@@ -132,15 +136,11 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    @media (max-width: 900px) {
+    /* Responsive adjustments */
+    @media (max-width: 800px) {
       #custom-gallery-container .mode-masonry { column-count: 2; }
-      #custom-gallery-container .mode-centered .gallery-item { width: calc(50% - 30px); }
-    }
-    @media (max-width: 600px) {
-      #custom-gallery-container .mode-masonry { column-count: 1; }
-      #custom-gallery-container .mode-centered .gallery-item { width: 100%; }
-      #custom-gallery-container .mode-all .gallery-item,
-      #custom-gallery-container .mode-left .gallery-item { height: 200px; }
+      #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 calc(50% - 30px); }
+      #custom-gallery-container .mode-all .gallery-item { flex-basis: 45%; }
     }
   </style>
 
@@ -161,6 +161,22 @@ permalink: /gallery/
     </div>
 
     <div class="gallery-item" data-category="history">
+      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
+      <div class="gallery-overlay">
+        <span class="overlay-title">The Conquest</span>
+        <span class="overlay-desc">Archival Image</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="artifacts">
+      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
+      <div class="gallery-overlay">
+        <span class="overlay-title">Iron Throne</span>
+        <span class="overlay-desc">Relic Analysis</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
         <span class="overlay-title">Dance of the Dragons</span>
@@ -176,27 +192,11 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="history">
-      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
-      <div class="gallery-overlay">
-        <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">Archival Image</span>
-      </div>
-    </div>
-
     <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
         <span class="overlay-desc">Ancient Artifact</span>
-      </div>
-    </div>
-
-    <div class="gallery-item" data-category="artifacts">
-      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">Relic Analysis</span>
       </div>
     </div>
   </div>
