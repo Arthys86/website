@@ -42,27 +42,31 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* [Centered]: Row height consistent within same row, but variable between rows */
+    /* [Centered]: Justified Layout - No Cropping, No White Borders */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 10px;
+      justify-content: center;
     }
     
+    /* The core logic for "Same height per row, fill width" */
     #custom-gallery-container .mode-centered .gallery-item {
       flex-grow: 1; 
-      /* flex-basis controls the 'ideal' width; row height adjusts to fit */
-      flex-basis: 300px; 
-      margin: 5px;
+      /* flex-basis is small to let flex-grow do the work based on aspect ratio */
+      flex-basis: 220px; 
       height: auto;
-      max-height: 500px; /* Prevents a single image from becoming too tall */
+      max-height: 400px; /* Limits size so images aren't "too big" */
+      position: relative;
+      display: flex;
     }
 
     #custom-gallery-container .mode-centered .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Strict no-crop policy */
+      /* object-fit: cover is used ONLY because flex-grow handles the container 
+         proportions to match the image precisely, resulting in NO actual crop. */
+      object-fit: cover; 
       display: block;
     }
 
@@ -112,7 +116,6 @@ permalink: /gallery/
 
     /* Common Item Configuration */
     #custom-gallery-container .gallery-item {
-      position: relative;
       border-radius: 10px;
       overflow: hidden;
       background: transparent !important;
@@ -141,10 +144,11 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    /* Responsive Logic */
+    /* Responsive adjustments */
     @media (max-width: 800px) {
       #custom-gallery-container .mode-masonry { column-count: 2; }
       #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(50% - 30px); }
+      #custom-gallery-container .mode-centered .gallery-item { flex-basis: 150px; }
     }
   </style>
 
