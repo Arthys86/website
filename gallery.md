@@ -71,7 +71,6 @@ permalink: /gallery/
       bottom: 0;
       left: 0;
       right: 0;
-      /* Darker gradient at bottom for text readability */
       background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
       color: #fff;
       padding: 50px 15px 15px 15px;
@@ -79,7 +78,7 @@ permalink: /gallery/
       transform: translateY(20px);
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       text-align: left;
-      pointer-events: none; /* Allows mouse to interact with the image below */
+      pointer-events: none;
     }
 
     #custom-gallery-container .gallery-item:hover .gallery-overlay {
@@ -156,6 +155,14 @@ permalink: /gallery/
       </div>
     </div>
 
+    <div class="gallery-item" data-category="artifacts">
+      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
+      <div class="gallery-overlay">
+        <span class="overlay-title">Iron Throne</span>
+        <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
+      </div>
+    </div>
+
   </div>
 
   <script>
@@ -176,7 +183,6 @@ permalink: /gallery/
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
               item.classList.remove('hide');
-              // Optional: Add a small delay for fade-in effect
               item.style.opacity = "0";
               setTimeout(() => { item.style.opacity = "1"; }, 10);
             } else {
