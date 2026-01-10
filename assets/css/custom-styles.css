@@ -295,8 +295,8 @@ footer,
 /* Two-column PI block: photo (left) + CV (right) */
 .pi-grid{
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 2.8rem; /* increased spacing between photo and text */
+  grid-template-columns: 260px minmax(0, 1fr); /* widened left column to keep email on one line */
+  gap: 2.8rem; /* spacing between photo and text */
   align-items: start;
   margin: 0.6rem 0 1.2rem 0;
 }
@@ -307,6 +307,16 @@ footer,
   border-radius: 10px;
   display: block;
   object-fit: cover;
+}
+
+/* Email under PI photo (force single line) */
+.pi-email{
+  margin: 0.65rem 0 0 0;
+  line-height: 1.2;
+  white-space: nowrap;     /* do not wrap to a second line */
+}
+.pi-email a{
+  text-decoration: none;
 }
 
 .pi-cv{
@@ -322,10 +332,6 @@ footer,
 .pi-date{
   font-weight: 400;
   opacity: 0.9;
-}
-
-.pi-contact{
-  margin: 0.35rem 0 0 0;
 }
 
 /* Member cards: 2 per row */
@@ -372,6 +378,9 @@ footer,
   }
   .pi-photo{
     max-width: 260px;
+  }
+  .pi-email{
+    white-space: normal; /* allow wrapping on small screens */
   }
 
   .member-grid{
