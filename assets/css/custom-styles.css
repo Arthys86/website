@@ -370,7 +370,6 @@ footer,
   transform: rotate(90deg);
 }
 
-/* Styles for nested elements */
 .pub-year .pub-content-wrap {
   margin-left: 1.5rem;
   margin-top: 0.5rem;
@@ -384,7 +383,7 @@ footer,
   border-bottom: none;
 }
 
-/* Publication list text styling */
+/* Publication Content Styles */
 .pub-list {
   padding: 0.8rem 0 0.8rem 1.8rem;
 }
@@ -396,9 +395,15 @@ footer,
 }
 
 .pub-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   line-height: 1.5;
   text-align: justify;
+}
+
+/* Title highlighting: Dark Blue and Normal Weight */
+.pub-title {
+  color: var(--ust-blue);
+  font-weight: 400;
 }
 
 @media (max-width: 768px){
