@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* Academic Filter Tags with custom color states */
+    /* Academic Filter Tags */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -28,12 +28,12 @@ permalink: /gallery/
       position: relative;
     }
 
-    /* Hover state: Light Gold */
+    /* 【修正】悬停状态：浅金色 */
     #custom-gallery-container .filter-tag:hover {
       color: #D4AF37; 
     }
 
-    /* Selected state: Gold */
+    /* 【修正】选中状态：正金色 */
     #custom-gallery-container .filter-tag.active {
       font-weight: bold;
       color: #FFD700; /* Gold */
@@ -46,10 +46,10 @@ permalink: /gallery/
       left: 0;
       width: 100%;
       height: 3px;
-      background: #FFD700; /* Gold underline */
+      background: #FFD700; /* 下划线同步为正金色 */
     }
 
-    /* Grid Layout Transitions */
+    /* Layout Transitions */
     #custom-gallery-container .gallery-grid {
       transition: all 0.5s ease-in-out;
     }
@@ -86,7 +86,7 @@ permalink: /gallery/
       object-fit: contain;
     }
 
-    /* Common Gallery Item Styles */
+    /* Common Item Styles */
     #custom-gallery-container .gallery-item {
       background-color: #f8f9fa;
       border-radius: 10px;
@@ -213,13 +213,11 @@ permalink: /gallery/
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
-          // Manage button states
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
 
           const selectedFilter = this.getAttribute('data-filter');
 
-          // Toggle layout modes
           if (selectedFilter === 'all') {
             grid.classList.remove('horizontal-mode');
             grid.classList.add('masonry-mode');
@@ -228,7 +226,6 @@ permalink: /gallery/
             grid.classList.add('horizontal-mode');
           }
 
-          // Handle item visibility
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
