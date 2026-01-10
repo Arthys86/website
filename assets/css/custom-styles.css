@@ -387,7 +387,7 @@ footer,
 
 .pub-list {
   padding: 0.8rem 0 0.8rem 0; 
-  font-size: 0.95rem; /* Reduced body font size slightly for cleaner look */
+  font-size: 1.1rem; /* Reduced body font size slightly for cleaner look */
 }
 
 .pub-list ul {
