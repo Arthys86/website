@@ -7,14 +7,14 @@ permalink: /members/
 
 ## Principal Investigator (PI)
 
-<p class="pi-titleline">Dr. Kuanming Yao</p>
-
 <div class="pi-grid">
   <div class="pi-photo-wrap">
     <img class="pi-photo" src="{{ '/assets/img/pi.jpg' | relative_url }}" alt="PI photo">
   </div>
 
   <div class="pi-content">
+    <h3 class="pi-name">Dr. Kuanming Yao</h3>
+
     <ul class="pi-cv">
       <li>
         <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Apr. 2024 - )</span><br>
