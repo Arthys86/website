@@ -40,35 +40,34 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. MODE: Centered - ONLY PART MODIFIED */
-    /* Ensuring all images in a row have identical physical height without cropping */
+    /* 2. MODE: Centered - ONLY MODIFIED PART */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
     }
-    
-    #custom-gallery-container .mode-centered .gallery-item {
-      height: 300px; /* Base row height for all items in this mode */
-      flex: 0 0 auto;
-      display: flex;
+
+    /* Target images directly to ensure identical height within rows */
+    /* Row 1: Who, The Conquest, Dark Sister */
+    #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) img {
+      height: 280px !important; /* Absolute height for Row 1 */
+      width: auto !important;   /* Proportional width - No Crop */
     }
 
-    #custom-gallery-container .mode-centered .gallery-item img {
-      height: 100%;  /* Force image to fill the 300px container height */
-      width: auto;   /* Scale width proportionally - No Crop */
-      display: block;
-      object-fit: contain;
+    /* Row 2: Dance of the Dragons, Daemon, Iron Throne */
+    #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) img {
+      height: 350px !important; /* Absolute height for Row 2 */
+      width: auto !important;   /* Proportional width - No Crop */
     }
 
-    /* Special rule to separate row 1 and row 2 if desired, 
-       or let them flow naturally while maintaining height consistency */
+    /* Line break logic for Centered Mode */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
       width: 0;
       height: 0;
+      display: block;
     }
 
     /* 3. MODE: Left - NO CHANGES */
@@ -87,7 +86,7 @@ permalink: /gallery/
       width: auto;
     }
 
-    /* 4. MODE: Column - NO CHANGES (Strictly original 3-column logic) */
+    /* 4. MODE: Column - NO CHANGES (Original 3-column logic) */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
@@ -115,7 +114,7 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* 6. Shared Components (Overlay/Hover) - NO CHANGES */
+    /* 6. Shared Components (Overlay/Hover) */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -213,13 +212,11 @@ permalink: /gallery/
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const grid = document.getElementById('gallery-grid');
-
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
-          const selectedFilter = this.getAttribute('data-filter');
-          grid.className = 'gallery-grid mode-' + selectedFilter;
+          grid.className = 'gallery-grid mode-' + this.getAttribute('data-filter');
         });
       });
     });
