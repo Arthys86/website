@@ -48,57 +48,90 @@ permalink: /gallery/
       transition: all 0.3s ease;
     }
 
-    /* 3. MODE: Centered - Fixed row heights, zero cropping, centered flow */
+    /* 3. MODE: Centered - Strict row height, zero crop, original aspect ratio */
     #custom-gallery-container .gallery-grid.mode-centered {
       justify-content: center;
+      align-items: flex-start;
     }
     
-    /* Row 1 (Items 1-3) height control */
+    /* Row 1 Height (Items 1-3) */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) {
       height: 280px; 
       flex: 0 0 auto;
     }
-    /* Row 2 (Items 4-6) height control */
+    /* Row 2 Height (Items 4-6) */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) {
       height: 350px;
       flex: 0 0 auto;
     }
-    /* Force Row Break after the 3rd image */
+    /* Line break after Item 3 */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
+      width: 0;
       height: 0;
-      display: block;
     }
 
-    /* 4. Support for other modes without breaking layout */
-    #custom-gallery-container .gallery-grid.mode-left { justify-content: flex-start; }
-    #custom-gallery-container .mode-left .gallery-item { height: 250px; flex: 0 0 auto; }
+    /* 4. MODE: Left - Simple horizontal flow */
+    #custom-gallery-container .gallery-grid.mode-left {
+      justify-content: flex-start;
+    }
+    #custom-gallery-container .mode-left .gallery-item {
+      height: 250px;
+      flex: 0 0 auto;
+    }
 
-    #custom-gallery-container .gallery-grid.mode-column { justify-content: center; align-items: center; }
-    #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(33.333% - 20px); height: auto; }
+    /* 5. MODE: Column - Fixed 3-column grid */
+    #custom-gallery-container .gallery-grid.mode-column {
+      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    #custom-gallery-container .mode-column .gallery-item {
+      height: auto;
+      width: 100%;
+    }
+    #custom-gallery-container .mode-column .gallery-item img {
+      width: 100%;
+      height: auto;
+    }
 
-    #custom-gallery-container .gallery-grid.mode-masonry { display: block; column-count: 3; column-gap: 20px; }
-    #custom-gallery-container .mode-masonry .gallery-item { display: block; width: 100%; margin-bottom: 20px; }
+    /* 6. MODE: Masonry - Waterfall effect */
+    #custom-gallery-container .gallery-grid.mode-masonry {
+      display: block;
+      column-count: 3;
+      column-gap: 20px;
+    }
+    #custom-gallery-container .mode-masonry .gallery-item {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    #custom-gallery-container .mode-masonry .gallery-item img {
+      width: 100%;
+      height: auto;
+    }
 
-    /* Shared Item & Image Styling */
+    /* Common Item & Image Styling */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background: transparent !important;
+      background: transparent;
       transition: transform 0.3s ease;
     }
 
-    #custom-gallery-container .gallery-item img {
+    /* Strict control for image display to prevent cropping in row-based modes */
+    #custom-gallery-container .mode-centered .gallery-item img,
+    #custom-gallery-container .mode-left .gallery-item img {
       height: 100%;
-      width: auto; /* Preserve original aspect ratio */
-      max-width: 100%;
+      width: auto;
       display: block;
-      object-fit: contain; /* Guarantee no cropping */
+      object-fit: contain;
     }
 
-    /* 5. Overlay Styling - Bottom gradient visible on hover */
+    /* 7. Overlay & Captions (Strictly restored per user requirements) */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -187,7 +220,7 @@ permalink: /gallery/
   </div>
 
   <script>
-    /* Filter toggle functionality */
+    /* Mode switching logic */
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const grid = document.getElementById('gallery-grid');
@@ -197,6 +230,8 @@ permalink: /gallery/
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
           const selectedFilter = this.getAttribute('data-filter');
+          
+          // Switch CSS classes to change layout
           grid.className = 'gallery-grid mode-' + selectedFilter;
         });
       });
