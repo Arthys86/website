@@ -338,7 +338,7 @@ footer,
 
 /* ================================
    Publications Accordion Styles
-   =============================== */
+   ================================ */
 
 .pub-year {
   margin-bottom: 1rem;
@@ -346,7 +346,6 @@ footer,
   padding-bottom: 0.5rem;
 }
 
-/* Base summary styling */
 .pub-year summary {
   font-size: 1.5rem;
   font-weight: 400;
@@ -358,7 +357,6 @@ footer,
   list-style: none;
 }
 
-/* Arrow indicator */
 .pub-year summary::before {
   content: '▶';
   display: inline-block;
@@ -372,26 +370,27 @@ footer,
   transform: rotate(90deg);
 }
 
-/* Nested (inner) years styling */
-.pub-year .pub-year {
+/* Styles for nested elements */
+.pub-year .pub-content-wrap {
   margin-left: 1.5rem;
   margin-top: 0.5rem;
+}
+
+.pub-year .pub-year {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pub-year .pub-year:last-child {
   border-bottom: none;
-  padding-bottom: 0;
 }
 
-.pub-year .pub-year summary {
-  font-size: 1.25rem;
-  color: var(--text-main);
-}
-
-/* Publication list styling */
+/* Publication list text styling */
 .pub-list {
   padding: 0.8rem 0 0.8rem 1.8rem;
 }
 
 .pub-list ul {
-  list-style-type: none; /* Removed black bullets */
+  list-style-type: none;
   padding-left: 0;
   margin-bottom: 0;
 }
