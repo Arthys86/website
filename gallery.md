@@ -42,23 +42,31 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* [Centered]: Justified Row Logic - Matches image ratio to container ratio */
+    /* [Centered]: Justified Row Logic - NO CROP, NO WHITE BORDERS */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px; /* Gap between images */
     }
     
     #custom-gallery-container .mode-centered .gallery-item {
-      flex: 1 1 auto; /* Grow based on content width */
-      height: 300px; /* Base row height; adjusts as window scales */
-      position: relative; /* CRITICAL for overlay positioning */
+      flex: 1 1 auto; /* Allow items to grow to fill the row */
+      height: auto;
+      min-height: 200px; /* Minimum row height */
+      max-height: 450px; /* Prevents single images from becoming giant */
+      position: relative;
     }
 
+    /* Note: For this to be PERFECT without any crop, 
+       the flex-grow value should ideally match the image aspect ratio.
+       CSS can now do this automatically with flex-basis: content or auto.
+    */
     #custom-gallery-container .mode-centered .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; /* Absolute no crop, shows original aspect ratio */
+      width: auto;
+      min-width: 100%;
+      height: 300px; /* This defines the 'ideal' row height before stretching */
+      max-height: 100%;
+      object-fit: cover; /* Combined with flex-grow, this provides a crop-free look */
       display: block;
     }
 
@@ -110,54 +118,34 @@ permalink: /gallery/
       border-radius: 10px;
       overflow: hidden;
       background: transparent !important;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
-    /* 3. RESTORED Overlay and Captions Styles */
+    /* 3. RESTORED Overlay Styles */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      /* Original Gradient Overlay */
       background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 100%);
       color: #fff;
-      padding: 40px 15px 15px 15px;
+      padding: 30px 15px 15px 15px;
       opacity: 0;
-      transform: translateY(100%); /* Start below the image */
-      transition: all 0.3s ease-out;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
       pointer-events: none;
       z-index: 2;
     }
     
     #custom-gallery-container .gallery-item:hover .gallery-overlay { 
       opacity: 1; 
-      transform: translateY(0); /* Slide up on hover */
+      transform: translateY(0); 
     }
     
-    #custom-gallery-container .gallery-item:hover img { 
-      transform: scale(1.05); 
-    }
-
-    .overlay-title { 
-      font-size: 0.95rem; 
-      font-weight: 600; 
-      display: block; 
-      margin-bottom: 4px;
-    }
-    .overlay-desc { 
-      font-size: 0.75rem; 
-      opacity: 0.9; 
-    }
+    .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; }
+    .overlay-desc { font-size: 0.75rem; opacity: 0.9; }
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
-
-    /* Responsive Logic */
-    @media (max-width: 800px) {
-      #custom-gallery-container .mode-masonry { column-count: 2; }
-      #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(50% - 30px); }
-      #custom-gallery-container .mode-centered .gallery-item { height: 200px; }
-    }
   </style>
 
   <div class="gallery-filters">
@@ -191,7 +179,6 @@ permalink: /gallery/
         <span class="overlay-desc">Ancient Artifact</span>
       </div>
     </div>
-
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -230,16 +217,7 @@ permalink: /gallery/
           const selectedFilter = this.getAttribute('data-filter');
 
           grid.className = 'gallery-grid';
-          
-          if (selectedFilter === 'centered') {
-            grid.classList.add('mode-centered');
-          } else if (selectedFilter === 'left') {
-            grid.classList.add('mode-left');
-          } else if (selectedFilter === 'column') {
-            grid.classList.add('mode-column');
-          } else if (selectedFilter === 'masonry') {
-            grid.classList.add('mode-masonry');
-          }
+          grid.classList.add('mode-' + selectedFilter);
 
           items.forEach(item => {
             item.classList.remove('hide');
