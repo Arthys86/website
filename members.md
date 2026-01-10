@@ -7,10 +7,10 @@ permalink: /members/
 
 ## Principal Investigator (PI)
 
-<h3 class="pi-name-heading">Dr. Kuanming Yao</h3>
-
 <div class="pi-grid">
   <div class="pi-photo-wrap">
+    <h3 class="pi-name-incol">Dr. Kuanming Yao</h3>
+
     <img class="pi-photo" src="{{ '/assets/img/pi.jpg' | relative_url }}" alt="PI photo">
 
     <p class="pi-email">
@@ -49,6 +49,7 @@ permalink: /members/
 </div>
 
 ---
+
 
 ## Postdocs
 
