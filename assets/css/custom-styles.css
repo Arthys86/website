@@ -79,7 +79,7 @@ main h3{
 .navbar .navbar-brand{
   color: #ffffff !important;
   font-weight: 400;
-  font-size: 1.18rem !important; /* Slightly smaller than before, still slightly larger than nav links */
+  font-size: 1.18rem !important; /* Slightly smaller than before, still larger than default nav links */
   letter-spacing: 0.2px;
 
   /* HKUST logo alignment */
@@ -107,7 +107,6 @@ main h3{
 .navbar .navbar-nav .nav-link{
   color: #ffffff !important;
   font-weight: 400;
-  font-size: 1.05rem;  /* Slightly smaller than brand */
   letter-spacing: 0.2px;
 
   /* Reduce vertical padding for nav items */
