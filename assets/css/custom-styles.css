@@ -70,17 +70,25 @@ main h3{
 .navbar{
   background-color: var(--ust-blue);
   border-color: var(--ust-blue);
+
+  /* Reduce vertical spacing in expanded navbar as well */
+  padding-top: 0.30rem;
+  padding-bottom: 0.30rem;
 }
 
 .navbar .navbar-brand{
   color: #ffffff !important;
-  font-weight: 400; /* was 500 */
-  font-size: 1.35rem !important;
+  font-weight: 400;
+  font-size: 1.18rem !important; /* Slightly smaller than before, still slightly larger than nav links */
   letter-spacing: 0.2px;
 
   /* HKUST logo alignment */
   display: inline-flex;
   align-items: center;
+
+  /* Reduce extra vertical padding coming from Bootstrap */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .navbar .navbar-brand:hover,
@@ -99,7 +107,12 @@ main h3{
 .navbar .navbar-nav .nav-link{
   color: #ffffff !important;
   font-weight: 400;
+  font-size: 1.05rem;  /* Slightly smaller than brand */
   letter-spacing: 0.2px;
+
+  /* Reduce vertical padding for nav items */
+  padding-top: 0.30rem;
+  padding-bottom: 0.30rem;
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -118,16 +131,16 @@ main h3{
 @media (max-width: 1199.98px){
   .navbar{
     padding-top: 0.18rem;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.18rem;
   }
 
-  .navbar .navbar-brand{
-    padding-top: 0;
-    padding-bottom: 0;
+  .navbar .navbar-nav .nav-link{
+    padding-top: 0.22rem;
+    padding-bottom: 0.22rem;
   }
 
   .navbar .navbar-toggler{
-    padding: 0.15rem 0.45rem;
+    padding: 0.12rem 0.42rem;
   }
 }
 
