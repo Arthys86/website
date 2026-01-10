@@ -42,33 +42,52 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* Common Settings: No background, no forced height, proportional scaling */
-    #custom-gallery-container .gallery-item {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      background: transparent !important;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      height: auto; /* Ensure height is strictly content-based */
+    /* [All]: Consistent Height, Proportional Scaling, Centered Alignment */
+    #custom-gallery-container .gallery-grid.mode-all {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
-
-    #custom-gallery-container .gallery-item img {
-      display: block;
-      width: 100%;
-      height: auto;
+    #custom-gallery-container .mode-all .gallery-item {
+      height: 250px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+    #custom-gallery-container .mode-all .gallery-item img {
+      height: 100%;
+      width: auto;
       object-fit: contain;
     }
 
-    /* [All]: Balanced Staggered Effect using Flex Columns */
-    #custom-gallery-container .gallery-grid.mode-all {
+    /* [Centered]: Three Images Per Row, Vertical and Horizontal Centering */
+    #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
-      flex-direction: column;
       flex-wrap: wrap;
-      height: 1200px; /* Set a height to force wrapping into staggered columns */
-      gap: 20px;
+      justify-content: center;
+      align-items: center; 
+      gap: 30px;
     }
-    #custom-gallery-container .mode-all .gallery-item {
-      width: calc(33.333% - 20px);
+    #custom-gallery-container .mode-centered .gallery-item {
+      flex: 0 1 calc(33.333% - 30px);
+      height: auto;
+    }
+
+    /* [Left]: Horizontal Alignment Left */
+    #custom-gallery-container .gallery-grid.mode-left {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 15px;
+    }
+    #custom-gallery-container .mode-left .gallery-item {
+      height: 250px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+    #custom-gallery-container .mode-left .gallery-item img {
+      height: 100%;
+      width: auto;
     }
 
     /* [Masonry]: Standard CSS Waterfall */
@@ -84,35 +103,20 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* [Left]: Horizontal Alignment */
-    #custom-gallery-container .gallery-grid.mode-left {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 15px;
-    }
-    #custom-gallery-container .mode-left .gallery-item {
-      height: 250px;
-      width: auto;
-      flex: 0 0 auto;
-    }
-    #custom-gallery-container .mode-left .gallery-item img {
-      height: 100%;
-      width: auto;
+    /* Common Item Styles */
+    #custom-gallery-container .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: transparent !important;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    /* [Centered]: Vertical and Horizontal Center Alignment */
-    #custom-gallery-container .gallery-grid.mode-centered {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center; /* Vertical centering to avoid bottom gaps */
-      gap: 30px;
-    }
-    #custom-gallery-container .mode-centered .gallery-item {
-      flex: 0 1 320px;
-      height: auto; /* No fixed height to prevent white bars */
+    #custom-gallery-container .gallery-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     /* 3. Overlay and Captions */
@@ -137,16 +141,15 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    /* Responsive adjustments */
+    /* Responsive Adjustments */
     @media (max-width: 900px) {
       #custom-gallery-container .gallery-grid.mode-masonry { column-count: 2; }
-      #custom-gallery-container .mode-all { height: 1800px; }
-      #custom-gallery-container .mode-all .gallery-item { width: calc(50% - 20px); }
+      #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 calc(50% - 30px); }
     }
     @media (max-width: 600px) {
       #custom-gallery-container .gallery-grid.mode-masonry { column-count: 1; }
-      #custom-gallery-container .mode-all { height: auto; display: block; }
-      #custom-gallery-container .mode-all .gallery-item { width: 100%; }
+      #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 100%; }
+      #custom-gallery-container .mode-all .gallery-item { height: 180px; }
     }
   </style>
 
@@ -159,10 +162,10 @@ permalink: /gallery/
 
   <div class="gallery-grid mode-all" id="gallery-grid">
     <div class="gallery-item" data-category="characters">
-      <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
+      <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
       <div class="gallery-overlay">
-        <span class="overlay-title">Principal Investigator</span>
-        <span class="overlay-desc">Project Lead</span>
+        <span class="overlay-title">Who</span>
+        <span class="overlay-desc">I don't know</span>
       </div>
     </div>
 
