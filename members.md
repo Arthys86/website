@@ -121,6 +121,6 @@ permalink: /members/
 ## Alumni
 
 <ul class="alumni-list">
-  <li><strong>Name Surname</strong> — Next position / destination, Year</li>
-  <li><strong>Name Surname</strong> — Next position / destination, Year</li>
+  <li>Name Surname — Next position / destination, Year</li>
+  <li>Name Surname — Next position / destination, Year</li>
 </ul>
