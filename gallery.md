@@ -41,7 +41,7 @@ permalink: /gallery/
     }
 
     /* 2. MODE: Centered - ONLY MODIFIED PART */
-    /* Use pure height-driven layout to ensure zero cropping and no empty whitespace */
+    /* Target: Absolute proportional scaling, no crop, no white space, row-consistent height */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -50,27 +50,27 @@ permalink: /gallery/
     }
 
     #custom-gallery-container .mode-centered .gallery-item {
-      flex: 0 0 auto; /* Let the content (image) define the width */
+      flex: 0 0 auto;
       width: auto;
-    }
-
-    /* Force identical height for row 1 (Items 1-3) */
-    #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) img {
-      height: 280px;
-      width: auto; /* Proportional scaling */
+      height: auto; /* Container height follows the image */
       display: block;
-      object-fit: cover; /* Since container matches img ratio, cover here acts as normal */
     }
 
-    /* Force identical height for row 2 (Items 4-6) */
+    /* Row 1: Who, The Conquest, Dark Sister */
+    #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) img {
+      height: 280px; 
+      width: auto;   /* Proportional scaling - strict ratio */
+      display: block; /* Removes baseline white space */
+    }
+
+    /* Row 2: Dance of the Dragons, Daemon, Iron Throne */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) img {
       height: 350px;
       width: auto;
       display: block;
-      object-fit: cover;
     }
 
-    /* Row break to keep 3 images per line in Centered mode */
+    /* Force Row Break for Centered Mode */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
@@ -85,9 +85,9 @@ permalink: /gallery/
       gap: 15px;
     }
     #custom-gallery-container .mode-left .gallery-item { height: 250px; flex: 0 0 auto; }
-    #custom-gallery-container .mode-left .gallery-item img { height: 100%; width: auto; }
+    #custom-gallery-container .mode-left .gallery-item img { height: 100%; width: auto; display: block; }
 
-    /* 4. MODE: Column - NO CHANGES (3-column fixed) */
+    /* 4. MODE: Column - STRICTLY ORIGINAL (DO NOT TOUCH) */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
@@ -99,7 +99,8 @@ permalink: /gallery/
     }
     #custom-gallery-container .mode-column .gallery-item img {
       width: 100%;
-      height: auto;
+      height: auto; /* Follows width for 3-column grid */
+      display: block;
     }
 
     /* 5. MODE: Masonry - NO CHANGES */
@@ -114,7 +115,7 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* 6. Shared Styling (Overlays and Items) */
+    /* 6. Shared Components (Overlay/Hover) */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
