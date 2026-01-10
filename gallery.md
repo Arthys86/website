@@ -40,36 +40,36 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. MODE: Centered - Modified to fix Dark Sister height and alignment */
+    /* 2. MODE: Centered - Fixed height for row consistency, NO CROP */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
     }
-    /* Fixed heights for Row 1 and Row 2 in Centered Mode */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) {
-      height: 280px; 
+      height: 280px; /* Fixed height for row 1 */
       flex: 0 0 auto;
     }
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) {
-      height: 350px;
+      height: 350px; /* Fixed height for row 2 */
       flex: 0 0 auto;
     }
-    /* Line break after Item 3 */
+    /* Separate Centered images to row-based height logic */
+    #custom-gallery-container .mode-centered .gallery-item img {
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+    /* Row break for Centered mode */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
       width: 0;
       height: 0;
     }
-    #custom-gallery-container .mode-centered .gallery-item img {
-      height: 100%;
-      width: auto; /* Preserve aspect ratio without cropping */
-      object-fit: contain;
-    }
 
-    /* 3. MODE: Left - Simple horizontal flow */
+    /* 3. MODE: Left - Simple flow */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
@@ -85,23 +85,23 @@ permalink: /gallery/
       width: auto;
     }
 
-    /* 4. MODE: Column - DO NOT MODIFY (Fixed 3-column grid) */
+    /* 4. MODE: Column - RESTORED TO ORIGINAL (DO NOT TOUCH) */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center; 
       gap: 30px;
     }
     #custom-gallery-container .mode-column .gallery-item {
-      flex: 0 1 calc(33.333% - 20px);
-      height: auto;
+      flex: 0 1 calc(33.333% - 30px);
     }
     #custom-gallery-container .mode-column .gallery-item img {
       width: 100%;
       height: auto;
     }
 
-    /* 5. MODE: Masonry - CSS Waterfall */
+    /* 5. MODE: Masonry - CSS Column Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       display: block;
       column-count: 3;
@@ -113,7 +113,7 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* 6. Shared Component Styling */
+    /* 6. Shared Item Styling & Overlays */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -210,7 +210,6 @@ permalink: /gallery/
   </div>
 
   <script>
-    /* Filter switching script */
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const grid = document.getElementById('gallery-grid');
