@@ -7,7 +7,7 @@
   --blue-mid: #2F6FA8;
   --gold: #996600;
   --gold-accent: #BE9006;
-  --gold-hover: #D4A017; /* Brighter gold for hover */
+  --gold-hover: #D4A017;
   --text-main: #1b1f24;
 }
 
@@ -387,6 +387,7 @@ footer,
 
 .pub-list {
   padding: 0.8rem 0 0.8rem 0; 
+  font-size: 0.95rem; /* Reduced body font size slightly for cleaner look */
 }
 
 .pub-list ul {
@@ -396,7 +397,7 @@ footer,
 }
 
 .pub-list li {
-  margin-bottom: 1.8rem;
+  margin-bottom: 2.2rem; /* Increased vertical spacing between papers */
   line-height: 1.5;
   text-align: justify;
 }
@@ -424,7 +425,6 @@ footer,
   transition: all 0.3s ease;
 }
 
-/* Updated: Only trigger hover when mouse is on the summary line */
 summary:hover .pub-count {
   background-color: var(--gold-hover); 
   color: var(--ust-blue);
