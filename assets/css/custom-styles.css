@@ -71,7 +71,7 @@ main h3{
   background-color: var(--ust-blue);
   border-color: var(--ust-blue);
 
-  /* Slightly more vertical space in expanded navbar (but still compact) */
+  /* Slightly more vertical space in expanded navbar (still compact) */
   padding-top: 0.36rem;
   padding-bottom: 0.36rem;
 }
@@ -79,7 +79,7 @@ main h3{
 .navbar .navbar-brand{
   color: #ffffff !important;
   font-weight: 400;
-  font-size: 1.26rem !important; /* slightly larger brand text */
+  font-size: 1.26rem !important;
   letter-spacing: 0.2px;
 
   /* HKUST logo alignment */
@@ -287,63 +287,18 @@ footer,
    Members page layout
    ================================ */
 
-.member-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.0rem 1.2rem;
-  margin: 0.8rem 0 1.4rem 0;
+/* PI name as a heading under "Principal Investigator (PI)" (outside the two-column grid) */
+.pi-name-heading{
+  margin: 0.25rem 0 0.85rem 0;
 }
 
-.member-card{
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
-}
-
-.member-photo{
-  width: 96px;
-  height: 96px;
-  object-fit: cover;      /* keeps aspect ratio and fills the box */
-  border-radius: 8px;
-  flex: 0 0 auto;
-  display: block;
-}
-
-.member-name{
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.member-line{
-  margin-top: 0.15rem;
-  line-height: 1.2;
-}
-
-/* Stack to one column on small screens */
-@media (max-width: 768px){
-  .member-grid{
-    grid-template-columns: 1fr;
-  }
-
-  .member-photo{
-    width: 88px;
-    height: 88px;
-  }
-}
-
-/* ================================
-   PI section (two-column)
-   ================================ */
-
+/* Two-column PI block: photo (left) + CV (right) */
 .pi-grid{
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
-  gap: 1.2rem;
+  gap: 2.0rem; /* increased spacing between photo and text */
   align-items: start;
-  margin: 0.8rem 0 1.2rem 0;
+  margin: 0.6rem 0 1.2rem 0;
 }
 
 .pi-photo{
@@ -352,11 +307,6 @@ footer,
   border-radius: 10px;
   display: block;
   object-fit: cover;
-}
-
-.pi-name{
-  margin-top: 0;
-  margin-bottom: 0.6rem;
 }
 
 .pi-cv{
@@ -378,11 +328,57 @@ footer,
   margin: 0.35rem 0 0 0;
 }
 
+/* Member cards: 2 per row */
+.member-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.0rem 1.2rem;
+  margin: 0.8rem 0 1.4rem 0;
+}
+
+.member-card{
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+
+.member-photo{
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex: 0 0 auto;
+  display: block;
+}
+
+.member-name{
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.member-line{
+  margin-top: 0.15rem;
+  line-height: 1.2;
+}
+
+/* Mobile: stack to 1 column */
 @media (max-width: 768px){
   .pi-grid{
     grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
   .pi-photo{
     max-width: 260px;
+  }
+
+  .member-grid{
+    grid-template-columns: 1fr;
+  }
+  .member-photo{
+    width: 80px;
+    height: 80px;
   }
 }
