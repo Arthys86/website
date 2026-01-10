@@ -250,24 +250,21 @@ footer,
    Members page layout
    ================================ */
 
-/* Wrapper to ensure centering across different screen widths */
+/* Set left indent to match the internal gap (3.2rem) */
 .pi-center {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 0 15px;
+  padding-left: 3.2rem;
+  display: block;
 }
 
 .pi-grid{
   display: grid;
-  /* Left column for photo (260px), Right column for CV (flexible) */
-  grid-template-columns: 260px minmax(0, 640px);
+  /* Left column for photo (280px), Right column for CV (flexible) */
+  grid-template-columns: 280px minmax(0, 1fr);
   gap: 3.2rem;
   align-items: start;
-  
-  /* Horizontal centering of the grid itself */
-  margin: 0.6rem auto 1.2rem auto;
-  max-width: 100%;
+  margin: 0.6rem 0 1.2rem 0;
+  max-width: 1000px;
 }
 
 .pi-name-incol{
@@ -313,15 +310,16 @@ footer,
 .member-card{
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1.2rem;
   padding: 0.7rem 0.8rem;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 8px;
 }
 
+/* Member photo adjusted to 135px square */
 .member-photo{
-  width: 110px;
-  height: 110px;
+  width: 135px;
+  height: 135px;
   object-fit: cover;
   border-radius: 8px;
   flex: 0 0 auto;
@@ -338,11 +336,14 @@ footer,
 }
 
 @media (max-width: 768px){
+  .pi-center {
+    padding-left: 0; /* Remove indent on mobile */
+  }
+
   .pi-grid{
     grid-template-columns: 1fr;
     gap: 1.2rem;
     text-align: center;
-    max-width: 400px; /* Constrain width on mobile for better aesthetics */
   }
 
   .pi-photo-wrap {
@@ -352,7 +353,7 @@ footer,
   }
 
   .pi-photo{
-    max-width: 260px;
+    max-width: 280px;
   }
 
   .pi-cv {
