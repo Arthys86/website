@@ -40,41 +40,42 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. Layout Modes Configuration */
+    /* 2. Optimized Justified Layout Modes */
 
-    /* Common Item Styles - Absolute zero cropping or white borders */
+    /* Common Item Config: Zero Cropping, No White Borders */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
       background: transparent !important;
       transition: transform 0.3s ease, opacity 0.3s ease;
+      flex-grow: 1; /* Allow items to fill the row gaps */
     }
 
     #custom-gallery-container .gallery-item img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Combined with flex-grow, this preserves ratio without cropping */
+      object-fit: contain; /* Guarantee no cropping */
     }
 
-    /* [All] & [Left]: Justified Flow - Fills gaps automatically */
+    /* [All] & [Left]: Automatic Row Justification */
     #custom-gallery-container .gallery-grid.mode-all,
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 15px;
+      justify-content: flex-start; /* 'Left' style */
     }
 
-    /* Force images to fill the row width proportionally */
+    /* Base height for the 'Justified' effect */
     #custom-gallery-container .mode-all .gallery-item,
     #custom-gallery-container .mode-left .gallery-item {
-      flex-grow: 1;
-      height: 280px; /* Base height; items will expand width to fill row */
+      height: 280px; 
       min-width: 200px;
     }
 
-    /* [Centered]: 3-Column Center Alignment */
+    /* [Centered]: Three Columns, Center-Aligned, No Gaps at Bottom */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -85,9 +86,10 @@ permalink: /gallery/
     #custom-gallery-container .mode-centered .gallery-item {
       flex: 0 1 calc(33.333% - 30px);
       height: auto;
+      flex-grow: 0; /* Maintain 3-column structure */
     }
 
-    /* [Masonry]: Classic Columnar Waterfall */
+    /* [Masonry]: Standard Vertical Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
@@ -122,20 +124,16 @@ permalink: /gallery/
 
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
-    /* Responsive Adjustments */
-    @media (max-width: 1024px) {
-      #custom-gallery-container .mode-all .gallery-item,
-      #custom-gallery-container .mode-left .gallery-item { height: 220px; }
-    }
-    @media (max-width: 768px) {
-      #custom-gallery-container .gallery-grid.mode-masonry { column-count: 2; }
+    /* Responsive Logic */
+    @media (max-width: 900px) {
+      #custom-gallery-container .mode-masonry { column-count: 2; }
       #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 calc(50% - 30px); }
     }
-    @media (max-width: 480px) {
-      #custom-gallery-container .gallery-grid.mode-masonry { column-count: 1; }
+    @media (max-width: 600px) {
+      #custom-gallery-container .mode-masonry { column-count: 1; }
       #custom-gallery-container .mode-centered .gallery-item { flex: 0 1 100%; }
       #custom-gallery-container .mode-all .gallery-item,
-      #custom-gallery-container .mode-left .gallery-item { height: 180px; }
+      #custom-gallery-container .mode-left .gallery-item { height: 200px; }
     }
   </style>
 
@@ -147,7 +145,7 @@ permalink: /gallery/
   </div>
 
   <div class="gallery-grid mode-all" id="gallery-grid">
-    <div class="gallery-item">
+    <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
       <div class="gallery-overlay">
         <span class="overlay-title">Who</span>
@@ -155,7 +153,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
         <span class="overlay-title">Dance of the Dragons</span>
@@ -163,15 +161,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item">
-      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
-      <div class="gallery-overlay">
-        <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">Archival Image</span>
-      </div>
-    </div>
-
-    <div class="gallery-item">
+    <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Member">
       <div class="gallery-overlay">
         <span class="overlay-title">Team Member</span>
@@ -179,7 +169,15 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gallery-item" data-category="history">
+      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
+      <div class="gallery-overlay">
+        <span class="overlay-title">The Conquest</span>
+        <span class="overlay-desc">Archival Image</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
@@ -187,7 +185,7 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item">
+    <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
       <div class="gallery-overlay">
         <span class="overlay-title">Iron Throne</span>
