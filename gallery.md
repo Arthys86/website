@@ -41,6 +41,7 @@ permalink: /gallery/
     }
 
     /* 2. MODE: Centered - ONLY MODIFIED PART */
+    /* Use pure height-driven layout to ensure zero cropping and no empty whitespace */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
@@ -48,25 +49,31 @@ permalink: /gallery/
       gap: 15px;
     }
 
-    /* Target images directly to ensure identical height within rows */
-    /* Row 1: Who, The Conquest, Dark Sister */
+    #custom-gallery-container .mode-centered .gallery-item {
+      flex: 0 0 auto; /* Let the content (image) define the width */
+      width: auto;
+    }
+
+    /* Force identical height for row 1 (Items 1-3) */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) img {
-      height: 280px !important; /* Absolute height for Row 1 */
-      width: auto !important;   /* Proportional width - No Crop */
+      height: 280px;
+      width: auto; /* Proportional scaling */
+      display: block;
+      object-fit: cover; /* Since container matches img ratio, cover here acts as normal */
     }
 
-    /* Row 2: Dance of the Dragons, Daemon, Iron Throne */
+    /* Force identical height for row 2 (Items 4-6) */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) img {
-      height: 350px !important; /* Absolute height for Row 2 */
-      width: auto !important;   /* Proportional width - No Crop */
+      height: 350px;
+      width: auto;
+      display: block;
+      object-fit: cover;
     }
 
-    /* Line break logic for Centered Mode */
+    /* Row break to keep 3 images per line in Centered mode */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
-      width: 0;
-      height: 0;
       display: block;
     }
 
@@ -77,21 +84,14 @@ permalink: /gallery/
       justify-content: flex-start;
       gap: 15px;
     }
-    #custom-gallery-container .mode-left .gallery-item {
-      height: 250px;
-      flex: 0 0 auto;
-    }
-    #custom-gallery-container .mode-left .gallery-item img {
-      height: 100%;
-      width: auto;
-    }
+    #custom-gallery-container .mode-left .gallery-item { height: 250px; flex: 0 0 auto; }
+    #custom-gallery-container .mode-left .gallery-item img { height: 100%; width: auto; }
 
-    /* 4. MODE: Column - NO CHANGES (Original 3-column logic) */
+    /* 4. MODE: Column - NO CHANGES (3-column fixed) */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center; 
       gap: 30px;
     }
     #custom-gallery-container .mode-column .gallery-item {
@@ -114,7 +114,7 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* 6. Shared Components (Overlay/Hover) */
+    /* 6. Shared Styling (Overlays and Items) */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -166,7 +166,6 @@ permalink: /gallery/
         <span class="overlay-desc">I don't know</span>
       </div>
     </div>
-
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
       <div class="gallery-overlay">
@@ -174,7 +173,6 @@ permalink: /gallery/
         <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
       </div>
     </div>
-
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
@@ -182,7 +180,6 @@ permalink: /gallery/
         <span class="overlay-desc">a longsword of Valyrian steel</span>
       </div>
     </div>
-
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -190,7 +187,6 @@ permalink: /gallery/
         <span class="overlay-desc">The Dance over Shipbreaker Bay</span>
       </div>
     </div>
-
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
       <div class="gallery-overlay">
@@ -198,7 +194,6 @@ permalink: /gallery/
         <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
       </div>
     </div>
-
     <div class="gallery-item">
       <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
       <div class="gallery-overlay">
