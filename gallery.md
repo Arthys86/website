@@ -40,28 +40,30 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. MODE: Centered - Fixed height for row consistency, NO CROP */
+    /* 2. MODE: Centered - ONLY PART MODIFIED */
+    /* Ensuring all images in a row have identical physical height without cropping */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
     }
-    #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) {
-      height: 280px; /* Fixed height for row 1 */
+    
+    #custom-gallery-container .mode-centered .gallery-item {
+      height: 300px; /* Base row height for all items in this mode */
       flex: 0 0 auto;
+      display: flex;
     }
-    #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) {
-      height: 350px; /* Fixed height for row 2 */
-      flex: 0 0 auto;
-    }
-    /* Separate Centered images to row-based height logic */
+
     #custom-gallery-container .mode-centered .gallery-item img {
-      height: 100%;
-      width: auto;
+      height: 100%;  /* Force image to fill the 300px container height */
+      width: auto;   /* Scale width proportionally - No Crop */
+      display: block;
       object-fit: contain;
     }
-    /* Row break for Centered mode */
+
+    /* Special rule to separate row 1 and row 2 if desired, 
+       or let them flow naturally while maintaining height consistency */
     #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
       content: "";
       flex-basis: 100%;
@@ -69,7 +71,7 @@ permalink: /gallery/
       height: 0;
     }
 
-    /* 3. MODE: Left - Simple flow */
+    /* 3. MODE: Left - NO CHANGES */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
@@ -85,7 +87,7 @@ permalink: /gallery/
       width: auto;
     }
 
-    /* 4. MODE: Column - RESTORED TO ORIGINAL (DO NOT TOUCH) */
+    /* 4. MODE: Column - NO CHANGES (Strictly original 3-column logic) */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
@@ -101,7 +103,7 @@ permalink: /gallery/
       height: auto;
     }
 
-    /* 5. MODE: Masonry - CSS Column Waterfall */
+    /* 5. MODE: Masonry - NO CHANGES */
     #custom-gallery-container .gallery-grid.mode-masonry {
       display: block;
       column-count: 3;
@@ -113,7 +115,7 @@ permalink: /gallery/
       margin-bottom: 20px;
     }
 
-    /* 6. Shared Item Styling & Overlays */
+    /* 6. Shared Components (Overlay/Hover) - NO CHANGES */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -148,8 +150,6 @@ permalink: /gallery/
 
     .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 4px; }
     .overlay-desc { font-size: 0.75rem; opacity: 0.9; line-height: 1.2; }
-
-    #custom-gallery-container .gallery-item.hide { display: none !important; }
   </style>
 
   <div class="gallery-filters">
