@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Publications"
-subtitle: "publication subtitle"
+subtitle: "Full list of publications"
 permalink: /publications/
 ---
 
@@ -15,7 +15,7 @@ permalink: /publications/
 </details>
 
 <details class="pub-year" open>
-  <summary>2025 and Earlier</summary>
+  <summary>2025 and Earlier <span class="pub-count">69</span></summary>
   
   <div class="pub-content-wrap">
 
@@ -104,10 +104,34 @@ permalink: /publications/
     </details>
 
     <details class="pub-year" open>
-      <summary>2021 <span class="pub-count">0</span></summary>
+      <summary>2021 <span class="pub-count">11</span></summary>
       <div class="pub-list">
         <ul>
-          <li>Author Name, <span class="pub-title">Paper Title</span>, <em>Journal Name</em>, 2021. <a href="#" target="_blank">DOI</a></li>
+          <li>W. Park, C. Yiu, Y. Liu, T. H. Wong, X. Huang, J. Zhou, J. Li, <strong>K. Yao</strong>, Y. Huang, H. Li, J. Li, Y. Jiao, R. Shi, X. Yu, <span class="pub-title">High Channel Temperature Mapping Electronics in a Thin, Soft, Wireless Format for Non-Invasive Body Thermal Analysis</span>. <em>Biosensors</em>, 2021.</li>
+          <li>H. Wang, J. Wang, <strong>K. Yao</strong>, J. Fu, X. Xia, R. Zhang, J. Li, G. Xu, L. Wang, J. Yang, J. Lai, Y. Dai, Z. Zhang, A. Li, Y. Zhu, X. Yu, Z. L. Wang, Y. Zi, <span class="pub-title">A paradigm shift fully self-powered long-distance wireless sensing solution enabled by discharge-induced displacement current</span>. <em>Sci. Adv.</em>, 2021. <a href="https://doi.org/10.1126/sciadv.abi6751" target="_blank">DOI</a></li>
+          <li>T. H. Wong, C. K. Yiu, J. Zhou, Z. Song, Y. Liu, L. Zhao, <strong>K. Yao</strong>, W. Park, W. Yoo, E. Song, Z. Xie, X. Yu, <span class="pub-title">Tattoo-like epidermal electronics as skin sensors for human machine interfaces</span>. <em>Soft Science</em>, 2021. <a href="https://doi.org/10.20517/ss.2021.09" target="_blank">DOI</a></li>
+          <li>D. Li, J. He, Z. Song, <strong>K. Yao</strong>, M. Wu, H. Fu, Y. Liu, Z. Gao, J. Zhou, L. Wei, Z. Zhang, Y. Dai, Z. Xie, X. Yu, <span class="pub-title">Miniaturization of mechanical actuators in skin-integrated electronics for haptic interfaces</span>. <em>Microsyst. Nanoeng.</em>, 2021.</li>
+          <li>E. Song, Z. Xie, W. Bai, H. Luan, B. Ji, X. Ning, Y. Xia, J. M. Baek, Y. Lee, R. Avila, H.-Y. Chen, J.-H. Kim, S. Madhvapathy, <strong>K. Yao</strong>, D. Li, J. Zhou, M. Han, S. M. Won, X. Zhang, D. J. Myers, Y. Mei, X. Guo, S. Xu, J.-K. Chang, X. Yu, Y. Huang, J. A. Rogers, <span class="pub-title">Miniaturized electromechanical devices for the characterization of the biomechanics of deep tissue</span>. <em>Nat. Biomed. Eng.</em>, 2021. <a href="https://doi.org/10.1038/s41551-021-00723-y" target="_blank">DOI</a></li>
+          <li>Y. Liu, C. Yiu, H. Jia, T. Wong, <strong>K. Yao</strong>, Y. Huang, J. Zhou, X. Huang, L. Zhao, D. Li, M. Wu, Z. Gao, J. He, E. Song, X. Yu, <span class="pub-title">Thin, soft, garment-integrated triboelectric nanogenerators for energy harvesting and human machine interfaces</span>. <em>EcoMat</em>, 2021.</li>
+          <li>M. Wu†, <strong>K. Yao†</strong>, D. Li, X. Huang, Y. Liu, L. Wang, E. Song, J. Yu, X. Yu, <span class="pub-title">Self-powered skin electronics for energy harvesting and healthcare monitoring</span>. <em>Mater. Today Energy</em>, 2021. <a href="https://doi.org/10.1016/j.mtener.2021.100786" target="_blank">DOI</a></li>
+          <li>D. Li, S. Wang, J. He, H. Zeng, <strong>K. Yao</strong>, Z. Gao, M. Wu, Y. Liu, L. Wang, Z. Xie, X. Yu, <span class="pub-title">Bioinspired Ultrathin Piecewise Controllable Soft Robots</span>. <em>Adv. Mater. Tech.</em>, 2021.</li>
+          <li>M. Wu, Z. Gao, <strong>K. Yao</strong>, S. Hou, Y. Liu, D. Li, J. He, X. Huang, E. Song, J. Yu, X. Yu, <span class="pub-title">Thin, soft, skin-integrated foam-based triboelectric nanogenerators for tactile sensing and energy harvesting</span>. <em>Mater. Today Energy</em>, 2021.</li>
+          <li>D. Li, <strong>K. Yao</strong>, Z. Gao, Y. Liu, X. Yu, <span class="pub-title">Recent progress of skin-integrated electronics for intelligent sensing</span>. <em>Light: Adv. Manuf.</em>, 2021.</li>
+          <li>J. He, Z. Xie, <strong>K. Yao</strong>, D. Li, Y. Liu, Z. Gao, W. Lu, L. Chang, X. Yu, <span class="pub-title">Trampoline inspired stretchable triboelectric nanogenerators as tactile sensors for epidermal electronics</span>. <em>Nano Energy</em>, 2021.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="pub-year" open>
+      <summary>2020 <span class="pub-count">6</span></summary>
+      <div class="pub-list">
+        <ul>
+          <li>Y. Liu, H. Zheng, L. Zhao, S. Liu, <strong>K. Yao</strong>, D. Li, C. Yiu, S. Gao, R. Avila, P. Chirarattananon, L. Chang, Z. Wang, X. Huang, Z. Xie, Z. Yang, X. Yu, <span class="pub-title">Electronic Skin from High-Throughput Fabrication of Intrinsically Stretchable Lead Zirconate Titanate Elastomer</span>. <em>Research</em>, 2020. <a href="https://doi.org/10.34133/2020/1085417" target="_blank">DOI</a></li>
+          <li>J. He, Y. Liu, D. Li, <strong>K. Yao</strong>, Z. Gao, X. Yu, <span class="pub-title">Stretchable Triboelectric Nanogenerators for Energy Harvesting and Motion Monitoring</span>. <em>IEEE OJ-NANO</em>, 2020.</li>
+          <li><strong>K. Yao</strong>, J. Yao, Z. Hai, D. Li, Z. Xie, X. Yu, <span class="pub-title">Stretchable self-powered epidermal electronics from piezoelectric rubber for tactile sensing</span>. <em>Acta Phys. Sin.</em>, 2020.</li>
+          <li><strong>K. Yao†</strong>, Y. Liu†, D. Li, J. He, J. Li, R. H. W. Lam, Z. Xie, L. Wang, X. Yu, <span class="pub-title">Mechanics designs-performance relationships in epidermal triboelectric nanogenerators</span>. <em>Nano Energy</em>, 2020. <a href="https://doi.org/10.1016/j.nanoen.2020.105017" target="_blank">DOI</a></li>
+          <li>Y. Liu, L. Zhao, R. Avila, C. Yiu, T. Wong, Y. Chan, <strong>K. Yao</strong>, D. Li, Y. Zhang, W. Li, Z. Xie, X. Yu, <span class="pub-title">Epidermal electronics for respiration monitoring via thermo-sensitive measuring</span>. <em>Mater. Today Physics</em>, 2020.</li>
+          <li>Y. Liu, L. Wang, L. Zhao, <strong>K. Yao</strong>, Z. Xie, Y. Zi, X. Yu, <span class="pub-title">Thin, Skin-Integrated, Stretchable Triboelectric Nanogenerators for Tactile Sensing</span>. <em>Adv. Elect. Mater.</em>, 2020.</li>
         </ul>
       </div>
     </details>
