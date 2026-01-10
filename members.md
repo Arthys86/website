@@ -7,14 +7,14 @@ permalink: /members/
 
 ## Principal Investigator (PI)
 
+<p class="pi-titleline">Dr. Kuanming Yao</p>
+
 <div class="pi-grid">
   <div class="pi-photo-wrap">
-    <img class="pi-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PI photo">
+    <img class="pi-photo" src="{{ '/assets/img/pi.jpg' | relative_url }}" alt="PI photo">
   </div>
 
   <div class="pi-content">
-    <h2 class="pi-name">Dr. Kuanming Yao</h2>
-
     <ul class="pi-cv">
       <li>
         <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Apr. 2024 - )</span><br>
@@ -47,7 +47,6 @@ permalink: /members/
   </div>
 </div>
 
-
 ---
 
 ## Postdocs
@@ -72,7 +71,7 @@ permalink: /members/
 
 ---
 
-## PhD students
+## PhD Students
 
 <div class="member-grid">
   <div class="member-card">
@@ -94,7 +93,7 @@ permalink: /members/
 
 ---
 
-## MSc &amp; UG students
+## MSc &amp; UG Students
 
 <div class="member-grid">
   <div class="member-card">
