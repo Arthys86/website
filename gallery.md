@@ -28,9 +28,7 @@ permalink: /gallery/
       position: relative;
     }
 
-    /* Hover State: Light Gold */
     #custom-gallery-container .filter-tag:hover { color: #D4AF37; }
-    /* Active State: Deep Gold */
     #custom-gallery-container .filter-tag.active { font-weight: bold; color: #996600; }
     #custom-gallery-container .filter-tag.active::after {
       content: '';
@@ -43,24 +41,37 @@ permalink: /gallery/
     }
 
     /* 2. Layout Modes Configuration */
-    
-    /* Common: No background, no cropping, proportional scaling */
+
+    /* Common Settings: No background, no forced height, proportional scaling */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
       background: transparent !important;
       transition: transform 0.3s ease, opacity 0.3s ease;
+      height: auto; /* Ensure height is strictly content-based */
     }
 
     #custom-gallery-container .gallery-item img {
       display: block;
       width: 100%;
       height: auto;
-      object-fit: contain; 
+      object-fit: contain;
     }
 
-    /* [All] & [Masonry]: Column-based Waterfall */
+    /* [All]: Balanced Staggered Effect using Flex Columns */
+    #custom-gallery-container .gallery-grid.mode-all {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      height: 1200px; /* Set a height to force wrapping into staggered columns */
+      gap: 20px;
+    }
+    #custom-gallery-container .mode-all .gallery-item {
+      width: calc(33.333% - 20px);
+    }
+
+    /* [Masonry]: Standard CSS Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
@@ -71,14 +82,14 @@ permalink: /gallery/
       display: inline-block;
       width: 100%;
       margin-bottom: 20px;
-      height: auto; 
     }
 
-    /* [Left]: Horizontal Row with Fixed Height */
+    /* [Left]: Horizontal Alignment */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
+      align-items: flex-start;
       gap: 15px;
     }
     #custom-gallery-container .mode-left .gallery-item {
@@ -91,16 +102,17 @@ permalink: /gallery/
       width: auto;
     }
 
-    /* [Centered]: Proportional Scaling with Center Alignment */
+    /* [Centered]: Vertical and Horizontal Center Alignment */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center; /* Vertical centering to avoid bottom gaps */
       gap: 30px;
     }
     #custom-gallery-container .mode-centered .gallery-item {
-      flex: 0 1 320px; 
-      height: auto;
+      flex: 0 1 320px;
+      height: auto; /* No fixed height to prevent white bars */
     }
 
     /* 3. Overlay and Captions */
@@ -128,9 +140,13 @@ permalink: /gallery/
     /* Responsive adjustments */
     @media (max-width: 900px) {
       #custom-gallery-container .gallery-grid.mode-masonry { column-count: 2; }
+      #custom-gallery-container .mode-all { height: 1800px; }
+      #custom-gallery-container .mode-all .gallery-item { width: calc(50% - 20px); }
     }
     @media (max-width: 600px) {
       #custom-gallery-container .gallery-grid.mode-masonry { column-count: 1; }
+      #custom-gallery-container .mode-all { height: auto; display: block; }
+      #custom-gallery-container .mode-all .gallery-item { width: 100%; }
     }
   </style>
 
@@ -141,7 +157,7 @@ permalink: /gallery/
     <span class="filter-tag" data-filter="masonry">Masonry</span>
   </div>
 
-  <div class="gallery-grid mode-masonry" id="gallery-grid">
+  <div class="gallery-grid mode-all" id="gallery-grid">
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
       <div class="gallery-overlay">
@@ -203,19 +219,19 @@ permalink: /gallery/
           this.classList.add('active');
           const selectedFilter = this.getAttribute('data-filter');
 
-          /* Reset layout modes */
           grid.className = 'gallery-grid';
           
-          if (selectedFilter === 'all' || selectedFilter === 'masonry') {
-            grid.classList.add('mode-masonry');
+          if (selectedFilter === 'all') {
+            grid.classList.add('mode-all');
           } else if (selectedFilter === 'left') {
             grid.classList.add('mode-left');
           } else if (selectedFilter === 'centered') {
             grid.classList.add('mode-centered');
+          } else if (selectedFilter === 'masonry') {
+            grid.classList.add('mode-masonry');
           }
 
           items.forEach(item => {
-            /* Show all images for every filter as requested */
             item.classList.remove('hide');
             item.style.opacity = "0";
             setTimeout(() => { item.style.opacity = "1"; }, 50);
