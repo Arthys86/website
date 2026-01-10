@@ -287,16 +287,16 @@ footer,
    Members page layout
    ================================ */
 
-/* PI name as a heading under "Principal Investigator (PI)" (outside the two-column grid) */
+/* PI name as a heading under "Principal Investigator (PI)" (above the two-column grid) */
 .pi-name-heading{
-  margin: 0.25rem 0 0.85rem 0;
+  margin: 0.25rem 0 0.9rem 0;
 }
 
 /* Two-column PI block: photo (left) + CV (right) */
 .pi-grid{
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
-  gap: 2.0rem; /* increased spacing between photo and text */
+  gap: 2.8rem; /* increased spacing between photo and text */
   align-items: start;
   margin: 0.6rem 0 1.2rem 0;
 }
