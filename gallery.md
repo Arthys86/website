@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* 1. 导航栏样式 - 保持您的颜色要求 */
+    /* 1. Filter Navigation Styling */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -22,14 +22,16 @@ permalink: /gallery/
       text-transform: uppercase;
       letter-spacing: 1px;
       cursor: pointer;
-      color: #003366; /* 默认深蓝 */
+      color: #003366; 
       padding: 5px 5px;
       transition: all 0.3s ease;
       position: relative;
     }
 
-    #custom-gallery-container .filter-tag:hover { color: #D4AF37; } /* 悬停浅金 */
-    #custom-gallery-container .filter-tag.active { font-weight: bold; color: #996600; } /* 选中深金 */
+    /* Hover State: Light Gold */
+    #custom-gallery-container .filter-tag:hover { color: #D4AF37; }
+    /* Active State: Deep Gold */
+    #custom-gallery-container .filter-tag.active { font-weight: bold; color: #996600; }
     #custom-gallery-container .filter-tag.active::after {
       content: '';
       position: absolute;
@@ -40,70 +42,68 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. 核心容器布局 */
-    #custom-gallery-container .gallery-grid {
-      transition: all 0.3s ease;
-    }
-
-    /* --- Mode: All (学术瀑布流 - 最稳妥的错位感) --- */
-    #custom-gallery-container .gallery-grid.mode-all {
-      column-count: 3;
-      column-gap: 20px;
-      display: block;
-    }
-    #custom-gallery-container .mode-all .gallery-item {
-      break-inside: avoid;
-      display: inline-block;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    /* --- Mode: Characters (居中展示 - 等比缩放无白边) --- */
-    #custom-gallery-container .gallery-grid.mode-characters {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-    #custom-gallery-container .mode-characters .gallery-item {
-      flex: 0 1 300px; /* 固定一个大致宽度，高度自适应 */
-      height: auto;
-    }
-
-    /* --- Mode: History & Artifacts (等高横排 - 不裁剪) --- */
-    #custom-gallery-container .gallery-grid.mode-horizontal {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    #custom-gallery-container .mode-horizontal .gallery-item {
-      height: 250px;
-      flex: 0 0 auto;
-    }
-    #custom-gallery-container .mode-horizontal .gallery-item img {
-      height: 100%;
-      width: auto;
-    }
-
-    /* 3. 通用项目样式 */
+    /* 2. Layout Modes Configuration */
+    
+    /* Common: No background, no cropping, proportional scaling */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background: none; /* 彻底去掉白边背景 */
+      background: transparent !important;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     #custom-gallery-container .gallery-item img {
       display: block;
       width: 100%;
       height: auto;
-      object-fit: contain; /* 绝对不裁剪 */
-      transition: transform 0.6s ease;
+      object-fit: contain; 
     }
 
-    #custom-gallery-container .gallery-item.hide { display: none !important; }
+    /* [All] & [Masonry]: Column-based Waterfall */
+    #custom-gallery-container .gallery-grid.mode-masonry {
+      column-count: 3;
+      column-gap: 20px;
+      display: block;
+    }
+    #custom-gallery-container .mode-masonry .gallery-item {
+      break-inside: avoid;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 20px;
+      height: auto; 
+    }
 
-    /* 4. 遮罩层 (保持原有方式) */
+    /* [Left]: Horizontal Row with Fixed Height */
+    #custom-gallery-container .gallery-grid.mode-left {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 15px;
+    }
+    #custom-gallery-container .mode-left .gallery-item {
+      height: 250px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+    #custom-gallery-container .mode-left .gallery-item img {
+      height: 100%;
+      width: auto;
+    }
+
+    /* [Centered]: Proportional Scaling with Center Alignment */
+    #custom-gallery-container .gallery-grid.mode-centered {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    #custom-gallery-container .mode-centered .gallery-item {
+      flex: 0 1 320px; 
+      height: auto;
+    }
+
+    /* 3. Overlay and Captions */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -123,69 +123,70 @@ permalink: /gallery/
     .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; }
     .overlay-desc { font-size: 0.75rem; opacity: 0.8; }
 
-    /* 响应式 */
+    #custom-gallery-container .gallery-item.hide { display: none !important; }
+
+    /* Responsive adjustments */
     @media (max-width: 900px) {
-      #custom-gallery-container .gallery-grid.mode-all { column-count: 2; }
+      #custom-gallery-container .gallery-grid.mode-masonry { column-count: 2; }
     }
     @media (max-width: 600px) {
-      #custom-gallery-container .gallery-grid.mode-all { column-count: 1; }
-      #custom-gallery-container .mode-characters .gallery-item { flex: 0 1 100%; }
+      #custom-gallery-container .gallery-grid.mode-masonry { column-count: 1; }
     }
   </style>
 
   <div class="gallery-filters">
     <span class="filter-tag active" data-filter="all">All</span>
-    <span class="filter-tag" data-filter="history">History</span>
-    <span class="filter-tag" data-filter="characters">Characters</span>
-    <span class="filter-tag" data-filter="artifacts">Artifacts</span>
+    <span class="filter-tag" data-filter="left">Left</span>
+    <span class="filter-tag" data-filter="centered">Centered</span>
+    <span class="filter-tag" data-filter="masonry">Masonry</span>
   </div>
 
-  <div class="gallery-grid mode-all" id="gallery-grid">
+  <div class="gallery-grid mode-masonry" id="gallery-grid">
     <div class="gallery-item" data-category="characters">
       <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="PI">
       <div class="gallery-overlay">
         <span class="overlay-title">Principal Investigator</span>
-        <span class="overlay-desc">Project Lead and Researcher</span>
+        <span class="overlay-desc">Project Lead</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="history">
-      <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
+      <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="History 1">
       <div class="gallery-overlay">
         <span class="overlay-title">Dance of the Dragons</span>
-        <span class="overlay-desc">The Dance over Shipbreaker Bay</span>
+        <span class="overlay-desc">Historical Record</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="characters">
-      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
+      <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Member">
       <div class="gallery-overlay">
-        <span class="overlay-title">Daemon Targaryen</span>
-        <span class="overlay-desc">The Rogue Prince</span>
+        <span class="overlay-title">Team Member</span>
+        <span class="overlay-desc">Researcher</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="history">
-      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="The Conquest">
+      <img src="{{ site.baseurl }}/assets/img/the-conquest.jpg" alt="History 2">
       <div class="gallery-overlay">
         <span class="overlay-title">The Conquest</span>
-        <span class="overlay-desc">Visenya Targaryen and Vhagar</span>
+        <span class="overlay-desc">Archival Image</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="artifacts">
-      <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
+      <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Artifact 1">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">Valyrian steel longsword</span>
+        <span class="overlay-desc">Ancient Artifact</span>
       </div>
     </div>
 
     <div class="gallery-item" data-category="artifacts">
-      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
+      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Artifact 2">
       <div class="gallery-overlay">
         <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
+        <span class="overlay-desc">Relic Analysis</span>
       </div>
     </div>
   </div>
@@ -202,25 +203,22 @@ permalink: /gallery/
           this.classList.add('active');
           const selectedFilter = this.getAttribute('data-filter');
 
-          // 清除旧模式并添加新模式
+          /* Reset layout modes */
           grid.className = 'gallery-grid';
-          if (selectedFilter === 'all') {
-            grid.classList.add('mode-all');
-          } else if (selectedFilter === 'characters') {
-            grid.classList.add('mode-characters');
-          } else {
-            grid.classList.add('mode-horizontal');
+          
+          if (selectedFilter === 'all' || selectedFilter === 'masonry') {
+            grid.classList.add('mode-masonry');
+          } else if (selectedFilter === 'left') {
+            grid.classList.add('mode-left');
+          } else if (selectedFilter === 'centered') {
+            grid.classList.add('mode-centered');
           }
 
           items.forEach(item => {
-            const category = item.getAttribute('data-category');
-            if (selectedFilter === 'all' || category === selectedFilter) {
-              item.classList.remove('hide');
-              item.style.opacity = "0";
-              setTimeout(() => { item.style.opacity = "1"; }, 50);
-            } else {
-              item.classList.add('hide');
-            }
+            /* Show all images for every filter as requested */
+            item.classList.remove('hide');
+            item.style.opacity = "0";
+            setTimeout(() => { item.style.opacity = "1"; }, 50);
           });
         });
       });
