@@ -333,3 +333,56 @@ footer,
     height: 88px;
   }
 }
+
+/* ================================
+   PI section (two-column)
+   ================================ */
+
+.pi-grid{
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  margin: 0.8rem 0 1.2rem 0;
+}
+
+.pi-photo{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+}
+
+.pi-name{
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+
+.pi-cv{
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.pi-cv li{
+  margin-bottom: 0.85rem;
+  line-height: 1.35;
+}
+
+.pi-date{
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.pi-contact{
+  margin: 0.35rem 0 0 0;
+}
+
+@media (max-width: 768px){
+  .pi-grid{
+    grid-template-columns: 1fr;
+  }
+  .pi-photo{
+    max-width: 260px;
+  }
+}
