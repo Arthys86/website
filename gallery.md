@@ -42,26 +42,31 @@ permalink: /gallery/
 
     /* 2. Layout Modes Configuration */
 
-    /* [Centered] (Previous All): Unified Height, Proportional Width, Centered Row */
+    /* [Centered]: Row height consistent within same row, but variable between rows */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center; /* Center the entire row */
-      align-items: flex-start;
-      gap: 15px;
+      justify-content: center;
+      gap: 10px;
     }
+    
     #custom-gallery-container .mode-centered .gallery-item {
-      height: 280px; /* Fixed row height */
-      width: auto;   /* Width determined by image aspect ratio */
-      flex: 0 0 auto; /* Prevent stretching/cropping */
-    }
-    #custom-gallery-container .mode-centered .gallery-item img {
-      height: 100%;
-      width: auto;
-      object-fit: contain; /* Absolute no crop */
+      flex-grow: 1; 
+      /* flex-basis controls the 'ideal' width; row height adjusts to fit */
+      flex-basis: 300px; 
+      margin: 5px;
+      height: auto;
+      max-height: 500px; /* Prevents a single image from becoming too tall */
     }
 
-    /* [Column] (Previous Centered): 3-Column Grid, Vertical Centering */
+    #custom-gallery-container .mode-centered .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Strict no-crop policy */
+      display: block;
+    }
+
+    /* [Column]: Fixed 3-column grid */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
@@ -71,15 +76,13 @@ permalink: /gallery/
     }
     #custom-gallery-container .mode-column .gallery-item {
       flex: 0 1 calc(33.333% - 30px);
-      height: auto;
     }
     #custom-gallery-container .mode-column .gallery-item img {
       width: 100%;
       height: auto;
-      object-fit: contain; /* Absolute no crop */
     }
 
-    /* [Left]: Unified Height, Proportional Width, Left Aligned */
+    /* [Left]: Simple horizontal flow */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
@@ -87,17 +90,15 @@ permalink: /gallery/
       gap: 15px;
     }
     #custom-gallery-container .mode-left .gallery-item {
-      height: 280px;
+      height: 250px;
       width: auto;
-      flex: 0 0 auto;
     }
     #custom-gallery-container .mode-left .gallery-item img {
       height: 100%;
       width: auto;
-      object-fit: contain;
     }
 
-    /* [Masonry]: Waterfall Layout */
+    /* [Masonry]: CSS Columns Waterfall */
     #custom-gallery-container .gallery-grid.mode-masonry {
       column-count: 3;
       column-gap: 20px;
@@ -108,13 +109,8 @@ permalink: /gallery/
       width: 100%;
       margin-bottom: 20px;
     }
-    #custom-gallery-container .mode-masonry .gallery-item img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
 
-    /* Common Item Styles: No Background, No Borders */
+    /* Common Item Configuration */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -146,15 +142,9 @@ permalink: /gallery/
     #custom-gallery-container .gallery-item.hide { display: none !important; }
 
     /* Responsive Logic */
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       #custom-gallery-container .mode-masonry { column-count: 2; }
       #custom-gallery-container .mode-column .gallery-item { flex: 0 1 calc(50% - 30px); }
-    }
-    @media (max-width: 600px) {
-      #custom-gallery-container .mode-masonry { column-count: 1; }
-      #custom-gallery-container .mode-column .gallery-item { flex: 0 1 100%; }
-      #custom-gallery-container .mode-centered .gallery-item,
-      #custom-gallery-container .mode-left .gallery-item { height: 200px; }
     }
   </style>
 
@@ -183,10 +173,10 @@ permalink: /gallery/
     </div>
 
     <div class="gallery-item">
-      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
+      <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
-        <span class="overlay-title">Iron Throne</span>
-        <span class="overlay-desc">Relic Analysis</span>
+        <span class="overlay-title">Dark Sister</span>
+        <span class="overlay-desc">Ancient Artifact</span>
       </div>
     </div>
 
@@ -207,10 +197,10 @@ permalink: /gallery/
     </div>
 
     <div class="gallery-item">
-      <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
+      <img src="{{ site.baseurl }}/assets/img/it.jpg" alt="Iron Throne">
       <div class="gallery-overlay">
-        <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">Ancient Artifact</span>
+        <span class="overlay-title">Iron Throne</span>
+        <span class="overlay-desc">Relic Analysis</span>
       </div>
     </div>
   </div>
