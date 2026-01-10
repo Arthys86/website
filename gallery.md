@@ -40,49 +40,47 @@ permalink: /gallery/
       background: #996600;
     }
 
-    /* 2. MODE: Centered - Proportional, Row-consistent Height, No White Space */
+    /* 2. MODE: Centered - Modified to match 'Left' style but horizontally centered */
     #custom-gallery-container .gallery-grid.mode-centered {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: center; /* This makes it different from 'Left' */
       gap: 15px;
     }
     #custom-gallery-container .mode-centered .gallery-item {
+      height: 250px; /* Same height as Left mode */
       flex: 0 0 auto;
-      width: auto;
-    }
-    #custom-gallery-container .mode-centered .gallery-item:nth-child(-n+3) img {
-      height: 280px !important;
-      width: auto !important;
-      display: block; 
-    }
-    #custom-gallery-container .mode-centered .gallery-item:nth-child(n+4) img {
-      height: 350px !important;
-      width: auto !important;
       display: block;
     }
-    #custom-gallery-container .mode-centered .gallery-item:nth-child(3)::after {
-      content: "";
-      flex-basis: 100%;
-      display: block;
+    #custom-gallery-container .mode-centered .gallery-item img {
+      height: 100%;
+      width: auto;   /* Proportional scaling, no crop */
+      display: block; /* No baseline white space */
     }
 
-    /* 3. MODE: Left */
+    /* 3. MODE: Left - Keeps its original format */
     #custom-gallery-container .gallery-grid.mode-left {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
       gap: 15px;
     }
-    #custom-gallery-container .mode-left .gallery-item { height: 250px; flex: 0 0 auto; }
-    #custom-gallery-container .mode-left .gallery-item img { height: 100%; width: auto; display: block; }
+    #custom-gallery-container .mode-left .gallery-item {
+      height: 250px;
+      flex: 0 0 auto;
+    }
+    #custom-gallery-container .mode-left .gallery-item img {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
 
-    /* 4. MODE: Column - RESTORED & VERTICAL CENTERED */
+    /* 4. MODE: Column - NO CHANGES (Strictly original 3-column with vertical center) */
     #custom-gallery-container .gallery-grid.mode-column {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center; /* VERTICAL CENTERED */
+      align-items: center; 
       gap: 30px;
     }
     #custom-gallery-container .mode-column .gallery-item {
@@ -91,11 +89,11 @@ permalink: /gallery/
     }
     #custom-gallery-container .mode-column .gallery-item img {
       width: 100% !important;
-      height: auto !important; /* BACK TO PROPORTIONAL */
-      display: block; /* NO WHITE SPACE */
+      height: auto !important;
+      display: block;
     }
 
-    /* 5. MODE: Masonry */
+    /* 5. MODE: Masonry - NO CHANGES */
     #custom-gallery-container .gallery-grid.mode-masonry {
       display: block;
       column-count: 3;
@@ -106,9 +104,13 @@ permalink: /gallery/
       width: 100%;
       margin-bottom: 20px;
     }
-    #custom-gallery-container .mode-masonry .gallery-item img { width: 100%; height: auto; display: block; }
+    #custom-gallery-container .mode-masonry .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-    /* 6. Shared Components */
+    /* 6. Shared Components (Overlay/Hover) */
     #custom-gallery-container .gallery-item {
       position: relative;
       border-radius: 10px;
@@ -116,6 +118,7 @@ permalink: /gallery/
       background: transparent;
       transition: transform 0.3s ease;
     }
+
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -130,8 +133,16 @@ permalink: /gallery/
       pointer-events: none;
       z-index: 2;
     }
-    #custom-gallery-container .gallery-item:hover .gallery-overlay { opacity: 1; transform: translateY(0); }
-    #custom-gallery-container .gallery-item:hover img { transform: scale(1.03); }
+    
+    #custom-gallery-container .gallery-item:hover .gallery-overlay { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+    
+    #custom-gallery-container .gallery-item:hover img { 
+      transform: scale(1.03); 
+    }
+
     .overlay-title { font-size: 0.95rem; font-weight: 600; display: block; margin-bottom: 4px; }
     .overlay-desc { font-size: 0.75rem; opacity: 0.9; line-height: 1.2; }
   </style>
