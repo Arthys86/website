@@ -121,28 +121,35 @@ footer,
 }
 
 /* ================================
-   PI REAL CENTERING
+   PI layout (fixed, centered, aligned)
    ================================ */
 
 .pi-center{
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .pi-grid{
   display: grid;
   grid-template-columns: 260px 640px;
   gap: 3.2rem;
-  max-width: 920px;
-  margin: 0 auto 1.4rem auto;
+  max-width: 900px;
+  align-items: start;
+}
+
+.pi-photo-wrap{
+  display: flex;
+  flex-direction: column;
 }
 
 .pi-name-incol{
-  margin-bottom: 0.6rem;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .pi-photo{
+  margin-top: 0.6rem;
   width: 100%;
   border-radius: 10px;
 }
@@ -152,8 +159,13 @@ footer,
   white-space: nowrap;
 }
 
+.pi-content{
+  padding-top: 0;   /* aligns with PI name */
+}
+
 .pi-cv{
   padding-left: 1.2rem;
+  margin: 0;
 }
 
 .pi-cv li{
@@ -192,12 +204,6 @@ footer,
    ================================ */
 
 @media(max-width:768px){
-
-  .pi-center{
-    width: auto;
-    margin: 0;
-  }
-
   .pi-grid{
     grid-template-columns: 1fr;
   }
