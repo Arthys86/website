@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* Academic Filter Tags with Corrected Color States */
+    /* 1. Academic Filter Tags - Colors Corrected */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -26,19 +26,17 @@ permalink: /gallery/
       padding: 5px 5px;
       transition: all 0.3s ease;
       position: relative;
-      border: none;
-      background: none;
     }
 
-    /* Hover state: Light Gold */
+    /* Hover: Light Gold */
     #custom-gallery-container .filter-tag:hover {
       color: #D4AF37; 
     }
 
-    /* Selected (Active) state: Deep Gold (#996600) */
+    /* Active: Deep Gold (#996600) */
     #custom-gallery-container .filter-tag.active {
       font-weight: bold;
-      color: #996600; /* Deep Gold */
+      color: #996600; 
     }
 
     #custom-gallery-container .filter-tag.active::after {
@@ -48,64 +46,53 @@ permalink: /gallery/
       left: 0;
       width: 100%;
       height: 3px;
-      background: #996600; /* Deep Gold underline */
+      background: #996600;
     }
 
-    /* Grid Layout Transitions */
+    /* 2. Justified Flow Layout (动态流式网格) */
     #custom-gallery-container .gallery-grid {
-      transition: all 0.5s ease-in-out;
-    }
-
-    /* Mode 1: Masonry (For "All") */
-    #custom-gallery-container .gallery-grid.masonry-mode {
-      column-count: 3;
-      column-gap: 15px;
-      display: block;
-    }
-
-    #custom-gallery-container .masonry-mode .gallery-item {
-      break-inside: avoid;
-      display: inline-block;
-      width: 100%;
-      margin-bottom: 15px;
-    }
-
-    /* Mode 2: Horizontal (For Categories) - No Cropping */
-    #custom-gallery-container .gallery-grid.horizontal-mode {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 15px; /* 图片之间的间隙 */
     }
 
-    #custom-gallery-container .horizontal-mode .gallery-item {
-      flex: 0 0 auto;
-      height: 280px; 
+    #custom-gallery-container .gallery-grid::after {
+      content: '';
+      flex-grow: 999999999; /* 确保最后一行图片不会过度拉伸 */
     }
 
-    #custom-gallery-container .horizontal-mode .gallery-item img {
-      width: auto;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    /* Common Gallery Item Styles */
     #custom-gallery-container .gallery-item {
-      background-color: #f8f9fa;
+      flex-grow: 1;
+      position: relative;
       border-radius: 10px;
       overflow: hidden;
-      position: relative;
+      background-color: #f8f9fa;
       transition: transform 0.3s ease, opacity 0.3s ease;
+      height: 280px; /* 统一的行高，宽度按比例自适应 */
     }
 
-    #custom-gallery-container .gallery-item.hide { display: none !important; }
-
     #custom-gallery-container .gallery-item img {
-      display: block;
+      width: auto;
+      height: 100%;
+      min-width: 100%;
+      object-fit: cover; /* 在流式布局中，cover 配合自动宽度能实现不裁剪的视觉效果 */
       max-width: 100%;
+      display: block;
       transition: transform 0.6s ease;
     }
 
-    /* Overlay Styles */
+    /* 如果要绝对保证不裁剪，请使用以下设置，但最后一行可能不对齐 */
+    #custom-gallery-container .gallery-item {
+      flex: 1 0 auto; 
+      width: auto;
+    }
+    #custom-gallery-container .gallery-item img {
+      width: auto;
+      height: 100%;
+      object-fit: contain; 
+    }
+
+    /* 3. Overlay & Info (保持原有展现方式) */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -144,9 +131,15 @@ permalink: /gallery/
       line-height: 1.3;
     }
 
-    @media (max-width: 900px) {
-      #custom-gallery-container .gallery-grid.masonry-mode { column-count: 2; }
-      #custom-gallery-container .horizontal-mode .gallery-item { height: 200px; }
+    #custom-gallery-container .gallery-item.hide {
+      display: none !important;
+    }
+
+    /* Mobile Adjustment */
+    @media (max-width: 600px) {
+      #custom-gallery-container .gallery-item {
+        height: 180px;
+      }
     }
   </style>
 
@@ -157,7 +150,7 @@ permalink: /gallery/
     <span class="filter-tag" data-filter="artifacts">Artifacts</span>
   </div>
 
-  <div class="gallery-grid masonry-mode" id="gallery-grid">
+  <div class="gallery-grid" id="gallery-grid">
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -170,7 +163,7 @@ permalink: /gallery/
       <img src="{{ site.baseurl }}/assets/img/placeholder-member.jpg" alt="Daemon Targaryen">
       <div class="gallery-overlay">
         <span class="overlay-title">Daemon Targaryen</span>
-        <span class="overlay-desc">The Rogue Prince, Commander of the City Watch</span>
+        <span class="overlay-desc">The Rogue Prince</span>
       </div>
     </div>
 
@@ -182,19 +175,11 @@ permalink: /gallery/
       </div>
     </div>
 
-    <div class="gallery-item" data-category="characters">
-      <img src="{{ site.baseurl }}/assets/img/pi.jpg" alt="Who">
-      <div class="gallery-overlay">
-        <span class="overlay-title">Who</span>
-        <span class="overlay-desc">I don't know</span>
-      </div>
-    </div>
-
     <div class="gallery-item" data-category="artifacts">
       <img src="{{ site.baseurl }}/assets/img/darksister.jpeg" alt="Dark Sister">
       <div class="gallery-overlay">
         <span class="overlay-title">Dark Sister</span>
-        <span class="overlay-desc">a longsword of Valyrian steel</span>
+        <span class="overlay-desc">Valyrian steel longsword</span>
       </div>
     </div>
 
@@ -211,7 +196,6 @@ permalink: /gallery/
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const items = document.querySelectorAll('#custom-gallery-container .gallery-item');
-      const grid = document.getElementById('gallery-grid');
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
@@ -219,14 +203,6 @@ permalink: /gallery/
           this.classList.add('active');
 
           const selectedFilter = this.getAttribute('data-filter');
-
-          if (selectedFilter === 'all') {
-            grid.classList.remove('horizontal-mode');
-            grid.classList.add('masonry-mode');
-          } else {
-            grid.classList.remove('masonry-mode');
-            grid.classList.add('horizontal-mode');
-          }
 
           items.forEach(item => {
             const category = item.getAttribute('data-category');
