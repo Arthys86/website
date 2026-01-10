@@ -27,9 +27,7 @@ permalink: /gallery/
       color: #003366;
     }
 
-    #custom-gallery-container .filter-tag:hover {
-      background: #E1F5FE;
-    }
+    #custom-gallery-container .filter-tag:hover { background: #E1F5FE; }
 
     #custom-gallery-container .filter-tag.active {
       background: #D4AF37;
@@ -37,34 +35,64 @@ permalink: /gallery/
       border-color: #D4AF37;
     }
 
-    /* Horizontal Layout: Flexbox */
-    #custom-gallery-container .gallery-columns {
+    /* --- Mode 1: Masonry (For "All") --- */
+    #custom-gallery-container .gallery-grid.masonry-mode {
+      column-count: 3;
+      column-gap: 15px;
+      display: block; /* Overwrite flex */
+    }
+
+    #custom-gallery-container .masonry-mode .gallery-item {
+      break-inside: avoid;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    /* --- Mode 2: Horizontal (For Specific Categories) --- */
+    #custom-gallery-container .gallery-grid.horizontal-mode {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
+      column-count: auto; /* Overwrite masonry */
     }
 
-    /* Consistent Height & Proportional Scaling */
+    #custom-gallery-container .horizontal-mode .gallery-item {
+      flex: 0 0 auto; /* Do not grow, maintain aspect ratio */
+      height: 250px;  /* Fixed height for horizontal alignment */
+      width: auto;
+    }
+
+    #custom-gallery-container .horizontal-mode .gallery-item img {
+      width: auto;    /* Width scales proportionally */
+      height: 100%;
+      object-fit: contain; /* Guarantee no cropping */
+    }
+
+    /* Common Item Styles */
     #custom-gallery-container .gallery-item {
-      flex: 1 0 auto; /* Allow items to grow to fill space */
-      height: 250px;  /* Fixed height for all images in a row */
-      min-width: 150px;
       background-color: #f0f0f0;
       border-radius: 10px;
       overflow: hidden;
       position: relative;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    #custom-gallery-container .gallery-item.hide { display: none; }
+    #custom-gallery-container .gallery-item.hide { display: none !important; }
 
     #custom-gallery-container .gallery-item img {
-      width: auto;
-      min-width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ensures image fills the height-consistent box without distortion */
       display: block;
       transition: transform 0.6s ease;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      #custom-gallery-container .gallery-grid.masonry-mode { column-count: 2; }
+      #custom-gallery-container .horizontal-mode .gallery-item { height: 200px; }
+    }
+    @media (max-width: 600px) {
+      #custom-gallery-container .gallery-grid.masonry-mode { column-count: 1; }
+      #custom-gallery-container .horizontal-mode .gallery-item { height: 150px; }
     }
 
     /* Overlay Styles */
@@ -86,31 +114,10 @@ permalink: /gallery/
       opacity: 1;
       transform: translateY(0);
     }
+    #custom-gallery-container .gallery-item:hover img { transform: scale(1.05); }
 
-    #custom-gallery-container .gallery-item:hover img {
-      transform: scale(1.06);
-    }
-
-    #custom-gallery-container .overlay-title {
-      font-size: 1rem;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 2px;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-
-    #custom-gallery-container .overlay-desc {
-      font-size: 0.8rem;
-      opacity: 0.9;
-    }
-
-    /* Responsive adjustment for mobile */
-    @media (max-width: 600px) {
-      #custom-gallery-container .gallery-item {
-        height: 180px; /* Shorter height for smaller screens */
-        flex: 1 0 100%; /* Full width on mobile if desired */
-      }
-    }
+    .overlay-title { font-weight: 600; display: block; font-size: 0.9rem; }
+    .overlay-desc { font-size: 0.75rem; opacity: 0.9; }
   </style>
 
   <div class="gallery-filters">
@@ -120,7 +127,8 @@ permalink: /gallery/
     <span class="filter-tag" data-filter="artifacts">Artifacts</span>
   </div>
 
-  <div class="gallery-columns" id="gallery-grid">
+  <div class="gallery-grid masonry-mode" id="gallery-grid">
+    
     <div class="gallery-item" data-category="history">
       <img src="{{ site.baseurl }}/assets/img/dotd.png" alt="Dance of the Dragons">
       <div class="gallery-overlay">
@@ -168,28 +176,41 @@ permalink: /gallery/
         <span class="overlay-desc">The seat of the Lord of the Seven Kingdoms</span>
       </div>
     </div>
+
   </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const filters = document.querySelectorAll('#custom-gallery-container .filter-tag');
       const items = document.querySelectorAll('#custom-gallery-container .gallery-item');
+      const grid = document.getElementById('gallery-grid');
 
       filters.forEach(filter => {
         filter.addEventListener('click', function() {
           filters.forEach(f => f.classList.remove('active'));
           this.classList.add('active');
+
           const selectedFilter = this.getAttribute('data-filter');
+
+          // Switch layout mode based on filter
+          if (selectedFilter === 'all') {
+            grid.classList.remove('horizontal-mode');
+            grid.classList.add('masonry-mode');
+          } else {
+            grid.classList.remove('masonry-mode');
+            grid.classList.add('horizontal-mode');
+          }
+
+          // Filter logic
           items.forEach(item => {
             const category = item.getAttribute('data-category');
             if (selectedFilter === 'all' || category === selectedFilter) {
               item.classList.remove('hide');
-              item.style.display = "inline-block"; // Ensure it shows for flex
+              // Trigger a tiny reflow for opacity animation
               item.style.opacity = "0";
               setTimeout(() => { item.style.opacity = "1"; }, 10);
             } else {
               item.classList.add('hide');
-              item.style.display = "none";
             }
           });
         });
