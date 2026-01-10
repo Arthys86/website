@@ -15,31 +15,31 @@ permalink: /gallery/
       flex-wrap: wrap;
     }
 
-    /* Default state for tags */
+    /* Unselected State: UST Deep Blue text on light gray */
     #custom-gallery-container .filter-tag {
       padding: 6px 18px;
       border-radius: 15px;
-      background: #f8f9fa; /* Keep current light gray background */
+      background: #f8f9fa; 
       font-size: 0.85rem;
       cursor: pointer;
       border: 1px solid #eee;
       font-weight: 550;
       transition: all 0.3s ease;
-      color: #003366; /* UST Deep Blue font color */
+      color: #003366; /* UST Deep Blue */
     }
 
     #custom-gallery-container .filter-tag:hover {
       background: #e9ecef;
     }
 
-    /* Active state for tags */
+    /* Selected State: Light Gold background, White text */
     #custom-gallery-container .filter-tag.active {
-      background: #D4AF37; /* Light Gold background */
-      color: #ffffff;      /* White text for contrast on gold */
+      background: #D4AF37; /* Light Gold */
+      color: #ffffff;      /* White text */
       border-color: #D4AF37;
     }
 
-    /* Masonry Grid */
+    /* Masonry Grid (Respects aspect ratio) */
     #custom-gallery-container .gallery-columns {
       column-count: 3;
       column-gap: 15px;
@@ -69,7 +69,7 @@ permalink: /gallery/
       transition: transform 0.6s ease;
     }
 
-    /* Bottom Gradient Overlay */
+    /* Bottom Gradient Information Bar */
     #custom-gallery-container .gallery-overlay {
       position: absolute;
       bottom: 0;
@@ -99,11 +99,14 @@ permalink: /gallery/
       font-weight: 600;
       display: block;
       margin-bottom: 2px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
     #custom-gallery-container .overlay-desc {
       font-size: 0.8rem;
       opacity: 0.9;
+      line-height: 1.3;
+      display: block;
     }
   </style>
 
