@@ -7,7 +7,7 @@ permalink: /gallery/
 
 <div id="custom-gallery-container">
   <style>
-    /* Academic Filter Tags */
+    /* Academic Filter Tags with Corrected Color States */
     #custom-gallery-container .gallery-filters {
       display: flex;
       gap: 20px;
@@ -24,19 +24,21 @@ permalink: /gallery/
       cursor: pointer;
       color: #003366; /* Default: UST Deep Blue */
       padding: 5px 5px;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
       position: relative;
+      border: none;
+      background: none;
     }
 
-    /* 【修正】悬停状态：浅金色 */
+    /* Hover state: Light Gold */
     #custom-gallery-container .filter-tag:hover {
       color: #D4AF37; 
     }
 
-    /* 【修正】选中状态：正金色 */
+    /* Selected (Active) state: Deep Gold (#996600) */
     #custom-gallery-container .filter-tag.active {
       font-weight: bold;
-      color: #FFD700; /* Gold */
+      color: #996600; /* Deep Gold */
     }
 
     #custom-gallery-container .filter-tag.active::after {
@@ -46,10 +48,10 @@ permalink: /gallery/
       left: 0;
       width: 100%;
       height: 3px;
-      background: #FFD700; /* 下划线同步为正金色 */
+      background: #996600; /* Deep Gold underline */
     }
 
-    /* Layout Transitions */
+    /* Grid Layout Transitions */
     #custom-gallery-container .gallery-grid {
       transition: all 0.5s ease-in-out;
     }
@@ -86,7 +88,7 @@ permalink: /gallery/
       object-fit: contain;
     }
 
-    /* Common Item Styles */
+    /* Common Gallery Item Styles */
     #custom-gallery-container .gallery-item {
       background-color: #f8f9fa;
       border-radius: 10px;
