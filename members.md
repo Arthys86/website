@@ -7,39 +7,46 @@ permalink: /members/
 
 ## Principal Investigator (PI)
 
-<div class="pi-block">
-  <h2 class="pi-name">Dr. Kuanming Yao</h2>
+<div class="pi-grid">
+  <div class="pi-photo-wrap">
+    <img class="pi-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PI photo">
+  </div>
 
-  <ul class="pi-cv">
-    <li>
-      <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Apr. 2024 - )</span><br>
-      Department of Electrical &amp; Computer Engineering<br>
-      University of California, Los Angeles (UCLA), CA, U.S.
-    </li>
+  <div class="pi-content">
+    <h2 class="pi-name">Dr. Kuanming Yao</h2>
 
-    <li>
-      <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Feb. 2023 - Mar. 2024)</span><br>
-      Laboratory of Soft Bio-electronics<br>
-      City University of Hong Kong, Hong Kong
-    </li>
+    <ul class="pi-cv">
+      <li>
+        <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Apr. 2024 - )</span><br>
+        Department of Electrical &amp; Computer Engineering<br>
+        University of California, Los Angeles (UCLA), CA, U.S.
+      </li>
 
-    <li>
-      <strong>Ph.D.</strong> <span class="pi-date">(Sept. 2019 - Jan. 2023)</span><br>
-      Department of Biomedical Engineering<br>
-      City University of Hong Kong, Hong Kong
-    </li>
+      <li>
+        <strong>Postdoctoral Fellow</strong> <span class="pi-date">(Feb. 2023 - Mar. 2024)</span><br>
+        Laboratory of Soft Bio-electronics<br>
+        City University of Hong Kong, Hong Kong
+      </li>
 
-    <li>
-      <strong>B. Eng.</strong> <span class="pi-date">(Sept. 2015 - Jun. 2019)</span><br>
-      College of Energy Engineering<br>
-      Zhejiang University, Hangzhou, China
-    </li>
-  </ul>
+      <li>
+        <strong>Ph.D.</strong> <span class="pi-date">(Sept. 2019 - Jan. 2023)</span><br>
+        Department of Biomedical Engineering<br>
+        City University of Hong Kong, Hong Kong
+      </li>
 
-  <p class="pi-contact">
-    <strong>Email:</strong> yao@hkust.edu.hk
-  </p>
+      <li>
+        <strong>B. Eng.</strong> <span class="pi-date">(Sept. 2015 - Jun. 2019)</span><br>
+        College of Energy Engineering<br>
+        Zhejiang University, Hangzhou, China
+      </li>
+    </ul>
+
+    <p class="pi-contact">
+      <strong>Email:</strong> yao@hkust.edu.hk
+    </p>
+  </div>
 </div>
+
 
 ---
 
