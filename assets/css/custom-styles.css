@@ -453,15 +453,17 @@ summary:hover .pub-count {
 
 
 /* --- Journal Covers Carousel Styles --- */
-/* Carousel container: Add space for arrows on both sides */
+
+/* Carousel container: Increase side padding to push arrows further out */
 .journal-carousel {
-  padding: 20px 45px;
+  padding: 20px 10px; /* Reduced container padding to allow arrows more room */
   margin-bottom: 2rem;
+  position: relative;
 }
 
 /* Individual cover wrapper: Ensure 5 items per row */
 .cover-wrapper {
-  width: 19%; /* 5 items + spacing approx 100% */
+  width: 19%;
   padding: 0 10px;
   text-align: center;
   display: flex;
@@ -469,58 +471,70 @@ summary:hover .pub-count {
   align-items: center;
 }
 
-/* Cover image style: Control size and shadow */
+/* Cover image style */
 .cover-img {
-  max-height: 200px; /* Limit height for consistency */
+  max-height: 200px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  /* Add depth with shadow */
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 2px;
 }
 
-/* Hover effect for covers: Slight scale up and stronger shadow */
-.cover-img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.25);
-}
+/* --- Arrow Controls Refined --- */
 
-/* --- Custom Gold Arrows --- */
-/* Replace default Bootstrap icons with CSS-based arrows for precise color control */
+/* Base style for arrow icons */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-image: none !important; /* Remove default SVG */
+  background-image: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Add transition for the scale effect */
+  transition: transform 0.2s ease-in-out;
+  /* Removed any default shadows */
+  filter: none !important; 
 }
 
-/* Draw arrow shapes using borders and --gold variable */
+/* Draw arrow shapes with --gold */
 .carousel-control-prev-icon::after,
 .carousel-control-next-icon::after {
   content: '';
   display: inline-block;
-  width: 15px;
-  height: 15px;
-  border-top: 3px solid var(--gold);
-  border-left: 3px solid var(--gold);
+  width: 18px;
+  height: 18px;
+  border-top: 3.5px solid var(--gold);
+  border-left: 3.5px solid var(--gold);
 }
 
-/* Rotate to point left */
 .carousel-control-prev-icon::after {
   transform: rotate(-45deg);
 }
 
-/* Rotate to point right */
 .carousel-control-next-icon::after {
   transform: rotate(135deg);
 }
 
-/* Hover background for arrow hit area */
+/* Push arrows to the extreme ends */
+.carousel-control-prev {
+  left: -50px; /* Move left arrow further left */
+  width: 50px;
+}
+
+.carousel-control-next {
+  right: -50px; /* Move right arrow further right */
+  width: 50px;
+}
+
+/* Hover effect: Scale arrow icon by 1.1x and remove background shadow/overlay */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  transform: scale(1.1);
+}
+
+/* Remove the default grey circular/square background on hover */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-  background: rgba(0, 0, 0, 0.03);
-  border-radius: 5px;
+  background: transparent !important;
 }
