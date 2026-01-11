@@ -6,7 +6,7 @@ permalink: /research/
 #full-width: true
 ---
 
-<div id="journalCarousel" class="carousel slide journal-carousel" data-ride="carousel" data-interval="5000">
+<div id="journalCarousel" class="carousel slide journal-carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="cards-wrapper">
@@ -22,11 +22,11 @@ permalink: /research/
     </div>
   </div>
 
-  <a class="carousel-control-prev" href="#journalCarousel" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#journalCarousel" role="button">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#journalCarousel" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#journalCarousel" role="button">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
@@ -75,33 +75,63 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentIndex = 0;
   const itemsVisible = 5; 
   const maxIndex = items.length - itemsVisible; // For 8 items, maxIndex is 3
+  let autoPlayTimer;
 
+  // Function to move the carousel
   function updateSlide() {
-    // Each item takes 20% of the visible container width
-    const slideAmount = currentIndex * -20; 
+    const slideAmount = currentIndex * -20; // Move by 20% (the width of one item)
     wrapper.style.transform = `translateX(${slideAmount}%)`;
   }
 
-  nextBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation(); // Stop Bootstrap's default slide behavior
+  // Logic to move to next item
+  function showNext() {
     if (currentIndex < maxIndex) {
       currentIndex++;
     } else {
-      currentIndex = 0; // Loop back to start
+      currentIndex = 0; // Reset to start
     }
     updateSlide();
+  }
+
+  // Logic to move to previous item
+  function showPrev() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = maxIndex; // Go to end
+    }
+    updateSlide();
+  }
+
+  // Manual Click Events
+  nextBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    showNext();
+    resetAutoPlay(); // Restart timer after manual interaction
   });
 
   prevBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    e.stopPropagation();
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = maxIndex; // Loop to end
-    }
-    updateSlide();
+    showPrev();
+    resetAutoPlay();
   });
+
+  // --- AutoPlay Functionality ---
+
+  function startAutoPlay() {
+    autoPlayTimer = setInterval(showNext, 5000); // Change slide every 5 seconds
+  }
+
+  function resetAutoPlay() {
+    clearInterval(autoPlayTimer);
+    startAutoPlay();
+  }
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
+  carousel.addEventListener('mouseleave', startAutoPlay);
+
+  // Initialize AutoPlay
+  startAutoPlay();
 });
 </script>
