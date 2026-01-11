@@ -518,19 +518,19 @@ summary:hover .pub-count {
 
 /* Push arrows to the extreme ends */
 .carousel-control-prev {
-  left: -10px; /* Move left arrow further left */
+  left: -12px; /* Move left arrow further left */
   width: 50px;
 }
 
 .carousel-control-next {
-  right: -10px; /* Move right arrow further right */
+  right: -12px; /* Move right arrow further right */
   width: 50px;
 }
 
-/* Hover effect: Scale arrow icon by 1.1x and remove background shadow/overlay */
+/* Hover effect: Scale arrow icon by 1.1x */
 .carousel-control-prev:hover .carousel-control-prev-icon,
 .carousel-control-next:hover .carousel-control-next-icon {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 /* Remove the default grey circular/square background on hover */
