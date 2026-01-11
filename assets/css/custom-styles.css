@@ -77,12 +77,12 @@ main h3{
 .navbar .navbar-brand{
   color: #ffffff !important;
   font-family: 'Spectral', serif !important; /* font */
-  font-weight: 300;
+  font-weight: 350;
   font-size: 1.28rem !important;
   letter-spacing: 0.2px;
   display: inline-flex;
   align-items: center;
-  padding-top: 0.15rem;
+  padding-top: 0.3rem;
   padding-bottom: 0;
   text-transform: none;
 }
