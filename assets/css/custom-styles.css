@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@300;400;500&family=Cinzel:wght@400;700&family=Marcellus&family=Spectral:wght@700;800&display=swap");
 
 :root{
   /* Color Palette */
@@ -75,16 +74,18 @@ main h3{
   padding-bottom: 0.36rem;
 }
 
+/* group name */
 .navbar .navbar-brand{
   color: #ffffff !important;
-  font-family: 'Cinzel', serif !important; /* font */
-  font-weight: 400;
-  font-size: 1.26rem !important;
+  font-family: 'Spectral', serif !important; /* font */
+  font-weight: 800;
+  font-size: 1.28rem !important;
   letter-spacing: 0.2px;
   display: inline-flex;
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
+  text-transform: none;
 }
 
 .navbar .navbar-brand:hover,
@@ -101,10 +102,13 @@ main h3{
 
 .navbar .navbar-nav .nav-link{
   color: #ffffff !important;
+  font-family: 'Cinzel', serif !important; /* font */
   font-weight: 400;
-  letter-spacing: 0.2px;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.3px;
   padding-top: 0.30rem;
   padding-bottom: 0.30rem;
+  text-transform: uppercase;
 }
 
 .navbar .navbar-nav .nav-link:hover,
