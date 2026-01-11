@@ -454,50 +454,64 @@ summary:hover .pub-count {
 
 /* --- Journal Covers Carousel Styles --- */
 
-/* Carousel container: Increase side padding to push arrows further out */
+/* Outer container: Adds padding for arrows and bottom margin */
 .journal-carousel {
-  padding: 20px 10px; /* Reduced container padding to allow arrows more room */
+  padding: 20px 10px;
   margin-bottom: 2rem;
   position: relative;
 }
 
-/* Individual cover wrapper: Ensure 5 items per row */
-.cover-wrapper {
-  width: 19%;
-  padding: 0 5px;
+/* The visible window: Clips the content that flows outside */
+.journal-carousel .carousel-inner {
+  display: flex;
+  overflow: hidden; /* Important: Hides images 6, 7, 8 */
+}
+
+/* The moving track: Holds all images in a row and handles the slide animation */
+.journal-carousel .cards-wrapper {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out; /* Smooth slide effect */
+}
+
+/* Individual image box: Fixed to 20% width to show exactly 5 items */
+.journal-carousel .cover-wrapper {
+  flex: 0 0 20%; /* Each item takes up 1/5 of the container */
+  padding: 0 4px; /* Narrow gaps as requested */
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Cover image style */
+/* Cover image: Size control and depth */
 .cover-img {
   max-height: 200px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   border-radius: 2px;
+}
+
+/* Hover effect for covers */
+.cover-img:hover {
+  transform: scale(1.08);
 }
 
 /* --- Arrow Controls Refined --- */
 
-/* Base style for arrow icons */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-image: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Add transition for the scale effect */
   transition: transform 0.2s ease-in-out;
-  /* Removed any default shadows */
-  filter: none !important; 
 }
 
-/* Draw arrow shapes with --gold */
+/* Gold arrow shape */
 .carousel-control-prev-icon::after,
 .carousel-control-next-icon::after {
   content: '';
@@ -516,24 +530,23 @@ summary:hover .pub-count {
   transform: rotate(135deg);
 }
 
-/* Push arrows to the extreme ends */
+/* Position arrows slightly outside the carousel */
 .carousel-control-prev {
-  left: -15px; /* Move left arrow further left */
-  width: 50px;
+  left: -35px; /* Adjust this value to move closer or further */
+  width: 40px;
 }
 
 .carousel-control-next {
-  right: -15px; /* Move right arrow further right */
-  width: 50px;
+  right: -35px;
+  width: 40px;
 }
 
-/* Hover effect: Scale arrow icon by 1.1x */
+/* Hover effect for arrows: Scale up and no background shadow */
 .carousel-control-prev:hover .carousel-control-prev-icon,
 .carousel-control-next:hover .carousel-control-next-icon {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
-/* Remove the default grey circular/square background on hover */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   background: transparent !important;
