@@ -532,12 +532,12 @@ summary:hover .pub-count {
 
 /* Position arrows slightly outside the carousel */
 .carousel-control-prev {
-  left: -35px; /* Adjust this value to move closer or further */
+  left: -15px; /* Adjust this value to move closer or further */
   width: 40px;
 }
 
 .carousel-control-next {
-  right: -35px;
+  right: -15px;
   width: 40px;
 }
 
