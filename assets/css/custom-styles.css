@@ -518,12 +518,12 @@ summary:hover .pub-count {
 
 /* Push arrows to the extreme ends */
 .carousel-control-prev {
-  left: -50px; /* Move left arrow further left */
+  left: -10px; /* Move left arrow further left */
   width: 50px;
 }
 
 .carousel-control-next {
-  right: -50px; /* Move right arrow further right */
+  right: -10px; /* Move right arrow further right */
   width: 50px;
 }
 
