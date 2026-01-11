@@ -450,3 +450,77 @@ summary:hover .pub-count {
   .pi-email{ white-space: normal; }
   .member-grid{ grid-template-columns: 1fr; }
 }
+
+
+/* --- Journal Covers Carousel Styles --- */
+/* Carousel container: Add space for arrows on both sides */
+.journal-carousel {
+  padding: 20px 45px;
+  margin-bottom: 2rem;
+}
+
+/* Individual cover wrapper: Ensure 5 items per row */
+.cover-wrapper {
+  width: 19%; /* 5 items + spacing approx 100% */
+  padding: 0 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cover image style: Control size and shadow */
+.cover-img {
+  max-height: 200px; /* Limit height for consistency */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  /* Add depth with shadow */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Hover effect for covers: Slight scale up and stronger shadow */
+.cover-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+}
+
+/* --- Custom Gold Arrows --- */
+/* Replace default Bootstrap icons with CSS-based arrows for precise color control */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important; /* Remove default SVG */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Draw arrow shapes using borders and --gold variable */
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid var(--gold);
+  border-left: 3px solid var(--gold);
+}
+
+/* Rotate to point left */
+.carousel-control-prev-icon::after {
+  transform: rotate(-45deg);
+}
+
+/* Rotate to point right */
+.carousel-control-next-icon::after {
+  transform: rotate(135deg);
+}
+
+/* Hover background for arrow hit area */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+}
