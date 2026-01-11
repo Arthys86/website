@@ -77,9 +77,8 @@ main h3{
   color: #ffffff !important;
   font-family: 'Kaushan Script', cursive !important; /* group name font */
   font-weight: 350;
-  font-size: 1.35rem !important;
-  letter-spacing: 0.6px;
-  color: var(--gold) !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 1px;
   display: inline-flex;
   align-items: center;
   padding-top: 0.3rem;
