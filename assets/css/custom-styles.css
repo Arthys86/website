@@ -49,7 +49,7 @@ a:hover,a:focus{ color: var(--gold); }
   font-weight: 600 !important;
   line-height: 1.25 !important;
   letter-spacing: 1px !important;
-  text-transform: uppercase !important;
+  # text-transform: uppercase !important;
 }
 
 /* Content headings */
