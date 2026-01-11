@@ -32,7 +32,7 @@ a:hover,a:focus{ color: var(--gold); }
   color: var(--ust-blue) !important;
   font-family: 'Marcellus', serif !important;  /* Font style */
   font-weight: 600 !important;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .intro-header .page-heading h1{
@@ -44,9 +44,9 @@ a:hover,a:focus{ color: var(--gold); }
   color: var(--gold) !important;
   font-family: 'Cutive Mono', cursive !important;  /* Font style */
   font-size: 1rem !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   line-height: 1.25 !important;
-  letter-spacing: 1px !important;
+  letter-spacing: 0.6px !important;
   text-transform: none !important;
 }
 
