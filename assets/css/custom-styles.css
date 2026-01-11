@@ -464,7 +464,7 @@ summary:hover .pub-count {
 /* Individual cover wrapper: Ensure 5 items per row */
 .cover-wrapper {
   width: 19%;
-  padding: 0 6px;
+  padding: 0 5px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -518,12 +518,12 @@ summary:hover .pub-count {
 
 /* Push arrows to the extreme ends */
 .carousel-control-prev {
-  left: -12px; /* Move left arrow further left */
+  left: -15px; /* Move left arrow further left */
   width: 50px;
 }
 
 .carousel-control-next {
-  right: -12px; /* Move right arrow further right */
+  right: -15px; /* Move right arrow further right */
   width: 50px;
 }
 
