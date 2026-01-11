@@ -89,10 +89,8 @@ main h3{
 
 .navbar .navbar-brand:hover,
 .navbar .navbar-brand:focus{
-  color: #ffffff !important;
-  text-shadow: 0 0 10px var(--gold), 0 0 20px rgba(212, 175, 55, 0.2);
-  text-decoration: none !important;
-  filter: brightness(1.1);
+  color: var(--gold) !important;
+  transition: color 0.3s ease-in-out;
 }
 
 .navbar .navbar-brand-logo{
