@@ -6,40 +6,30 @@ permalink: /research/
 #full-width: true
 ---
 
-<div id="coverCarousel" class="carousel slide journal-carousel" data-ride="carousel" data-interval="6000">
+<div id="journalCarousel" class="carousel slide journal-carousel" data-ride="carousel" data-interval="5000">
   <div class="carousel-inner">
-    
     <div class="carousel-item active">
-      <div class="d-flex justify-content-between">
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 1"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 2"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 3"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 4"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 5"></div>
+      <div class="cards-wrapper">
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="1"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="2"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="3"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="4"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="5"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="6"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="7"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="8"></div>
       </div>
     </div>
-
-    <div class="carousel-item">
-      <div class="d-flex justify-content-between">
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 6"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 7"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 8"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 9"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Cover 10"></div>
-      </div>
-    </div>
-
   </div>
 
-  <a class="carousel-control-prev" href="#coverCarousel" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#journalCarousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#coverCarousel" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#journalCarousel" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
   </a>
 </div>
+
 
 <hr>
 
