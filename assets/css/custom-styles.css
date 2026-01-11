@@ -28,7 +28,7 @@ a:hover,a:focus{ color: var(--gold); }
 .intro-header .page-heading h1,
 .intro-header .post-heading h1{
   color: var(--ust-blue) !important;
-  font-family: 'Marcellus', serif !important;  /* Font style */
+  font-family: 'Marcellus', serif !important;  /* TITLE FONT */
   font-weight: 600 !important;
   letter-spacing: 3px;
 }
@@ -41,7 +41,7 @@ a:hover,a:focus{ color: var(--gold); }
 /* subtitle */
 .page-subheading{
   color: var(--gold) !important;
-  font-family: 'Cutive Mono', cursive !important;  /* Font style */
+  font-family: 'Cutive Mono', cursive !important;  /* subtitle font */
   font-size: 1rem !important;
   font-weight: 700 !important;
   line-height: 1.25 !important;
@@ -75,10 +75,10 @@ main h3{
 /* group name */
 .navbar .navbar-brand{
   color: #ffffff !important;
-  font-family: 'Arapey', serif !important; /* font */
+  font-family: 'Kaushan Script', cursive !important; /* brand font */
   font-weight: 350;
-  font-size: 1.28rem !important;
-  letter-spacing: 0.2px;
+  font-size: 1.35rem !important;
+  letter-spacing: 0.3px;
   display: inline-flex;
   align-items: center;
   padding-top: 0.3rem;
@@ -100,7 +100,7 @@ main h3{
 
 .navbar .navbar-nav .nav-link{
   color: #ffffff !important;
-  font-family: 'Cinzel', serif !important; /* font */
+  font-family: 'Cinzel', serif !important; /* nav font */
   font-weight: 500;
   font-size: 0.95rem !important;
   letter-spacing: 0.3px;
