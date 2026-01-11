@@ -24,7 +24,7 @@ a{ color: var(--ust-blue); }
 a:hover,a:focus{ color: var(--gold); }
 
 /* ================================
-   Header typography
+   Header typography (TITLE)
    ================================ */
 .intro-header .site-heading h1,
 .intro-header .page-heading h1,
@@ -32,7 +32,7 @@ a:hover,a:focus{ color: var(--gold); }
   color: var(--ust-blue) !important;
   font-family: 'Marcellus', serif !important;  /* Font style */
   font-weight: 600 !important;
-  letter-spacing: 1.5px;
+  letter-spacing: 3px;
 }
 
 .intro-header .page-heading h1{
@@ -40,6 +40,7 @@ a:hover,a:focus{ color: var(--gold); }
   line-height: 1.15 !important;
 }
 
+/* subtitle */
 .page-subheading{
   color: var(--gold) !important;
   font-family: 'Cutive Mono', cursive !important;  /* Font style */
