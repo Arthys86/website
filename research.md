@@ -6,7 +6,7 @@ permalink: /research/
 #full-width: true
 ---
 
-<div id="coverCarousel" class="carousel slide journal-carousel" data-ride="carousel" data-interval="3000">
+<div id="coverCarousel" class="carousel slide journal-carousel" data-ride="carousel" data-interval="6000">
   <div class="carousel-inner">
     
     <div class="carousel-item active">
