@@ -10,26 +10,27 @@ permalink: /research/
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="cards-wrapper">
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="1"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="2"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="3"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="4"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="5"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="6"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="7"></div>
-        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="8"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
+        <div class="cover-wrapper"><img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" class="img-fluid cover-img" alt="Journal Cover"></div>
       </div>
     </div>
   </div>
 
   <a class="carousel-control-prev" href="#journalCarousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#journalCarousel" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
   </a>
 </div>
-
 
 <hr>
 
@@ -62,3 +63,45 @@ permalink: /research/
 ## Projects
 - Project A
 - Project B
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('#journalCarousel');
+  const wrapper = carousel.querySelector('.cards-wrapper');
+  const nextBtn = carousel.querySelector('.carousel-control-next');
+  const prevBtn = carousel.querySelector('.carousel-control-prev');
+  const items = carousel.querySelectorAll('.cover-wrapper');
+  
+  let currentIndex = 0;
+  const itemsVisible = 5; 
+  const maxIndex = items.length - itemsVisible; // For 8 items, maxIndex is 3
+
+  function updateSlide() {
+    // Each item takes 20% of the visible container width
+    const slideAmount = currentIndex * -20; 
+    wrapper.style.transform = `translateX(${slideAmount}%)`;
+  }
+
+  nextBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Stop Bootstrap's default slide behavior
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // Loop back to start
+    }
+    updateSlide();
+  });
+
+  prevBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = maxIndex; // Loop to end
+    }
+    updateSlide();
+  });
+});
+</script>
