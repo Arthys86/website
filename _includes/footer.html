@@ -15,6 +15,17 @@
           </li>
           {% endif %}
 
+          {% if site.social-network-links.google-scholar %}
+          <li class="list-inline-item">
+            <a class="footer-icon-link" href="{{ site.social-network-links.google-scholar }}" target="_blank" aria-label="Google Scholar">
+              <span class="fa-stack" aria-hidden="true">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="ai ai-google-scholar fa-stack-1x fa-inverse" style="font-size: 1.15em;"></i>
+              </span>
+            </a>
+          </li>
+          {% endif %}
+
           {% if site.social-network-links.github %}
           <li class="list-inline-item">
             <a class="footer-icon-link" href="https://github.com/{{ site.social-network-links.github }}" aria-label="GitHub">
