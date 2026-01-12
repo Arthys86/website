@@ -484,7 +484,7 @@ summary:hover .pub-count {
 .journal-carousel .cover-wrapper {
   /* Fixed flex-basis to ensure each item is 1/5 of the visible container (100% / 5 = 20%) */
   flex: 0 0 calc(160% / 8); 
-  padding: 0 4px; /* Narrow gaps as requested */
+  padding: 0 2px; /* Narrow gaps as requested */
   text-align: center;
   display: flex;
   justify-content: center;
@@ -560,7 +560,7 @@ summary:hover .pub-count {
 /* Hover effect for arrows: Scale up and no background shadow */
 .carousel-control-prev:hover .carousel-control-prev-icon,
 .carousel-control-next:hover .carousel-control-next-icon {
-  transform: scale(1.1);
+  transform: scale(1.35);
 }
 
 .carousel-control-prev:hover,
