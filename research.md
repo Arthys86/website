@@ -67,53 +67,71 @@ document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.querySelector('#journalCarousel');
   
   let isTransitioning = false;
-  const itemWidth = 20; // Each item is 20% of the visible container
+  const itemWidth = 20; // Each item takes 20% of the visible area
+  let autoPlayTimer = null; 
 
-  // Function to move to next item
+  // --- Core Movement Logic ---
+
   function showNext() {
     if (isTransitioning) return;
     isTransitioning = true;
-
     wrapper.style.transition = 'transform 0.5s ease-in-out';
     wrapper.style.transform = `translateX(-${itemWidth}%)`;
 
     wrapper.addEventListener('transitionend', function handleEnd() {
       wrapper.style.transition = 'none';
-      wrapper.appendChild(wrapper.firstElementChild); // Move 1st item to the end
+      wrapper.appendChild(wrapper.firstElementChild); // Moves the first item to the end
       wrapper.style.transform = 'translateX(0)';
-      
       setTimeout(() => { isTransitioning = false; }, 50);
       wrapper.removeEventListener('transitionend', handleEnd);
     });
   }
 
-  // Function to move to previous item
   function showPrev() {
     if (isTransitioning) return;
     isTransitioning = true;
-
     wrapper.style.transition = 'none';
-    wrapper.prepend(wrapper.lastElementChild); // Move last item to the front
+    wrapper.prepend(wrapper.lastElementChild); // Moves the last item to the front
     wrapper.style.transform = `translateX(-${itemWidth}%)`;
-
     setTimeout(() => {
       wrapper.style.transition = 'transform 0.5s ease-in-out';
       wrapper.style.transform = 'translateX(0)';
     }, 10);
+    wrapper.addEventListener('transitionend', () => { isTransitioning = false; }, {once: true});
+  }
 
-    wrapper.addEventListener('transitionend', () => {
-      isTransitioning = false;
-    }, {once: true});
+  // --- Standardized Timer Management (The Fix for your issue) ---
+
+  function stopAutoPlay() {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay(); // Kill any existing timer first to prevent stacking
+    autoPlayTimer = setInterval(showNext, 5000); // Set to 5 seconds
   }
 
   // Manual Controls
-  nextBtn.addEventListener('click', (e) => { e.preventDefault(); showNext(); resetAutoPlay(); });
-  prevBtn.addEventListener('click', (e) => { e.preventDefault(); showPrev(); resetAutoPlay(); });
+  nextBtn.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    showNext(); 
+    startAutoPlay(); // Restart the 5s countdown from zero
+  });
 
-  // AutoPlay logic (5 seconds)
-  let autoPlayTimer = setInterval(showNext, 5000);
-  function resetAutoPlay() { clearInterval(autoPlayTimer); autoPlayTimer = setInterval(showNext, 5000); }
-  carousel.addEventListener('mouseenter', () => clearInterval(autoPlayTimer));
-  carousel.addEventListener('mouseleave', () => { autoPlayTimer = setInterval(showNext, 5000); });
+  prevBtn.addEventListener('click', (e) => { 
+    e.preventDefault(); 
+    showPrev(); 
+    startAutoPlay(); // Restart the 5s countdown from zero
+  });
+
+  // Hover Behavior: Pauses on mouse over, resumes on mouse out
+  carousel.addEventListener('mouseenter', stopAutoPlay);
+  carousel.addEventListener('mouseleave', startAutoPlay);
+
+  // Initial Boot
+  startAutoPlay();
 });
 </script>
