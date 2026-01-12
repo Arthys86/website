@@ -102,7 +102,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 1">
     <div class="member-info">
-      <div class="member-name">Aegon Targaryen<</div>
+      <div class="member-name">Aegon Targaryen</div>
       <div class="member-line">MSc Student</div>
     </div>
   </div>
@@ -110,7 +110,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 2">
     <div class="member-info">
-      <div class="member-name">Baela Targaryen<</div>
+      <div class="member-name">Baela Targaryen</div>
       <div class="member-line">UG Student</div>
     </div>
   </div>
