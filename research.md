@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function startAutoPlay() {
     stopAutoPlay(); // Kill any existing timer first to prevent stacking
-    autoPlayTimer = setInterval(showNext, 5000); // Set to 5 seconds
+    autoPlayTimer = setInterval(showNext, 3000); // Set to 5 seconds
   }
 
   // Manual Controls
