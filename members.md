@@ -5,7 +5,7 @@ subtitle: "blood of the dragon"
 permalink: /members/
 ---
 
-## Principal Investigator (PI)
+## Principal Investigator
 
 <div class="pi-center">
   <div class="pi-grid">
@@ -58,7 +58,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Postdoc 1">
     <div class="member-info">
-      <div class="member-name">Name Surname</div>
+      <div class="member-name">Visenya Targaryen</div>
       <div class="member-line">Postdoctoral Fellow</div>
     </div>
   </div>
@@ -66,7 +66,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Postdoc 2">
     <div class="member-info">
-      <div class="member-name">Name Surname</div>
+      <div class="member-name">Rhaenys Targaryen</div>
       <div class="member-line">Postdoctoral Fellow</div>
     </div>
   </div>
@@ -80,7 +80,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PhD 1">
     <div class="member-info">
-      <div class="member-name">Name Surname</div>
+      <div class="member-name">Daemon Targaryen</div>
       <div class="member-line">PhD Student</div>
     </div>
   </div>
@@ -88,7 +88,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PhD 2">
     <div class="member-info">
-      <div class="member-name">Name Surname</div>
+      <div class="member-name">Visrys Targaryen</div>
       <div class="member-line">PhD Student</div>
     </div>
   </div>
@@ -96,13 +96,13 @@ permalink: /members/
 
 ---
 
-## MSc &amp; UG Students
+## Master’s Students &amp; Master’s Students and Undergraduate Students
 
 <div class="member-grid">
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 1">
     <div class="member-info">
-      <div class="member-name">Name Surname</div>
+      <div class="member-name">Aegon Targaryen<</div>
       <div class="member-line">MSc Student</div>
     </div>
   </div>
@@ -110,7 +110,7 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 2">
     <div class="member-info">
-      <div class="member-name">Name Surname</div>
+      <div class="member-name">Baela Targaryen<</div>
       <div class="member-line">UG Student</div>
     </div>
   </div>
@@ -121,6 +121,6 @@ permalink: /members/
 ## Alumni
 
 <ul class="alumni-list">
-  <li>Name Surname — Next position / destination, Year</li>
-  <li>Name Surname — Next position / destination, Year</li>
+  <li>Rhaenyra Targaryen — Dragonstone, 2025</li>
+  <li>Laena Velaryon — Driftmark, 2025</li>
 </ul>
