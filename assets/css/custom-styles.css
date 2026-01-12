@@ -456,7 +456,8 @@ summary:hover .pub-count {
 
 /* Outer container: Adds padding for arrows and bottom margin */
 .journal-carousel {
-  padding: 20px 10px;
+  /* Increased top/bottom padding to 40px to give more breathing room for scaled images */
+  padding: 40px 10px;
   margin-bottom: 2rem;
   position: relative;
 }
@@ -465,38 +466,50 @@ summary:hover .pub-count {
 .journal-carousel .carousel-inner {
   display: flex;
   overflow: hidden; /* Important: Hides images 6, 7, 8 */
+  /* Added vertical padding to prevent images from being clipped when scaled up on hover */
+  padding: 15px 0;
 }
 
 /* The moving track: Holds all images in a row and handles the slide animation */
 .journal-carousel .cards-wrapper {
   display: flex;
-  width: 100%;
+  /* Updated width to 160% to accommodate 8 items (8 * 20% = 160%) */
+  width: 160%;
   transition: transform 0.5s ease-in-out; /* Smooth slide effect */
+  /* Ensure items are vertically centered */
+  align-items: center;
 }
 
 /* Individual image box: Fixed to 20% width to show exactly 5 items */
 .journal-carousel .cover-wrapper {
-  flex: 0 0 20%; /* Each item takes up 1/5 of the container */
+  /* Fixed flex-basis to ensure each item is 1/5 of the visible container (100% / 5 = 20%) */
+  flex: 0 0 calc(160% / 8); 
   padding: 0 4px; /* Narrow gaps as requested */
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* Ensure the wrapper doesn't clip the scaling image */
+  overflow: visible;
 }
 
 /* Cover image: Size control and depth */
 .cover-img {
-  max-height: 200px;
+  /* Reduced max-height slightly to 180px to fit better with the new internal padding */
+  max-height: 180px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
   border-radius: 2px;
+  /* Set transform origin to center to ensure even scaling */
+  transform-origin: center center;
 }
 
 /* Hover effect for covers */
 .cover-img:hover {
+  /* Now the image can scale to 1.08 without being cut off by the overflow:hidden container */
   transform: scale(1.08);
 }
 
@@ -533,12 +546,15 @@ summary:hover .pub-count {
 /* Position arrows slightly outside the carousel */
 .carousel-control-prev {
   left: -15px; /* Adjust this value to move closer or further */
-  width: 40px;
+  width: 50px;
+  /* Ensure arrows stay above the inner padding */
+  z-index: 5;
 }
 
 .carousel-control-next {
   right: -15px;
-  width: 40px;
+  width: 50px;
+  z-index: 5;
 }
 
 /* Hover effect for arrows: Scale up and no background shadow */
