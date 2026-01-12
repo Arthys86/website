@@ -464,6 +464,8 @@ summary:hover .pub-count {
 .journal-carousel .carousel-inner {
   display: flex;
   overflow: hidden; /* Important: Hides images 6, 7, 8 */
+  /* Added vertical padding to prevent images from being clipped when scaled up on hover */
+  padding: 15px 0;
 }
 
 /* The moving track: Holds all images in a row and handles the slide animation */
@@ -471,6 +473,7 @@ summary:hover .pub-count {
   display: flex;
   width: 100%;
   transition: transform 0.5s ease-in-out; /* Smooth slide effect */
+  align-items: center;
 }
 
 /* Individual image box: Fixed to 20% width to show exactly 5 items */
@@ -490,6 +493,7 @@ summary:hover .pub-count {
   max-width: 100%;
   object-fit: contain;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform-origin: center center; /* Center-aligned scaling */
   transition: transform 0.3s ease;
   border-radius: 2px;
 }
