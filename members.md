@@ -96,7 +96,7 @@ permalink: /members/
 
 ---
 
-## Master’s Students &amp; Master’s Students and Undergraduate Students
+## Master’s Students &amp; Undergraduate Students
 
 <div class="member-grid">
   <div class="member-card">
