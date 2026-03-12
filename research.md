@@ -29,7 +29,7 @@ permalink: /research/
 
 <hr>
 
-## The Conquest
+## Wearable haptic interfaces
 
 <div class="two-col">
   <div class="two-col-media">
@@ -37,12 +37,12 @@ permalink: /research/
   </div>
   <div class="two-col-text">
     <p>
-      When Aegon's Conquest of the Seven Kingdoms began, Visenya sailed with her siblings from Dragonstone. While Aegon began construction of the Aegonfort, Visenya subdued House Stokeworth by setting ablaze the roofs of Stokeworth. After the defeat of House Darklyn in Aegon's first test, Visenya claimed the riches of Duskendale, swelling the coffers of House Targaryen. Having conquered a dozen houses and secured the mouth of the Blackwater, Aegon was crowned king at the Aegonfort. Visenya, now queen, placed a Valyrian steel circlet on Aegon's head while their sister Rhaenys hailed him as the new King of All Westeros.
+      We develop haptic interfaces that help VR and AR users to feel the touch in the virtual world. Unlike commercial ones, our devices are no longer heavy or bulky, making users feel loaded or restricted. Instead, they can be made soft, thin, light-weighted, wearable and unobtrusive when using. Using wireless communication techs like Bluetooth Low Energy (BLE), stimulation could be triggered on anywhere of the hand by simply clicking a button on the mobile phone, or just be synchronized with the VR when collisions detected. In the future, we keep trying to make the interface more comfortable by using advanced materials and system integration strategies.
     </p>
   </div>
 </div>
 
-## Dance of the Dragons
+## Implantable bioelectronics
 
 <div class="two-col">
   <div class="two-col-media">
@@ -50,7 +50,7 @@ permalink: /research/
   </div>
   <div class="two-col-text">
     <p>
-      King Viserys I Targaryen had three children by his first queen, Aemma Arryn, but only one, Princess Rhaenyra, survived to adulthood. Lacking a son to succeed him, Viserys began to train Rhaenyra to be his heir. Young Rhaenyra was included in discussions of the affairs of state, and was allowed to participate in meetings of the small council. Many of the nobles took note, and Rhaenyra soon acquired a clique of adherents and supporters. After the passing of Queen Aemma in 105 AC, Viserys named Rhaenyra his heir and hundreds of lords and landed knights paid obeisance to her.
+      We make efforts to develop advanced implantable bioelectronics for multi-purpose biomedical applications, such as electrophysiological signal monitoring (e.g. ECoG, EMG, EKG, etc.), electrostimulation for muscle rehabilitation, drug delivery, and neuromodulations (e.g. optogenetics, deep brain stimulations (DBS), vagus nerve stimulations (VNS), etc.). These implantables should be biocompatible that won't cause damage to the biological tissue, and will either be stable enough for long-term use or be transient that could be degraded by the body once it's not needed anymore, to avoid second-time surgery to take them out.
     </p>
   </div>
 </div>
