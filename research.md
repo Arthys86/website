@@ -37,7 +37,6 @@ permalink: /research/
 
   .research-carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
     will-change: transform;
   }
 
@@ -59,34 +58,36 @@ permalink: /research/
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    width: 2.6rem;
-    height: 2.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.72);
-    border-radius: 50%;
-    transition: background 0.2s ease;
-  }
-
-  .research-carousel-prev:hover,
-  .research-carousel-next:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    width: 2.2rem;
+    height: 2.2rem;
   }
 
   .research-carousel-prev {
-    left: 0.7rem;
+    left: 0.5rem;
   }
 
   .research-carousel-next {
-    right: 0.7rem;
+    right: 0.5rem;
   }
 
   .research-carousel-prev .carousel-control-prev-icon,
   .research-carousel-next .carousel-control-next-icon {
-    filter: invert(25%);
+    filter: invert(20%);
+    opacity: 0.9;
+  }
+
+  .research-carousel-prev:hover .carousel-control-prev-icon,
+  .research-carousel-next:hover .carousel-control-next-icon {
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
@@ -263,27 +264,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelectorAll('.research-carousel').forEach(function(carouselEl) {
     const track = carouselEl.querySelector('.research-carousel-track');
-    const slides = carouselEl.querySelectorAll('.research-carousel-slide');
     const prev = carouselEl.querySelector('.research-carousel-prev');
     const next = carouselEl.querySelector('.research-carousel-next');
 
-    let index = 0;
-    const total = slides.length;
+    const originalSlides = Array.from(track.children);
+    const total = originalSlides.length;
 
-    function updateCarousel() {
+    if (total <= 1) return;
+
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[total - 1].cloneNode(true);
+
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, track.firstChild);
+
+    let index = 1;
+    let locked = false;
+
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    function moveToCurrentIndex(withAnimation = true) {
+      track.style.transition = withAnimation ? 'transform 0.5s ease-in-out' : 'none';
       track.style.transform = `translateX(-${index * 100}%)`;
     }
 
     next.addEventListener('click', function(e) {
       e.preventDefault();
-      index = (index + 1) % total;
-      updateCarousel();
+      if (locked) return;
+      locked = true;
+      index += 1;
+      moveToCurrentIndex(true);
     });
 
     prev.addEventListener('click', function(e) {
       e.preventDefault();
-      index = (index - 1 + total) % total;
-      updateCarousel();
+      if (locked) return;
+      locked = true;
+      index -= 1;
+      moveToCurrentIndex(true);
+    });
+
+    track.addEventListener('transitionend', function() {
+      if (index === total + 1) {
+        index = 1;
+        moveToCurrentIndex(false);
+      } else if (index === 0) {
+        index = total;
+        moveToCurrentIndex(false);
+      }
+
+      setTimeout(() => {
+        locked = false;
+      }, 20);
     });
   });
 });
