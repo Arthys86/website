@@ -6,15 +6,6 @@ permalink: /research/
 ---
 
 <style>
-  /* --------- Section titles --------- */
-  .research-section-title {
-    margin: 2.2rem 0 1.2rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  /* --------- Two-column layout --------- */
   .two-col {
     display: flex;
     gap: 2rem;
@@ -30,10 +21,6 @@ permalink: /research/
     flex: 1 1 auto;
   }
 
-  .two-col-text p {
-    margin-top: 0;
-  }
-
   .two-col-media img {
     width: 100%;
     height: auto;
@@ -41,7 +28,6 @@ permalink: /research/
     border-radius: 8px;
   }
 
-  /* --------- Manual carousel inside two-col --------- */
   .research-carousel {
     position: relative;
     overflow: hidden;
@@ -98,13 +84,11 @@ permalink: /research/
     right: 0.7rem;
   }
 
-  /* Use the same Bootstrap arrow icons style */
   .research-carousel-prev .carousel-control-prev-icon,
   .research-carousel-next .carousel-control-next-icon {
     filter: invert(25%);
   }
 
-  /* --------- Responsive --------- */
   @media (max-width: 768px) {
     .two-col {
       flex-direction: column;
@@ -142,7 +126,7 @@ permalink: /research/
 
 <hr>
 
-<h2 class="research-section-title">Wearable haptic interfaces</h2>
+<h2>Wearable haptic interfaces</h2>
 
 <div class="two-col">
   <div class="two-col-media">
@@ -170,19 +154,12 @@ permalink: /research/
 
   <div class="two-col-text">
     <p>
-      We develop haptic interfaces that help VR and AR users to feel touch in the virtual world.
-      Unlike commercial ones, our devices are no longer heavy or bulky, making users feel loaded
-      or restricted. Instead, they can be soft, thin, lightweight, wearable and unobtrusive.
-      Using wireless communication technologies such as Bluetooth Low Energy (BLE), stimulation
-      can be triggered anywhere on the hand by simply clicking a button on the mobile phone,
-      or synchronized with the VR system when collisions are detected. In the future, we will
-      continue making the interface more comfortable through advanced materials and system
-      integration strategies.
+      We develop haptic interfaces that help VR and AR users to feel the touch in the virtual world. Unlike commercial ones, our devices are no longer heavy or bulky, making users feel loaded or restricted. Instead, they can be made soft, thin, light-weighted, wearable and unobtrusive when using. Using wireless communication techs like Bluetooth Low Energy (BLE), stimulation could be triggered on anywhere of the hand by simply clicking a button on the mobile phone, or just be synchronized with the VR when collisions detected. In the future, we keep trying to make the interface more comfortable by using advanced materials and system integration strategies.
     </p>
   </div>
 </div>
 
-<h2 class="research-section-title">Implantable bioelectronics</h2>
+<h2>Implantable bioelectronics</h2>
 
 <div class="two-col">
   <div class="two-col-media">
@@ -190,18 +167,12 @@ permalink: /research/
   </div>
   <div class="two-col-text">
     <p>
-      We make efforts to develop advanced implantable bioelectronics for multi-purpose biomedical
-      applications, such as electrophysiological signal monitoring (e.g. ECoG, EMG, EKG, etc.),
-      electrostimulation for muscle rehabilitation, drug delivery, and neuromodulation
-      (e.g. optogenetics, deep brain stimulation (DBS), vagus nerve stimulation (VNS), etc.).
-      These implantables should be biocompatible and should not damage biological tissue.
-      They should either be stable enough for long-term use or transient enough to degrade
-      in the body once no longer needed, avoiding secondary removal surgery.
+      We make efforts to develop advanced implantable bioelectronics for multi-purpose biomedical applications, such as electrophysiological signal monitoring (e.g. ECoG, EMG, EKG, etc.), electrostimulation for muscle rehabilitation, drug delivery, and neuromodulations (e.g. optogenetics, deep brain stimulations (DBS), vagus nerve stimulations (VNS), etc.). These implantables should be biocompatible that won't cause damage to the biological tissue, and will either be stable enough for long-term use or be transient that could be degraded by the body once it's not needed anymore, to avoid second-time surgery to take them out.
     </p>
   </div>
 </div>
 
-<h2 class="research-section-title">Advanced manufacturing: soft, permeable 3D electronic system</h2>
+<h2>Advanced manufacturing: soft, permeable 3D electronic system</h2>
 
 <div class="two-col">
   <div class="two-col-media">
@@ -209,19 +180,12 @@ permalink: /research/
   </div>
   <div class="two-col-text">
     <p>
-      Most stretchable electronic systems have low-density integration and are wired with external
-      printed circuit boards, which limits functionality, deteriorates user experience and impedes
-      long-term usability. Here we report an intrinsically permeable, three-dimensional integrated
-      electronic skin. The system combines high-density inorganic electronic components with organic
-      stretchable fibrous substrates using three-dimensional patterned, multilayered liquid metal
-      circuits and stretchable hybrid liquid metal solder. The electronic skin exhibits high softness,
-      durability, fabric-like permeability to air and moisture, and sufficient biocompatibility for
-      on-skin attachment for a week.
+      Most stretchable electronic systems have low-density integration and are wired with external printed circuit boards, which limits functionality, deteriorates user experience and impedes long-term usability. Here we report an intrinsically permeable, three-dimensional integrated electronic skin. The system combines high-density inorganic electronic components with organic stretchable fibrous substrates using three-dimensional patterned, multilayered liquid metal circuits and stretchable hybrid liquid metal solder. The electronic skin exhibits high softness, durability, fabric-like permeability to air and moisture and sufficient biocompatibility for on-skin attachment for a week.
     </p>
   </div>
 </div>
 
-<h2 class="research-section-title">Projects</h2>
+<h2>Projects</h2>
 <ul>
   <li>Project A</li>
   <li>Project B</li>
@@ -229,7 +193,6 @@ permalink: /research/
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  /* ---------- Top journal carousel: keep autoplay ---------- */
   const wrapper = document.querySelector('.cards-wrapper');
   const nextBtn = document.querySelector('#journalCarousel .carousel-control-next');
   const prevBtn = document.querySelector('#journalCarousel .carousel-control-prev');
@@ -298,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   startAutoPlay();
 
-  /* ---------- Manual research image carousel: no autoplay ---------- */
   document.querySelectorAll('.research-carousel').forEach(function(carouselEl) {
     const track = carouselEl.querySelector('.research-carousel-track');
     const slides = carouselEl.querySelectorAll('.research-carousel-slide');
