@@ -33,7 +33,7 @@ permalink: /research/
 
 <div class="two-col">
   <div class="two-col-media">
-    <img src="{{ '/assets/img/the-conquest.jpg' | relative_url }}" alt="The Conquest">
+    <img src="{{ '/assets/img/the-conquest.jpg' | relative_url }}" alt="Wearable haptic interfaces">
   </div>
   <div class="two-col-text">
     <p>
@@ -46,11 +46,24 @@ permalink: /research/
 
 <div class="two-col">
   <div class="two-col-media">
-    <img src="{{ '/assets/img/dotd.png' | relative_url }}" alt="Dance of the Dragons">
+    <img src="{{ '/assets/img/dotd.png' | relative_url }}" alt="Implantable bioelectronics">
   </div>
   <div class="two-col-text">
     <p>
       We make efforts to develop advanced implantable bioelectronics for multi-purpose biomedical applications, such as electrophysiological signal monitoring (e.g. ECoG, EMG, EKG, etc.), electrostimulation for muscle rehabilitation, drug delivery, and neuromodulations (e.g. optogenetics, deep brain stimulations (DBS), vagus nerve stimulations (VNS), etc.). These implantables should be biocompatible that won't cause damage to the biological tissue, and will either be stable enough for long-term use or be transient that could be degraded by the body once it's not needed anymore, to avoid second-time surgery to take them out.
+    </p>
+  </div>
+</div>
+
+## Advanced manufacturing: soft, permeable 3D electronic system
+
+<div class="two-col">
+  <div class="two-col-media">
+    <img src="{{ '/assets/img/the-conquest.jpg' | relative_url }}" alt="Advanced manufacturing: soft, permeable 3D electronic system">
+  </div>
+  <div class="two-col-text">
+    <p>
+      WMost stretchable electronic systems have low-density integration and are wired with external printed circuit boards, which limits functionality, deteriorates user experience and impedes long-term usability. Here we report an intrinsically permeable, three-dimensional integrated electronic skin. The system combines high-density inorganic electronic components with organic stretchable fibrous substrates using three-dimensional patterned, multilayered liquid metal circuits and stretchable hybrid liquid metal solder. The electronic skin exhibits high softness, durability, fabric-like permeability to air and moisture and sufficient biocompatibility for on-skin attachment for a week. 
     </p>
   </div>
 </div>
