@@ -9,7 +9,7 @@ permalink: /publications/
   <summary>2026 <span class="pub-count">1</span></summary>
   <div class="pub-list">
     <ul>
-      <li>Maester Yandel, <span class="pub-title">The World of Ice and Fire</span>, <em>Westeros</em>, 2026. <a href="https://awoiaf.westeros.org/index.php/The_World_of_Ice_%26_Fire" target="_blank">DOI</a></li>
+      <li>Y. Wang, L. Du, H. Wu, H. Li, J. Liu, Y. Hu, X. Jiang, D. Yin, Y. Hao, A. Xiao, Y. Yang, J. Zhou, L. Lin, F. Chen, D. Ye, Y. He, Z. Zhao, B. Liu, <strong>K. Yao</strong>, X. Wang, X. Chen, Y. Tong, F. Yao, K. Yang, H. Sun, Y. Fu, S. Wang, Z. Huang, X. Chen, H. Guo, S. Kong, S. Yang, W. Song, F. Ershad, Y. Wang, L. Zhang, Q. Zhang, H. Wu, N. Li, W. Rao, J. Li, L. Yang, X. Chen, W. Mu, X. Yu, Y. Fan, C. Yu, Y. Xu, L. Chang, <span class="pub-title">An organ-conformal, kirigami-structured bioelectronic patch for precise intracellular delivery</span>. <em>Cell</em>, 2026. <a href="https://www.cell.com/cell/abstract/S0092-8674(25)01434-5:" target="_blank">DOI</a></li>
     </ul>
   </div>
 </details>
