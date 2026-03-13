@@ -146,7 +146,7 @@ permalink: /research/
           <img src="{{ '/assets/img/the-conquest.jpg' | relative_url }}" alt="Wearable haptic interfaces 1">
         </div>
         <div class="research-carousel-slide">
-          <img src="{{ '/assets/img/darksister.jpeg' | relative_url }}" alt="Wearable haptic interfaces 2">
+          <img src="{{ '/assets/img/the-conquest.jpg' | relative_url }}" alt="Wearable haptic interfaces 2">
         </div>
         <div class="research-carousel-slide">
           <img src="{{ '/assets/img/dotd.png' | relative_url }}" alt="Wearable haptic interfaces 3">
