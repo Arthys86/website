@@ -55,42 +55,48 @@ permalink: /research/
   border-radius: 8px;
 }
 
-  .research-carousel-prev,
-  .research-carousel-next {
+  .research-carousel .research-carousel-prev,
+  .research-carousel .research-carousel-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
+    width: 15%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    cursor: pointer;
     background: none;
     border: none;
     box-shadow: none;
-    padding: 0;
-    width: 2.2rem;
-    height: 2.2rem;
-  }
-
-  .research-carousel-prev {
-    left: 0.5rem;
-  }
-
-  .research-carousel-next {
-    right: 0.5rem;
-  }
-
-  .research-carousel-prev .carousel-control-prev-icon,
-  .research-carousel-next .carousel-control-next-icon {
-    filter: invert(20%);
-    opacity: 0.9;
-  }
-
-  .research-carousel-prev:hover .carousel-control-prev-icon,
-  .research-carousel-next:hover .carousel-control-next-icon {
     opacity: 1;
+    transition: transform 0.2s ease;
+  }
+  
+  .research-carousel .research-carousel-prev {
+    left: 0;
+  }
+  
+  .research-carousel .research-carousel-next {
+    right: 0;
+  }
+  
+  .research-carousel .carousel-control-prev-icon,
+  .research-carousel .carousel-control-next-icon {
+    filter: none;
+    opacity: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .research-carousel .research-carousel-prev:hover,
+  .research-carousel .research-carousel-next:hover {
+    transform: translateY(-50%) scale(1.08);
+  }
+  
+  .research-carousel .research-carousel-prev:hover .carousel-control-prev-icon,
+  .research-carousel .research-carousel-next:hover .carousel-control-next-icon {
+    opacity: 0.85;
   }
 
   @media (max-width: 768px) {
@@ -147,10 +153,10 @@ permalink: /research/
         </div>
       </div>
 
-      <a class="research-carousel-prev" href="javascript:void(0)" aria-label="Previous image">
+      <a class="carousel-control-prev research-carousel-prev" href="javascript:void(0)" aria-label="Previous image">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </a>
-      <a class="research-carousel-next" href="javascript:void(0)" aria-label="Next image">
+      <a class="carousel-control-next research-carousel-next" href="javascript:void(0)" aria-label="Next image">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </a>
     </div>
