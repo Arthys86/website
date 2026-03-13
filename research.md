@@ -28,29 +28,32 @@ permalink: /research/
     border-radius: 8px;
   }
 
-  .research-carousel {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    border-radius: 8px;
-  }
+.research-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+}
 
-  .research-carousel-track {
-    display: flex;
-    will-change: transform;
-  }
+.research-carousel-track {
+  display: flex;
+  will-change: transform;
+}
 
-  .research-carousel-slide {
-    min-width: 100%;
-    flex: 0 0 100%;
-  }
+.research-carousel-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .research-carousel-slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 8px;
-  }
+.research-carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
 
   .research-carousel-prev,
   .research-carousel-next {
@@ -263,61 +266,104 @@ document.addEventListener('DOMContentLoaded', function() {
   startAutoPlay();
 
   document.querySelectorAll('.research-carousel').forEach(function(carouselEl) {
-    const track = carouselEl.querySelector('.research-carousel-track');
-    const prev = carouselEl.querySelector('.research-carousel-prev');
-    const next = carouselEl.querySelector('.research-carousel-next');
+  const track = carouselEl.querySelector('.research-carousel-track');
+  const prev = carouselEl.querySelector('.research-carousel-prev');
+  const next = carouselEl.querySelector('.research-carousel-next');
 
-    const originalSlides = Array.from(track.children);
-    const total = originalSlides.length;
+  const originalSlides = Array.from(track.children);
+  const total = originalSlides.length;
 
-    if (total <= 1) return;
+  if (total <= 1) return;
 
-    const firstClone = originalSlides[0].cloneNode(true);
-    const lastClone = originalSlides[total - 1].cloneNode(true);
+  const firstClone = originalSlides[0].cloneNode(true);
+  const lastClone = originalSlides[total - 1].cloneNode(true);
 
-    track.appendChild(firstClone);
-    track.insertBefore(lastClone, track.firstChild);
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, track.firstChild);
 
-    let index = 1;
-    let locked = false;
+  let index = 1;
+  let locked = false;
 
-    track.style.transition = 'none';
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${index * 100}%)`;
+
+  function moveToCurrentIndex(withAnimation = true) {
+    track.style.transition = withAnimation ? 'transform 0.5s ease-in-out' : 'none';
     track.style.transform = `translateX(-${index * 100}%)`;
+  }
 
-    function moveToCurrentIndex(withAnimation = true) {
-      track.style.transition = withAnimation ? 'transform 0.5s ease-in-out' : 'none';
-      track.style.transform = `translateX(-${index * 100}%)`;
+  function setCarouselHeight() {
+    const images = carouselEl.querySelectorAll('.research-carousel-slide img');
+    let maxHeight = 0;
+
+    images.forEach(function(img) {
+      if (img.offsetHeight > maxHeight) {
+        maxHeight = img.offsetHeight;
+      }
+    });
+
+    if (maxHeight > 0) {
+      carouselEl.style.height = maxHeight + 'px';
+
+      carouselEl.querySelectorAll('.research-carousel-slide').forEach(function(slide) {
+        slide.style.height = maxHeight + 'px';
+      });
+    }
+  }
+
+  function waitForImagesAndSetHeight() {
+    const images = carouselEl.querySelectorAll('.research-carousel-slide img');
+    let loadedCount = 0;
+
+    function done() {
+      loadedCount += 1;
+      if (loadedCount === images.length) {
+        setCarouselHeight();
+      }
     }
 
-    next.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (locked) return;
-      locked = true;
-      index += 1;
-      moveToCurrentIndex(true);
-    });
-
-    prev.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (locked) return;
-      locked = true;
-      index -= 1;
-      moveToCurrentIndex(true);
-    });
-
-    track.addEventListener('transitionend', function() {
-      if (index === total + 1) {
-        index = 1;
-        moveToCurrentIndex(false);
-      } else if (index === 0) {
-        index = total;
-        moveToCurrentIndex(false);
+    images.forEach(function(img) {
+      if (img.complete) {
+        done();
+      } else {
+        img.addEventListener('load', done, { once: true });
+        img.addEventListener('error', done, { once: true });
       }
-
-      setTimeout(() => {
-        locked = false;
-      }, 20);
     });
+  }
+
+  next.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (locked) return;
+    locked = true;
+    index += 1;
+    moveToCurrentIndex(true);
+  });
+
+  prev.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (locked) return;
+    locked = true;
+    index -= 1;
+    moveToCurrentIndex(true);
+  });
+
+  track.addEventListener('transitionend', function() {
+    if (index === total + 1) {
+      index = 1;
+      moveToCurrentIndex(false);
+    } else if (index === 0) {
+      index = total;
+      moveToCurrentIndex(false);
+    }
+
+    setTimeout(() => {
+      locked = false;
+    }, 20);
+  });
+
+  waitForImagesAndSetHeight();
+  window.addEventListener('resize', setCarouselHeight);
   });
 });
 </script>
