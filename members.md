@@ -70,6 +70,14 @@ permalink: /members/
       <div class="member-line">Postdoctoral Fellow</div>
     </div>
   </div>
+
+  <div class="member-card">
+    <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Postdoc 3">
+    <div class="member-info">
+      <div class="member-name">Aegon I Targaryen</div>
+      <div class="member-line">Postdoctoral Fellow</div>
+    </div>
+  </div>
 </div>
 
 ---
