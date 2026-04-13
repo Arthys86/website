@@ -59,7 +59,7 @@ permalink: /members/
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Postdoc 1">
     <div class="member-info">
       <div class="member-name">Visenya Targaryen</div>
-      <div class="member-line">Postdoctoral Fellow</div>
+      <div class="member-line">29BC - 44AC</div>
     </div>
   </div>
 
@@ -67,7 +67,7 @@ permalink: /members/
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Postdoc 2">
     <div class="member-info">
       <div class="member-name">Rhaenys Targaryen</div>
-      <div class="member-line">Postdoctoral Fellow</div>
+      <div class="member-line">26BC - 10AC</div>
     </div>
   </div>
 
@@ -75,7 +75,7 @@ permalink: /members/
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Postdoc 3">
     <div class="member-info">
       <div class="member-name">Aegon I Targaryen</div>
-      <div class="member-line">Postdoctoral Fellow</div>
+      <div class="member-line">27BC - 37AC</div>
     </div>
   </div>
 </div>
@@ -89,7 +89,7 @@ permalink: /members/
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PhD 1">
     <div class="member-info">
       <div class="member-name">Daemon Targaryen</div>
-      <div class="member-line">PhD Student</div>
+      <div class="member-line">81AC - 130AC</div>
     </div>
   </div>
 
@@ -97,7 +97,7 @@ permalink: /members/
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PhD 2">
     <div class="member-info">
       <div class="member-name">Visrys Targaryen</div>
-      <div class="member-line">PhD Student</div>
+      <div class="member-line">77AC - 129AC</div>
     </div>
   </div>
 </div>
@@ -110,16 +110,32 @@ permalink: /members/
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 1">
     <div class="member-info">
-      <div class="member-name">Aegon Targaryen</div>
-      <div class="member-line">MSc Student</div>
+      <div class="member-name">Baela Targaryen</div>
+      <div class="member-line">116AC - </div>
     </div>
   </div>
 
   <div class="member-card">
     <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 2">
     <div class="member-info">
-      <div class="member-name">Baela Targaryen</div>
-      <div class="member-line">UG Student</div>
+      <div class="member-name">Rhaena Targaryen</div>
+      <div class="member-line">116AC - </div>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 3">
+    <div class="member-info">
+      <div class="member-name">Jacaerys Velaryon</div>
+      <div class="member-line">114AC - 130AC</div>
+    </div>
+  </div>
+
+  <div class="member-card">
+    <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="Student 4">
+    <div class="member-info">
+      <div class="member-name">Lucerys Velaryon</div>
+      <div class="member-line">115AC - 129AC</div>
     </div>
   </div>
 </div>
