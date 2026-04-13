@@ -93,13 +93,6 @@ permalink: /members/
     </div>
   </div>
 
-  <div class="member-card">
-    <img class="member-photo" src="{{ '/assets/img/placeholder-member.jpg' | relative_url }}" alt="PhD 2">
-    <div class="member-info">
-      <div class="member-name">Visrys Targaryen</div>
-      <div class="member-line">77AC - 129AC</div>
-    </div>
-  </div>
 </div>
 
 ---
