@@ -6,7 +6,7 @@ permalink: /publications/
 ---
 
 <details class="pub-year" open>
-  <summary>2026 <span class="pub-count">1</span></summary>
+  <summary>2026 <span class="pub-count">2</span></summary>
   <div class="pub-list">
     <ul>
       <li>J. Zhu, X. Cheng, M. Bahramian, <strong>K. Yao</strong>, Z. Li, B. Hu, T.-Y. Wu, K. A. Sabet, J. Cui, J. Tan, J. Fang, Y. Li, C. Ho, J. Ng, A. Sung, I. Romero, S. Lin, Y. Zhao, K. Zhang, R. Chaiyakul, H. Yousefi, C. D. Flynn, J. Das, D. Jelinek, L. Voisin, A. Ambrus, A. Zhang, Y. Chi, Y. Chen, C. Liu, H. A. Coller, B. M. Wu, N. Suthana, S. O. Kelley, C. Milla, I. Kurtz, S. Emaminejad, <span class="pub-title">Resilient nanostructured bioanalytic microneedle longitudinally monitors preclinical renal and hepatic drug clearance and dysfunction</span>. <em>Science Translational Medicine</em>, 18, eadr5493 (2026). <a href="https://doi.org/10.1126/scitranslmed.adr5493" target="_blank">DOI</a></li>
