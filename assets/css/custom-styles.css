@@ -10,20 +10,20 @@
 }
 
 /* Base typography */
-/*
 body{
   font-family: "Source Serif 4", Georgia, "Times New Roman", Times, serif;
   font-weight: 400;
   color: var(--text-main);
-}*/
+}
 
   /* sans-serif */
+/*
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: var(--text-main);
   line-height: 1.6;
-}
+}*/
 
 /* Links */
 a{ color: var(--ust-blue); }
@@ -83,8 +83,7 @@ main h3{
 /* group name */
 .navbar .navbar-brand{
   color: #ffffff !important;
-  /*font-family: 'Kaushan Script', cursive !important;*/ /* group name font */
-  font-family: 'Marcellus', cursive !important;
+  font-family: 'Kaushan Script', cursive !important; /* group name font */
   font-weight: 350;
   font-size: 1.5rem !important;
   letter-spacing: 1px;
