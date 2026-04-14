@@ -63,9 +63,12 @@
           {% if site.social-network-links.orcid %}
           <li class="list-inline-item">
             <a class="footer-icon-link" href="{{ site.social-network-links.orcid }}" target="_blank" aria-label="ORCID">
-              <span class="fa-stack" aria-hidden="true">
+              <span class="fa-stack" aria-hidden="true" style="vertical-align: middle;">
                 <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-orcid fa-stack-1x fa-inverse" style="font-size: 2em;"></i>
+                
+                <svg viewBox="0 0 256 256" style="fill: white; width: 1.35em; height: 1.35em; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);" fill-rule="evenodd">
+                  <path d="M86.3,186.2H70.9V79.1h15.4V186.2z M108.9,79.1h41.6c39.6,0,57,28.3,57,53.6c0,27.5-21.5,53.6-56.8,53.6h-41.8V79.1z M124.3,101.2v63.9h14c24.5,0,41.3-17.5,41.3-32c0-15.2-14.6-32-41.3-32H124.3z M88.7,56.7c0,6.1-4.9,11.1-11.1,11.1c-6.1,0-11.1-4.9-11.1-11.1c0-6.1,4.9-11.1,11.1-11.1C83.8,45.6,88.7,50.6,88.7,56.7z"/>
+                </svg>
               </span>
             </a>
           </li>
