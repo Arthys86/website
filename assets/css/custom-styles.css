@@ -83,7 +83,8 @@ main h3{
 /* group name */
 .navbar .navbar-brand{
   color: #ffffff !important;
-  font-family: 'Kaushan Script', cursive !important; /* group name font */
+  /*font-family: 'Kaushan Script', cursive !important;*/ /* group name font */
+  font-family: 'Marcellus', cursive !important;
   font-weight: 350;
   font-size: 1.5rem !important;
   letter-spacing: 1px;
