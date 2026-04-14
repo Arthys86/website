@@ -9,7 +9,7 @@ permalink: /contact/
 
   <div style="flex: 2; min-width: 300px;">
     <div style="margin-bottom: 20px;">
-      <div style="margin-bottom: 5px; font-size: 1.5em; font-weight: bold; color: #2F6FA8;">Prof. YAO Kuanming</div>
+      <div style="margin-bottom: 5px; font-size: 1.5em; color: #2F6FA8;">Prof. Kuanming Yao</div>
       <p style="margin-top: 0; color: #2F6FA8; line-height: 1.6; font-style: normal;">
         Division of Integrative Systems and Design<br>
         The Hong Kong University of Science and Technology,<br>Hong Kong
